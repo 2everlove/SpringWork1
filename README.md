@@ -1,6 +1,6 @@
 # SpringWorks
 <h1>ex00</h1>
-<p><a href="https://github.com/2everlove/SpringWork1/blob/main/ex00/pom.xml">pom.xml</a> setting, <a href="https://github.com/2everlove/SpringWork1/blob/main/ex00/src/main/webapp/WEB-INF/spring/root-context.xml">root-context.xml(Connection Pool, My Batis)</a>, <a href="https://github.com/2everlove/SpringWork1/blob/main/ex00/src/test/java/org/zerock/persistence/DataSourceTests.java">persistence test</a></p>
+<p><a href="https://github.com/2everlove/SpringWork1/blob/main/ex00/pom.xml" target="_blank">pom.xml</a> setting, <a href="https://github.com/2everlove/SpringWork1/blob/main/ex00/src/main/webapp/WEB-INF/spring/root-context.xml" target="_blank">root-context.xml(Connection Pool, My Batis)</a>, <a href="https://github.com/2everlove/SpringWork1/blob/main/ex00/src/test/java/org/zerock/persistence/DataSourceTests.java" target="_blank">persistence test</a></p>
 
 <p>Configuration
  <ul>
