@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<!-- DiTest4에서 사용 (bean방식) -->
+	<bean id="chef4" class="spr.spr.Chef4">
+		<constructor-arg value="Di_4"></constructor-arg>
+	</bean>
+	<bean id="rest4" class="spr.spr.Rest4">
+		<property name="chef" ref="chef4"></property>
+		<!-- chef는 객체이므로 객체값 참조를 위해 ref씀-->
+	</bean>
+
+	<!-- DiTest5에서 사용 (@방식) 하단에 context->파일 하단의 Namespaces에서 context(@을 사용하기 위한 context:component를 사용하기 위해서)를 추가하고 sources탭으로 다시 이동 -->
+	<context:component-scan base-package="spr.spr"></context:component-scan>
+
+</beans>

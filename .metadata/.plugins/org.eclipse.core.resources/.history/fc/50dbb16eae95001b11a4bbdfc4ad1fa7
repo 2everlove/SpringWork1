@@ -1,0 +1,20 @@
+package jmp.spring.ex01;
+
+class Calculator {
+	int result;
+	
+	public int calculator(String val1, String val2, String ope){
+		result=0;
+		if(ope.equals("+")) {
+			
+		} else if(ope.equals("+")) {
+			
+		} else if(ope.equals("+")) {
+			
+		} else if(ope.equals("+")) {
+			
+		}
+		return result;
+	}
+	
+}

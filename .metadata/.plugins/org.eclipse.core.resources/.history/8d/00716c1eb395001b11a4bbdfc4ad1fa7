@@ -1,0 +1,21 @@
+package jmp.spring.ex01;
+
+class Calculator {
+	
+	public int calculator(String val1, String val2, String operator){
+		int result=0;
+		
+		if("0".equals(val1) || "0".equals(val2)) {
+			result = 0;
+		} else if("+".equals(operator)) {
+			result = (Integer.parseInt(val1)+Integer.parseInt(val2));
+		} else if("-".equals(operator)) {
+			result = (Integer.parseInt(val1)-Integer.parseInt(val2));
+		} else if("*".equals(operator)) {
+			result = (Integer.parseInt(val1)*Integer.parseInt(val2));
+		} else if("/".equals(operator)) {
+			result = (Integer.parseInt(val1)/Integer.parseInt(val2));
+		}
+		return result;
+	}
+}

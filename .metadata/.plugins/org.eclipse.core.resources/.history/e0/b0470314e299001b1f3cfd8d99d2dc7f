@@ -1,0 +1,8 @@
+package org.zerock.sample;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Chef {
+	//interface를 쓰는게 좋음 -> 객체를 몰라도 됨, 타입에 의존하므로
+}

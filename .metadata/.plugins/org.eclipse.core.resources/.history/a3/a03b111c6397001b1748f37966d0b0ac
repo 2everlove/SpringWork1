@@ -1,0 +1,66 @@
+package jmp.spring.contol;
+
+import java.util.Date;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import jmp.spring.VO.SampleVo;
+import jmp.spring.VO.SampleVOList;
+import lombok.extern.log4j.Log4j;
+
+@Controller
+/* @RequestMapping("/sample/*") */
+@Log4j
+public class MainController {
+	@GetMapping("/main")
+	public String mainController(SampleVOList vo) {
+		log.info("=== get mapping");
+		System.out.println(vo.getList());
+		return "main";
+	}
+	
+	@GetMapping("/login")
+	public String login(@RequestParam("id") String id) { 
+		String page = "";
+		if("jmp".equals(id.trim())) {
+			System.out.println(id);
+			page = "login/login";
+		} else {
+			System.out.println(id);
+			page = "login/loginFail"; 
+		}
+		return page;
+	}
+	
+	@GetMapping("/forward")
+	public String forward(Model model) {
+		Date serverTime = new Date();
+		model.addAttribute("ServerTime", serverTime);
+		System.out.println("forward");
+		return "forward:/res";
+	}
+	
+	@GetMapping("/res")
+	public String res() {
+		System.out.println("res");
+		return "res";
+	}
+	
+	@GetMapping("/redirect")
+	public String redirect(Model model) {
+		Date serverTime = new Date();
+		model.addAttribute("ServerTime", serverTime);
+		System.out.println("redirect");
+		return "redirect:/res";
+	}
+	@GetMapping("/dto")
+	public @ResponseBody SampleVo dto() {
+		SampleVo vo = new SampleVo();
+		vo.setAge(400);
+		vo.setName("임꺽정");
+	}
+}

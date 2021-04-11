@@ -1,0 +1,49 @@
+package jmp.spring.ex01;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+public class JunitTest {
+	int count;
+	int[] result = new int[3];
+	int[] ex = {10,0,10};
+	@Test
+	public void testA() {
+		Calculator cal = new Calculator();
+		int res = cal.calculator("5","5","+");
+		result[count++] = res;
+		assertEquals(10, res);
+	}
+	@Test
+	public void testB() {
+		Calculator cal = new Calculator();
+		int res = cal.calculator("5","5","-");
+		result[count++] = res;
+		assertEquals(0, res);
+	}
+	@Test
+	public void testC() {
+		Calculator cal = new Calculator();
+
+		int res = cal.calculator("5","5","+");
+		result[count++] = res;
+		
+		for(int i = 0; i<count; i++) {
+			assertEquals(ex[count], result[count]);
+		}
+	}
+	
+	@Test
+	public void testD() {
+		Calculator cal = new Calculator();
+		
+		int res = cal.calculator("5","5","+");
+		result[count++] = res;
+		
+		for(int i = 0; i<count; i++) {
+			assertEquals(ex[count], result[count]);
+		}
+	}
+	
+	
+}

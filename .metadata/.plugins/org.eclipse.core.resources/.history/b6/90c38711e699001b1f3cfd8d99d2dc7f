@@ -1,0 +1,18 @@
+package org.zerock.sample;
+
+import org.springframework.stereotype.Component;
+
+//field / setter / constructor
+
+@Component
+@To
+public class SampleHotel {
+	
+	
+	private Chef chef;
+
+	public SampleHotel(Chef chef) {
+		this.chef = chef;
+	}
+
+}

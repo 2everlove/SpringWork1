@@ -1,0 +1,15 @@
+package org.zerock.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.zerock.mapper.BoardMapper;
+
+import lombok.extern.log4j.Log4j;
+
+@Service
+@Log4j
+public class BoardServiceImpl implements BoardService {
+	
+	@Autowired
+	private final BoardMapper mapper;
+}

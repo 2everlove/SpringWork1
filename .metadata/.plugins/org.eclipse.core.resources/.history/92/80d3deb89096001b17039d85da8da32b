@@ -1,0 +1,9 @@
+package jmp.spring.ojdbc;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class MybatisConfig {
+	
+}

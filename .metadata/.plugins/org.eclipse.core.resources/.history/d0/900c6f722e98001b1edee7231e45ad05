@@ -1,0 +1,17 @@
+package jmp.spring.exception;
+
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+
+import lombok.extern.log4j.Log4j;
+
+@ControllerAdvice
+@Log4j
+public class CommonExceptionAdvice {
+	
+	public String except(Exception e, Model model) {
+		log.error(e.getMessage());
+		model.addAttribute("exception", e);
+		return "error_page";
+	}
+}

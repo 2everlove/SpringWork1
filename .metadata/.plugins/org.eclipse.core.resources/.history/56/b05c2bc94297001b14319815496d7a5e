@@ -1,0 +1,8 @@
+package jmp.spring.spring;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+
+public class SampleController {
+
+}

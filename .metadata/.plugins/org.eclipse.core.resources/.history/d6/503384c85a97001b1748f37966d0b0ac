@@ -1,0 +1,16 @@
+package jmp.spring.VO;
+
+import java.util.ArrayList;
+
+import lombok.Data;
+
+@Data
+public class SampleVoList {
+	private ArrayList<SampleVo> list;
+
+	public SampleVoList() {
+		list=new ArrayList<SampleVo>();
+	}
+	
+	
+}

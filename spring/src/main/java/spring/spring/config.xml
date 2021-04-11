@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+<!-- <bean id="chef" class="spring.spring.Chef">
+	<constructor-arg value="한식"></constructor-arg>Chef 생성자
+</bean>
+<bean id="rest" class="spring.spring.Rest">
+	<property name="chef" ref="chef"></property>bean에 있는 chef를 참조, setChef()
+</bean> -->
+
+	<context:component-scan base-package="spring.spring"></context:component-scan>
+
+
+</beans>

@@ -1,0 +1,18 @@
+package org.zerock.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.zerock.mapper.BoardMapper;
+
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
+import lombok.extern.log4j.Log4j;
+
+@Service
+@Log4j
+@RequiredArgsConstructor //이것을 쓸 경우 final을 써서 고정시킨 뒤 final이 붙은 객체를 따옴
+@ToString
+public class BoardServiceImpl implements BoardService {
+	
+	private final BoardMapper mapper;
+}

@@ -1,0 +1,15 @@
+package org.zerock.persistence;
+
+import org.junit.Test;
+
+import lombok.extern.log4j.Log4j;
+
+@Log4j
+public class JDBCTests {
+	
+	@Test
+	public void testConnection() throws Exception {
+		Class clz = Class.forName("oracle.jdbc.driver.OracleDriver"); //해당 클래스를 메모리상에 로딩하기 위해 forName을 씀(import느낌)
+		log.info(clz);
+	}
+}

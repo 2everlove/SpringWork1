@@ -1,0 +1,26 @@
+package jmp.spring.board;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import lombok.extern.log4j.Log4j;
+
+@Log4j
+public class Test {
+	
+	@Autowired
+	SqlSessionFactory factory;
+	
+	@Test
+	public void Test1() {
+		SqlSession sqlSession = factory.openSession();
+		System.out.println("==sqlSession : "+sqlSession.getConnection());
+	}
+	
+	@org.junit.Test
+	public void connDB() {
+		SqlSession sqlSession = factory.openSession();
+		log.info(sqlSession.getConnection());
+	}
+}

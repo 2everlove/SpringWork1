@@ -1,0 +1,19 @@
+package jmp.spring.ex01;
+
+class Calculator {
+	
+	public int calculator(String val1, String val2, String ope){
+		int result=0;
+		if(ope.equals("+")) {
+			result = (Integer.parseInt(val1)+Integer.parseInt(val2));
+		} else if(ope.equals("-")) {
+			result = (Integer.parseInt(val1)-Integer.parseInt(val2));
+		} else if(ope.equals("*")) {
+			result = (Integer.parseInt(val1)*Integer.parseInt(val2));
+		} else if(ope.equals("/")) {
+			result = (Integer.parseInt(val1)/Integer.parseInt(val2));
+		}
+		return result;
+	}
+	
+}

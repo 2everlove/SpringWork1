@@ -1,0 +1,5 @@
+package jmp.spring.exception;
+
+public class CommonExceptionAdvice {
+
+}
