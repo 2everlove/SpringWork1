@@ -1,6 +1,0 @@
-package jmp.spring.ex01;
-
-@Runwith
-public class HikariCPTest {
-
-}

@@ -28,4 +28,10 @@ public class BoardMapperTests {
 		
 		boardMapper.insert(board);
 	}
+	
+	@org.junit.Test
+	public void deleteTest() {
+		int count = boardMapper.delete(3L); //제거완료 ? 1..* :0
+		log.info(count);
+	}
 }

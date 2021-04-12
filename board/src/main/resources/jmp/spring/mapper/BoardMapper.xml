@@ -6,4 +6,8 @@
 		insert into tbl_board(bno, title, content, writer) 
 			values (seq_tbl_board.NEXTVAL, #{title}, #{content}, #{writer})
 	</insert><!-- #{vo.변수명} -> '값', ${vo.변수명} -> 값 // 형태로 들어감 -->
+	
+	<delete id="delete">
+		delete from tbl_board where bno = #{bno}
+	</delete>
 </mapper>
