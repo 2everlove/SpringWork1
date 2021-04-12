@@ -10,7 +10,7 @@
   <ul><li><a href="https://github.com/2everlove/SpringWork/blob/main/controller/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml">file-upload를 위한 servlet-context.xml setting</a></li><li><a href="https://github.com/2everlove/SpringWork/blob/main/controller/src/main/java/jmp/spring/contol/MainController.java">file-upload를 위한 method작성</a>@Get방식으로 들어오는지 @Post방식으로 들어오는지에 따라서 작동하는 method가 다름</li><li><a href="https://github.com/2everlove/SpringWork/blob/main/controller/src/main/webapp/WEB-INF/views/fileUpload.jsp">file-upload를 수행할 jsp파일 작성</a></li>
  </ul></li>
  <li>exception
-    <ul><li><a href="https://github.com/2everlove/SpringWork1/blob/main/Exception/src/main/webapp/WEB-INF/web.xml">web.xml</a>을 통해서 tomcat의 설정에서 404error가 발생하면 지정한 page로 이동하게 설정</a></li>
+    <ul><li><a href="https://github.com/2everlove/SpringWork1/blob/main/Exception/src/main/webapp/WEB-INF/web.xml">web.xml</a>을 통해서 tomcat의 설정에서 404error가 발생하면 지정한 page로 이동하게 설정, 그 외의 error가 web.xml에 잡히면 error-page에 전송하기 위해 아래와 같은 설정을 함</a></li>
  <li><a href="https://github.com/2everlove/SpringWork1/blob/main/Exception/src/main/java/jmp/spring/exception/CommonExceptionAdvice.java">@ExceptionHandler</a>를 설정하여, 발생하는 error를 model에 담아서 지정한 error-page의 화면단으로 전송한다.</li>
     </ul></li>
  </ol></p>
