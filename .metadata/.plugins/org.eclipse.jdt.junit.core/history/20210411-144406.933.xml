@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="BoardServieceTests.testResister" project="ex02" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testcase name="testResister" classname="org.zerock.service.BoardServieceTests" time="0.215"/>
-</testrun>
