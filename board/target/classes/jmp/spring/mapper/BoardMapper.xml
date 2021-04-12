@@ -5,5 +5,5 @@
 	<insert id="insert">
 		insert into tbl_board(bno, title, content, writer) 
 			values (seq_tbl_board.NEXTVAL, #{title}, #{content}, #{writer})
-	</insert>
+	</insert><!-- #{vo.변수명} -> '값', ${vo.변수명} -> 값 // 형태로 들어감 -->
 </mapper>
