@@ -52,3 +52,4 @@ ex02/target/m2e-wtp/web-resources/META-INF/maven/jmp.spring/ojdbc/pom.properties
 *.resources
 *.json
 *.snap
+/.metadata/

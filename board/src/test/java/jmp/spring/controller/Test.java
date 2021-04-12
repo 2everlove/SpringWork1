@@ -2,6 +2,7 @@ package jmp.spring.controller;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -9,6 +10,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.zaxxer.hikari.HikariDataSource;
 
 import jmp.spring.mapper.Mapper;
 import lombok.extern.log4j.Log4j;
@@ -32,6 +35,25 @@ public class Test {
 		} catch (Exception e) {
 			e.getMessage();
 		}
+	}
+	
+	@Autowired
+	HikariDataSource dataSource;
+	
+	
+	@org.junit.Test
+	public void hikariCpTest() {
+		try(Connection con = dataSource.getConnection();){
+			log.info(con);
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@org.junit.Test
+	public void mapperTest() {
+		log.info(tm.getTime2());
 	}
 	
 	@org.junit.Test
