@@ -1,5 +1,7 @@
 package jmp.spring.mapper;
 
+import java.util.List;
+
 import jmp.spring.domain.BoardVO;
 
 public interface BoardMapper {
@@ -9,4 +11,6 @@ public interface BoardMapper {
 	int delete(Long bno);
 	
 	BoardVO select(Long bno);
+	
+	List<BoardVO> getList();
 }

@@ -1,5 +1,8 @@
 package jmp.spring.mapper;
 
+import java.util.List;
+
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -37,5 +40,11 @@ public class BoardMapperTests {
 	public void selectTest() {
 		BoardVO board = boardMapper.select(7L);
 		log.info(board);
+	}
+	
+	@Test
+	public void getListTest() {
+		List<BoardVO> list = boardMapper.getList();
+		log.info(list);
 	}
 }

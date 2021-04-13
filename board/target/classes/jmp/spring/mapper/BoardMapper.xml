@@ -14,4 +14,8 @@
 	<select id="select" resultType="jmp.spring.domain.BoardVO">
 		select * from tbl_board where bno = #{bno}
 	</select>
+	
+	<select id="getList" resultType="jmp.spring.domain.BoardVO">
+		select * from tbl_board
+	</select>
 </mapper>
