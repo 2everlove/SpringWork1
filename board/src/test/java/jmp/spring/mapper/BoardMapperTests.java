@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import jmp.spring.controller.Test;
 import jmp.spring.domain.BoardVO;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -25,7 +24,6 @@ public class BoardMapperTests {
 		board.setTitle("Test 제목");
 		board.setContent("Test 내용");
 		board.setWriter("Test 유저");
-		
 		boardMapper.insert(board);
 	}
 	
@@ -33,5 +31,11 @@ public class BoardMapperTests {
 	public void deleteTest() {
 		int count = boardMapper.delete(3L); //제거완료 ? 1..* :0
 		log.info(count);
+	}
+	
+	@org.junit.Test
+	public void selectTest() {
+		BoardVO board = boardMapper.select(7L);
+		log.info(board);
 	}
 }

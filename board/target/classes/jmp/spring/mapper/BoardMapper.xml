@@ -10,4 +10,8 @@
 	<delete id="delete">
 		delete from tbl_board where bno = #{bno}
 	</delete>
+	
+	<select id="select" resultType="jmp.spring.domain.BoardVO">
+		select * from tbl_board where bno = #{bno}
+	</select>
 </mapper>

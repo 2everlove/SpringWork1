@@ -7,4 +7,6 @@ public interface BoardMapper {
 	int insert(BoardVO board);
 	
 	int delete(Long bno);
+	
+	BoardVO select(Long bno);
 }
