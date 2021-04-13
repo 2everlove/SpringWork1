@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 import jmp.spring.domain.BoardVO;
 import jmp.spring.mapper.BoardMapper;
 import lombok.Setter;
+import lombok.extern.log4j.Log4j;
 
 @Service
+@Log4j
 public class BoardServiceImpl implements BoardService {
 
 	@Setter(onMethod_ = @Autowired)
@@ -17,8 +19,33 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Override
 	public List<BoardVO> getList() {
-		
+		log.info("getList.....");
 		return boardMapper.getList();
+	}
+
+	@Override
+	public void register(BoardVO board) {
+		log.info("register......"+board);
+		boardMapper.insert(board);
+		
+	}
+
+	@Override
+	public BoardVO get(Long bno) {
+		log.info("get.........."+bno);
+		return boardMapper.select(bno);
+	}
+
+	@Override
+	public boolean modify(BoardVO board) {
+		log.info("modify........"+board);
+		return boardMapper.update(board) == 1;
+	}
+
+	@Override
+	public boolean remove(Long bno) {
+		log.info("remove....."+bno);
+		return boardMapper.delete(bno) == 1;
 	}
 
 }

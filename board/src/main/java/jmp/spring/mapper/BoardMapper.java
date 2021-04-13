@@ -13,4 +13,6 @@ public interface BoardMapper {
 	BoardVO select(Long bno);
 	
 	List<BoardVO> getList();
+	
+	int update(BoardVO board);
 }

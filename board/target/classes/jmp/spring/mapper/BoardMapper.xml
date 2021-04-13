@@ -7,15 +7,27 @@
 			values (seq_tbl_board.NEXTVAL, #{title}, #{content}, #{writer})
 	</insert><!-- #{vo.변수명} -> '값', ${vo.변수명} -> 값 // 형태로 들어감 -->
 	
+	<!-- 글 삭제 -->
 	<delete id="delete">
 		delete from tbl_board where bno = #{bno}
 	</delete>
 	
+	<!-- 1개 게시글 목록 조회 -->
 	<select id="select" resultType="jmp.spring.domain.BoardVO">
 		select * from tbl_board where bno = #{bno}
 	</select>
 	
+	<!-- 전체 목록 조회 -->
 	<select id="getList" resultType="jmp.spring.domain.BoardVO">
 		select * from tbl_board
 	</select>
+	
+	<update id="update">
+		update tbl_board
+		set title = #{title},
+		content = #{content},
+		writer = #{writer},
+		updateDate = sysdate,
+		where bno = #{bno}
+	</update>
 </mapper>

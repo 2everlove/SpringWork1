@@ -47,4 +47,15 @@ public class BoardMapperTests {
 		List<BoardVO> list = boardMapper.getList();
 		log.info(list);
 	}
+	
+	@Test
+	public void testUpdate() {
+		BoardVO board = new BoardVO();
+		board.setBno(11L);
+		board.setTitle("수정된제목");
+		board.setContent("수정된내용");
+		board.setWriter("user00");
+		int count = boardMapper.update(board);
+		log.info("UPDATE COUNT : "+count);
+	}
 }
