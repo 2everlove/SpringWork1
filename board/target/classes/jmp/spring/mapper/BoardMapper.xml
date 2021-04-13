@@ -27,7 +27,7 @@
 		set title = #{title},
 		content = #{content},
 		writer = #{writer},
-		updateDate = sysdate,
+		updateDate = sysdate
 		where bno = #{bno}
 	</update>
 </mapper>

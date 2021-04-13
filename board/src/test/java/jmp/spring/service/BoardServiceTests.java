@@ -26,6 +26,7 @@ public class BoardServiceTests {
 		assertNotNull(service);
 	}
 	
+	
 	@Test
 	public void testRegister() {
 		BoardVO board = new BoardVO();
@@ -34,7 +35,6 @@ public class BoardServiceTests {
 		board.setWriter("newbie");
 		service.register(board);
 		log.info("생성된 게시물의 번호 : "+board.getBno());
-		
 	}
 	
 	@Test

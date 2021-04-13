@@ -17,16 +17,19 @@ public class BoardServieceTests {
 	@Autowired
 	private BoardService service;
 	
+//	연결확인
 	@Test
 	public void testPrint() {
 		log.info(service);
 	}
 	
+//	목록조회
 	@Test
 	public void getList() {
 		service.getList().forEach(board -> log.info(board));
 	}
 	
+//	등록
 	@Test
 	public void testResister() {
 		BoardVO vo = new BoardVO();
