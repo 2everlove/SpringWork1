@@ -1,5 +1,0 @@
-package jmp.spring.mapper;
-
-public interface timeMapper {
-	public String getTime();
-}

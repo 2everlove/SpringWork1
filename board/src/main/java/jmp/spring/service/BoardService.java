@@ -13,5 +13,5 @@ public interface BoardService {
 	
 	public List<BoardVO> getList();
 	
-	public void register(BoardVO board);
+	public Long register(BoardVO board);
 }

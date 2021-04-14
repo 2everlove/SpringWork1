@@ -15,4 +15,6 @@ public interface BoardMapper {
 	List<BoardVO> getList();
 	
 	int update(BoardVO board);
+	
+	void insertSelectKey(BoardVO board);
 }

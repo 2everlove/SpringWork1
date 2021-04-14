@@ -1,8 +1,0 @@
-package jmp.spring.ojdbc;
-
-import org.springframework.context.annotation.Configuration;
-
-@Configuration
-public class MybatisConfig {
-
-}

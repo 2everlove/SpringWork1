@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jmp.spring.domain.BoardVO;
 import lombok.RequiredArgsConstructor;
@@ -26,9 +26,8 @@ public class MainController {
 	}
 	
 	@GetMapping("/register")
-	public String register() {
+	public void register() {
 		log.info("Get register.....");
-		return "/board/register";
 	}
 	
 	/*
@@ -40,9 +39,17 @@ public class MainController {
 	 * service.register(board); return "redirect:/board/list2"; }
 	 */
 	@PostMapping("/register")
-	public String registerProccess(BoardVO board) {
+	public String registerProccess(BoardVO board, RedirectAttributes rttr) {
+									//객체를 선언하면 화면단에서 자동으로 넣어줌, 그러므로 name과 객체의 매개변수의 이름을 맞춰줘야함
 		log.info("post......"+board);
-		service.register(board);
+		
+		Long bno = service.register(board);
+		
+		log.info("bno : "+bno);
+		
+		rttr.addFlashAttribute("resMsg", bno+"번 글이 작성되었습니다.");
+		//redirect된 화면에 단 한번 전송해줌
+		
 		return "redirect:/board/list2";
 	}
 }

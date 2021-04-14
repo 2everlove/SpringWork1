@@ -6,14 +6,14 @@
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="page-"/>
+			<item value="hikar"/>
+			<item value="ojdbc"/>
 			<item value="junit"/>
 			<item value="batis"/>
 			<item value="info"/>
 			<item value="debug"/>
 			<item value="springframework"/>
-			<item value="log"/>
-			<item value="juni"/>
-			<item value="log4"/>
 		</list>
 		<list key="replacehistory">
 			<item value="debug"/>

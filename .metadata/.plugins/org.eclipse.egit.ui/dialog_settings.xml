@@ -12,13 +12,7 @@
 	</section>
 	<section name="GitCommitMessageComponent">
 		<list key="C:\work\.git">
-			<item value="false"/>
-			<item value="mika &lt;73530023+2everlove@users.noreply.github.com&gt;"/>
-			<item value="# WARNING: head commit changed in the meantime&#x0D;&#x0A;&#x0D;&#x0A;board"/>
-			<item value="mika &lt;73530023+2everlove@users.noreply.github.com&gt;"/>
-			<item value="8a56e94a26bd590a67cab6c40ea8711dc7d84fed"/>
-			<item value="0"/>
-			<item value="false"/>
+			<item value="empty"/>
 		</list>
 	</section>
 	<section name="org.eclipse.egit.ui.internal.dialogs.CheckoutDialog.dialogBounds">
