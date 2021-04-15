@@ -16,7 +16,7 @@
 <br>
 <br>
 <h2><a href="https://github.com/2everlove/dbWorks/tree/main/spring">DB</a> & <a href="https://github.com/2everlove/SpringWork1/blob/main/board/src/main/resources/jmp/spring/mapper/BoardMapper.xml">Mapper</a></h2>
-<p><strong>DB</srong><ol>
+<p><strong>DB</strong><ol>
 
  <p><li>DB를 사용하기 앞서서 프로젝트에서 사용할 <a href="https://github.com/2everlove/dbWorks/blob/main/spring/newuser.sql">oracle developer 계정 생성</a></li>
 
@@ -32,7 +32,7 @@
    <tr><td>updatedate</td><td>DATE</td><td>-</td><td>-</td><td>-</td></tr>
   </table>
  </P>
- </p>
+ </p></ol>
  <p><storng>Mapper</strong>
 <ol><li><a href="https://github.com/2everlove/SpringWork1/blob/main/board/src/main/webapp/WEB-INF/spring/root-context.xml">root-context.xml</a>(mybatis를 사용하기 위한 scan)</li>
  <li><a href="https://github.com/2everlove/SpringWork1/blob/main/board/src/main/java/jmp/spring/mapper/BoardMapper.java">batis를 사용히가 위한 interface 작성</a></li>
@@ -48,8 +48,8 @@
 <hr>
 <p>Configuration
  <ul>
-  <li>STS 3.9.11</li>
-  <li>apache-tomcat-9.0.43</li>
-  <li>oracle DBMS 11g</li>
+  <li>STS 3.9.11 <sub><<<a href="https://download.springsource.com/release/STS/3.9.11.RELEASE/dist/e4.14/spring-tool-suite-3.9.11.RELEASE-e4.14.0-win32-x86_64.zip">download</a>>></sub></li>
+  <li>apache-tomcat-9.0.43 <sub><<<a href="https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.43/bin/">download</a>>></sub></li>
+  <li>oracle DBMS 11g <<<sub><a href="https://www.oracle.com/database/technologies/xe-prior-releases.html">download</a>>></sub></li>
  </ul>
 </p>
