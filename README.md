@@ -48,8 +48,8 @@
 <hr>
 <p>Configuration
  <ul>
-  <li>STS 3.9.11 <sub><a href="https://download.springsource.com/release/STS/3.9.11.RELEASE/dist/e4.14/spring-tool-suite-3.9.11.RELEASE-e4.14.0-win32-x86_64.zip">download</a></sub></li>
-  <li>apache-tomcat-9.0.43 <sub><a href="https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.43/bin/">download</a></sub></li>
-  <li>oracle DBMS 11g</li>
+  <li>STS 3.9.11 <sub><<<a href="https://download.springsource.com/release/STS/3.9.11.RELEASE/dist/e4.14/spring-tool-suite-3.9.11.RELEASE-e4.14.0-win32-x86_64.zip">download</a>>></sub></li>
+  <li>apache-tomcat-9.0.43 <sub><<<a href="https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.43/bin/">download</a>>></sub></li>
+  <li>oracle DBMS 11g <<<sub><a href="https://www.oracle.com/database/technologies/xe-prior-releases.html">download</a>>></sub></li>
  </ul>
 </p>
