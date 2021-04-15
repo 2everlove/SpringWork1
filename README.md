@@ -20,7 +20,7 @@
 
  <p><li>DB를 사용하기 앞서서 프로젝트에서 사용할 <a href="https://github.com/2everlove/dbWorks/blob/main/spring/newuser.sql">oracle developer 계정 생성</a></li>
 
- <li><a href="https://github.com/2everlove/dbWorks/blob/main/spring/boardReply.sql">CREATE TABLE</a></li>
+ <li><a href="https://github.com/2everlove/dbWorks/blob/main/spring/boardReply.sql">CREATE TABLE</a> & <a href="https://github.com/2everlove/dbWorks/blob/main/spring/boardReply.sql">CREATE SEQUENCE</a></li>
   <p><table>
    <tr><th colspan=5>TBL_BOARD</th></tr>
    <tr><th>column</th><th>type</th><th>NOT NULL</th><th>key</th><th>value</th></tr>
@@ -32,7 +32,6 @@
    <tr><td>updatedate</td><td>DATE</td><td>-</td><td>-</td><td>-</td></tr>
   </table>
  </P>
- <li><a href="https://github.com/2everlove/dbWorks/blob/main/spring/boardReply.sql">CREATE SEQUENCE</a></li>
  </p>
  <p><storngMapper</strong>
 
