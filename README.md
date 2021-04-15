@@ -23,9 +23,9 @@
    <tr><th>column</th><th>type</th><th>NOT NULL</th><th>key</th><th>value</th></tr>
    <tr><td>bno</td><td>NUMBER(10)</td><td>O</td><td>PK</td><td>-</td></tr>
    <tr><td>title</td><td>VARCHAR2(200)</td><td>O</td><td>-</td><td>-</td></tr>
-   <tr><td>content</td><td>VARCHAR2(2000)</td><td>O</td>-<td></td><td>-/td></tr>
-   <tr><td>wirter</td><td>VARCHAR2(50)</td><td>O</td><td>-</td>-<td></td></tr>
-   <tr><td>regdate</td><td>DATE</td><td></td><td>-</td><td>SYSDATE</td></tr>
+   <tr><td>content</td><td>VARCHAR2(2000)</td><td>O</td>-<td></td><td>-</td></tr>
+   <tr><td>wirter</td><td>VARCHAR2(50)</td><td>O</td><td>-</td><td>-</td></tr>
+   <tr><td>regdate</td><td>DATE</td><td>-</td><td>-</td><td>SYSDATE</td></tr>
    <tr><td>updatedate</td><td>DATE</td><td>-</td><td>-</td><td>-</td></tr>
   </table>
  </P>
