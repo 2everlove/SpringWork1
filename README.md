@@ -20,7 +20,7 @@
 
  <p><li>DB를 사용하기 앞서서 프로젝트에서 사용할 <a href="https://github.com/2everlove/dbWorks/blob/main/spring/newuser.sql">oracle developer 계정 생성</a></li>
 
- <li><a href="https://github.com/2everlove/dbWorks/blob/main/spring/boardReply.sql">CREATE TABLE & CREATE SEQUENCE * COMMENT</a></li>
+ <li><a href="https://github.com/2everlove/dbWorks/blob/main/spring/boardReply.sql">CREATE TABLE & CREATE SEQUENCE & COMMENT</a></li>
   <p><table>
    <tr><th colspan=5>TBL_BOARD</th></tr>
    <tr><th>column</th><th>type</th><th>NOT NULL</th><th>key</th><th>value</th></tr>
@@ -33,9 +33,11 @@
   </table>
  </P>
  </p>
- <p><storngMapper</strong>
-
-</p>
+ <p><storng>Mapper</strong>
+<ol><li><a href="https://github.com/2everlove/SpringWork1/blob/main/board/src/main/webapp/WEB-INF/spring/root-context.xml">root-context.xml</a>(mybatis를 사용하기 위한 scan)</li>
+ <li><a href="https://github.com/2everlove/SpringWork1/blob/main/board/src/main/java/jmp/spring/mapper/BoardMapper.java">batis를 사용히가 위한 interface 작성</a></li>
+ <li>mabatis를 통해서 sql 명령어를 실행시키기 위한<a href="https://github.com/2everlove/SpringWork1/blob/main/board/src/main/resources/jmp/spring/mapper/BoardMapper.xml">BoardMapper.xml</a>을 작성(*namespace="path" 필수 확인, id는 interface에서 작성한 method()명으로 작성*)</li>
+</ol></p>
  
  
  
