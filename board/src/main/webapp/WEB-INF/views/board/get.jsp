@@ -44,12 +44,13 @@
 			<th>수정일</th>
 			<c:choose>
 				<c:when test="${empty board.updateDate}">
-					<fmt:parseDate var="parseRegDate" value="${board.updateDate}" pattern="yyyy-MM-dd HH:mm:ss" />
+				<fmt:parseDate var="parseRegDate" value="${board.regdate}" pattern="yyyy-MM-dd HH:mm:ss" />
 					<fmt:formatDate value="${parseRegDate}" pattern="yy.MM.dd HH:mm:ss" var="time"/>
 					<td>${time}</td>
+					
 				</c:when>
 				<c:otherwise>
-					<fmt:parseDate var="parseRegDate" value="${board.regdate}" pattern="yyyy-MM-dd HH:mm:ss" />
+					<fmt:parseDate var="parseRegDate" value="${board.updateDate}" pattern="yyyy-MM-dd HH:mm:ss" />
 					<fmt:formatDate value="${parseRegDate}" pattern="yy.MM.dd HH:mm:ss" var="time"/>
 					<td>${time}</td>
 				</c:otherwise>
