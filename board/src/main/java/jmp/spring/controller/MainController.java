@@ -21,6 +21,7 @@ public class MainController {
 	
 	@GetMapping("/list2")
 	public void getList(Model model) {
+		//화면단에서는 매개변수로 model을 받는다
 		log.info("list.........");
 		model.addAttribute("list", service.getList());
 	}

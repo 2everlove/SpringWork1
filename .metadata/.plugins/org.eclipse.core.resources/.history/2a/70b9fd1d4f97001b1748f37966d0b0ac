@@ -1,6 +1,0 @@
-package jmp.spring.vo;
-
-public class SampleVO {
-	String name;
-	int age;
-}

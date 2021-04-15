@@ -19,9 +19,10 @@
 	
 	<!-- 전체 목록 조회 -->
 	<select id="getList" resultType="jmp.spring.domain.BoardVO">
-		select * from tbl_board
+		select * from tbl_board order by bno asc
 	</select>
 	
+	<!-- 수정 -->
 	<update id="update">
 		update tbl_board
 		set title = #{title},
@@ -33,7 +34,7 @@
 	
 	<insert id="insertSelectKey"><!-- 낭비스러운 코드지만, bno를 먼저 따와서 객체의 bno를 먼저 알 수 있어서 씀 // 몇번 글이 등록되었습니다. 라는 것을 쓸때에는 selectKey가 좋음 -->
 		<selectKey order="BEFORE" keyProperty="bno" resultType="long">
-		select seq_tbl_board.nextval from dual
+			select seq_tbl_board.nextval from dual
 		</selectKey>
 		
 		insert into tbl_board(bno, title, content, writer) 

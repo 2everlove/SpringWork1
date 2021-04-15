@@ -17,13 +17,11 @@
 	.table__list:hover {background-color:#dff9fb;}
 </style>
 <script type="text/javascript">
-const register = function (){
-	const message = "${resMsg}";
-	if("" != message && null != message)
-		alert(message);
-	};
-register();
-	
+	$(document).ready(function (){
+		const message = "${resMsg}";
+		if("" != message && null != message)
+			alert(message);
+		});
 </script>
 </head>
 <body>
