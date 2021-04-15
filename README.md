@@ -32,7 +32,7 @@
    <tr><td>updatedate</td><td>DATE</td><td>-</td><td>-</td><td>-</td></tr>
   </table>
  </P>
- </p>
+ </p></ol>
  <p><storng>Mapper</strong>
 <ol><li><a href="https://github.com/2everlove/SpringWork1/blob/main/board/src/main/webapp/WEB-INF/spring/root-context.xml">root-context.xml</a>(mybatis를 사용하기 위한 scan)</li>
  <li><a href="https://github.com/2everlove/SpringWork1/blob/main/board/src/main/java/jmp/spring/mapper/BoardMapper.java">batis를 사용히가 위한 interface 작성</a></li>
