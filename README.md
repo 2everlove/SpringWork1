@@ -11,9 +11,39 @@
  </ul></li>
  <li>exception
     <ul><li><a href="https://github.com/2everlove/SpringWork1/blob/main/Exception/src/main/webapp/WEB-INF/web.xml">web.xml</a>을 통해서 tomcat의 설정에서 404error가 발생하면 지정한 page로 이동하게 설정, 그 외의 error가 web.xml에 잡히면 error-page에 전송하기 위해 아래와 같은 설정을 함</a></li>
- <li><a href="https://github.com/2everlove/SpringWork1/blob/main/Exception/src/main/java/jmp/spring/exception/CommonExceptionAdvice.java">@ExceptionHandler</a>를 설정하여, 발생하는 error를 model에 담아서 지정한 error-page의 화면단으로 전송한다.</li>
-    </ul></li>
+ <li><a href="https://github.com/2everlove/SpringWork1/blob/main/Exception/src/main/java/jmp/spring/exception/CommonExceptionAdvice.java">@ExceptionHandler</a>를 설정하여, 발생하는 error를 model에 담아서 지정한 error-page의 화면단으로 전송한다.</li></ul></li>
+</ol></p>
+<br>
+<br>
+<h2><a href="https://github.com/2everlove/dbWorks/tree/main/spring">DB</a> & <a href="https://github.com/2everlove/SpringWork1/blob/main/board/src/main/resources/jmp/spring/mapper/BoardMapper.xml">Mapper</a></h2>
+<p><strong>DB</srong><ol>
+
+ <p><li>DB를 사용하기 앞서서 프로젝트에서 사용할 <a href="https://github.com/2everlove/dbWorks/blob/main/spring/newuser.sql">oracle developer 계정 생성</a></li>
+
+ <li><a href="https://github.com/2everlove/dbWorks/blob/main/spring/boardReply.sql">CREATE TABLE & CREATE SEQUENCE & COMMENT</a></li>
+  <p><table>
+   <tr><th colspan=5>TBL_BOARD</th></tr>
+   <tr><th>column</th><th>type</th><th>NOT NULL</th><th>key</th><th>value</th></tr>
+   <tr><td>bno</td><td>NUMBER(10)</td><td>O</td><td>PK</td><td>-</td></tr>
+   <tr><td>title</td><td>VARCHAR2(200)</td><td>O</td><td>-</td><td>-</td></tr>
+   <tr><td>content</td><td>VARCHAR2(2000)</td><td>O</td><td>-</td><td>-</td></tr>
+   <tr><td>wirter</td><td>VARCHAR2(50)</td><td>O</td><td>-</td><td>-</td></tr>
+   <tr><td>regdate</td><td>DATE</td><td>-</td><td>-</td><td>SYSDATE</td></tr>
+   <tr><td>updatedate</td><td>DATE</td><td>-</td><td>-</td><td>-</td></tr>
+  </table>
+ </P>
+ </p>
+ <p><storng>Mapper</strong>
+<ol><li><a href="https://github.com/2everlove/SpringWork1/blob/main/board/src/main/webapp/WEB-INF/spring/root-context.xml">root-context.xml</a>(mybatis를 사용하기 위한 scan)</li>
+ <li><a href="https://github.com/2everlove/SpringWork1/blob/main/board/src/main/java/jmp/spring/mapper/BoardMapper.java">batis를 사용히가 위한 interface 작성</a></li>
+ <li>mabatis를 통해서 sql 명령어를 실행시키기 위한<a href="https://github.com/2everlove/SpringWork1/blob/main/board/src/main/resources/jmp/spring/mapper/BoardMapper.xml">BoardMapper.xml</a>을 작성(*namespace="path" 필수 확인, id는 interface에서 작성한 method()명으로 작성*)</li>
+</ol></p>
+ 
+ 
+ 
  </ol></p>
+ 
+ 
 <br>
 <hr>
 <p>Configuration
