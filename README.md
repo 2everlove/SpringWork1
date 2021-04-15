@@ -16,7 +16,24 @@
 <br>
 <br>
 <h2><a href="https://github.com/2everlove/dbWorks/tree/main/spring">DB</a> & <a href="https://github.com/2everlove/SpringWork1/blob/main/board/src/main/resources/jmp/spring/mapper/BoardMapper.xml">Mapper</a></h2>
-</h2>
+<p><ol><li><a href="https://github.com/2everlove/dbWorks/blob/main/spring/newuser.sql">DB를 사용하기 앞서서 프로젝트에서 사용할 oracle developer 계정 생성</a></li>
+ <li><a href="https://github.com/2everlove/dbWorks/blob/main/spring/boardReply.sql">CREATE TABLE</a>
+  <ul><li>
+   <table>
+    <tr><th colspan=4>TBL_BOARD</th></tr>
+    <tr><th>column</th><th>type</th><th>NOT NULL</th><th>key</th><th>value</th></tr>
+    <tr><td>bno</td><td>NUMBER(10)</td><td>O</td><td>PK</td><td>-</td></tr>
+    <tr><td>title</td><td>VARCHAR2(200)</td><td>O</td><td>-</td><td>-</td></tr>
+    <tr><td>content</td><td>VARCHAR2(2000)</td>O<td>-</td><td></td>-<td></td></tr>
+    <tr><td>wirter</td><td>VARCHAR2(50)</td><td>O</td><td>-</td>-<td></td></tr>
+    <tr><td>regdate</td><td>DATE</td><td></td><td>-</td><td>SYSDATE</td></tr>
+    <tr><td>updatedate</td><td>DATE</td><td>-</td><td>-</td><td>-</td></tr>
+   </table>
+  </li></ul></li>
+ 
+ 
+ 
+ </ol></p>
  
  
 <br>
