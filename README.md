@@ -20,7 +20,7 @@
  <li><a href="https://github.com/2everlove/dbWorks/blob/main/spring/boardReply.sql">CREATE TABLE</a>
   <ul><li>
    <table>
-    <tr><th colspan=4>TBL_BOARD</th></tr>
+    <tr><th colspan=5>TBL_BOARD</th></tr>
     <tr><th>column</th><th>type</th><th>NOT NULL</th><th>key</th><th>value</th></tr>
     <tr><td>bno</td><td>NUMBER(10)</td><td>O</td><td>PK</td><td>-</td></tr>
     <tr><td>title</td><td>VARCHAR2(200)</td><td>O</td><td>-</td><td>-</td></tr>
