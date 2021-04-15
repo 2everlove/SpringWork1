@@ -48,7 +48,7 @@
 <hr>
 <p>Configuration
  <ul>
-  <li>STS 3.9.11</li>
+  <li>STS 3.9.11<sub><a href="https://download.springsource.com/release/STS/3.9.11.RELEASE/dist/e4.14/spring-tool-suite-3.9.11.RELEASE-e4.14.0-win32-x86_64.zip">download</a></sub></li>
   <li>apache-tomcat-9.0.43</li>
   <li>oracle DBMS 11g</li>
  </ul>
