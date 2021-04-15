@@ -17,4 +17,5 @@ public interface BoardMapper {
 	int update(BoardVO board);
 	
 	void insertSelectKey(BoardVO board);
+	
 }

@@ -53,4 +53,11 @@ public class MainController {
 		
 		return "redirect:/board/list2";
 	}
+	
+	@GetMapping("/get")//query를 pk인 bno로 받아서 로직에 전달
+	public void getProcess(Long bno, Model model) {
+		log.info("get.........");
+		//model에 servie로직에 담긴 값을 담아서 넘김
+		model.addAttribute("board", service.get(bno));
+	}
 }

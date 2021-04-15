@@ -5,7 +5,73 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2021-04-14T17:00:00Z</updated>
+  <updated>2021-04-15T01:52:00Z</updated>
+  <entry>
+    <title>Spring Integration 5.5 RC1, 5.4.6 &amp; 5.3.7 Available</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/04/14/spring-integration-5-5-rc1-5-4-6-5-3-7-available" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Artem Bilan</name>
+    </author>
+    <id>tag:spring.io,2021-04-15:4415</id>
+    <updated>2021-04-15T01:52:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;Dear Spring community,&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;On behalf of the team and all the contributors, it&amp;#8217;s my pleasure to announce a &lt;code&gt;Release Candidate 1&lt;/code&gt; for Spring Integration &lt;code&gt;5.5&lt;/code&gt;, plus Spring Integration &lt;code&gt;5.4.6&lt;/code&gt; &amp;amp; &lt;code&gt;5.3.7&lt;/code&gt; patch versions.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The latest two can be downloaded from Maven Central and it is recommended to upgrade your projects or just pull them transitively from respective latest Spring Boot patch versions!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The Release Candidate is available from the &lt;a href="https://repo.spring.io/milestone/" class="bare"&gt;https://repo.spring.io/milestone/&lt;/a&gt; repository:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="groovy"&gt;compile 'org.springframework.integration:spring-integration-core:5.5.0-RC1'&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Here is a highlight of changes made to Spring Integration &lt;code&gt;5.5 RC1&lt;/code&gt; since previously announced &lt;a href="https://spring.io/blog/2021/03/18/spring-integration-5-5-m3-5-4-5-available"&gt;Milestone 3&lt;/a&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A basic support for &lt;a href="https://github.com/spring-projects-experimental/spring-native"&gt;Spring Native&lt;/a&gt; compatibility - a lot of bean definition reflection has been reworked to the functional style, which improves a start up time even for regular JVM application!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;WebSocket server endpoint-based channel adapters can now be registered (and removed) at runtime;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;MessageGroup&lt;/code&gt; abstraction has now a &lt;code&gt;condition&lt;/code&gt; property which can be consulted later on instead of the whole group iteration.
+The &lt;code&gt;AbstractCorrelatingMessageHandler&lt;/code&gt;, in turn, exposes a &lt;code&gt;BiFunction&amp;lt;Message&amp;lt;?&amp;gt;, String, String&amp;gt; conditionSupplier&lt;/code&gt; to extract possible group condition from the currently processed message;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;DelayHandler&lt;/code&gt; now registers a &lt;code&gt;TransactionSynchronization&lt;/code&gt; to schedule a delay task only when current transaction is committed;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Some other bug fixes and minor improvements, including IMAP idle channel adapter race condition, the exception swallowing in the &lt;code&gt;IntegrationReactiveUtils&lt;/code&gt;, the &lt;code&gt;ByteBuffer&lt;/code&gt; cast to &lt;code&gt;Buffer&lt;/code&gt; for Java 8 compatibility.
+Many of them have been back-ported to the mentioned above &lt;code&gt;5.3.7&lt;/code&gt; &amp;amp; &lt;code&gt;5.4.6&lt;/code&gt; patch versions.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;See &lt;a href="https://docs.spring.io/spring-integration/docs/5.5.0-RC1/reference/html/whats-new.html"&gt;What&amp;#8217;s New&lt;/a&gt; in documentation for more information.
+Be sure to consult the &lt;a href="https://github.com/spring-projects/spring-integration/wiki/Spring-Integration-5.4-to-5.5-Migration-Guide"&gt;Migration Guide&lt;/a&gt; since the upgrade may cause some breaking changes!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Any feedback and contributions are welcome while we are heading to &lt;code&gt;GA&lt;/code&gt; in May!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Cheers,&amp;#160;&lt;br&gt;
+Artem&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="http://projects.spring.io/spring-integration/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-integration/issues"&gt;GitHub Issues&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-integration/blob/master/CONTRIBUTING.adoc"&gt;Contributing&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-integration"&gt;Help&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-integration"&gt;Chat&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring for Apache Kafka 2.7.0 Available</title>
     <link rel="alternate" href="https://spring.io/blog/2021/04/14/spring-for-apache-kafka-2-7-0-available" />
@@ -743,28 +809,6 @@ public KeyResolver customKeyResolver {&#xD;
 &lt;p&gt;In this video, join DataStax&amp;rsquo;s &lt;a href="http://twitter.com/PatrickMcFadin"&gt;Patrick McFadin (@PatrickMcFadin)&lt;/a&gt;, &lt;a href="http://twitter.com/clunven"&gt;Cedrick Lunven (@clunven)&lt;/a&gt;, and the Spring team&amp;rsquo;s &lt;a href="http://twitter.com/starbuxman"&gt;Josh Long (@starbuxman)&lt;/a&gt; as they introduce Bootiful Cassandra and look at some of the technology that continues to power some of the largest websites on the planet. &lt;/p&gt;
 &lt;p&gt;Register for DataStax Astra now and try this code anytime. You don&amp;rsquo;t need a credit card, and you get $25.00 USD credit every month, which gives you roughly 30M reads, 5M writes, 40GB storage monthly. That¡¯s sufficient enough to run this demo and even a small production workload.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://dtsx.io/3qjjRdR"&gt;Register here&lt;/a&gt;&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Boot 2.5.0-M3 available now</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/03/19/spring-boot-2-5-0-m3-available-now" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Phil Webb</name>
-    </author>
-    <id>tag:spring.io,2021-03-19:4395</id>
-    <updated>2021-03-19T07:30:00Z</updated>
-    <content type="html">&lt;p&gt;I am pleased to announce that the third milestone of Spring Boot 2.5 has been released and is available from our &lt;a href="https://repo.spring.io/milestone/"&gt;milestone repository&lt;/a&gt;. This release &lt;a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.5.0-M3"&gt;adds a number of new features and bug fixes&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Highlights of this milestone include:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;OpenMetrics support for Prometheus&lt;/li&gt;
-  &lt;li&gt;Support for environment variable prefixes&lt;/li&gt;
-  &lt;li&gt;More Buildpack updates&lt;/li&gt;
-  &lt;li&gt;A fresh new look for the &lt;a href="https://docs.spring.io/spring-boot/docs/2.5.0-M3/reference/html/"&gt;docs&lt;/a&gt; (including a &amp;ldquo;dark theme&amp;rdquo;).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;For a complete list of changes and upgrade instructions, please see the &lt;a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.5.0-M3-Release-Notes"&gt;Spring Boot 2.5-M3 Release Notes&lt;/a&gt; on the wiki and the &lt;a href="https://docs.spring.io/spring-boot/docs/2.5.0-M3/reference/html/"&gt;updated reference documentation&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;If you want to get started with 2.5 and try out the new features, you can bootstrap a new project on &lt;a href="https://start.spring.io/#!type=maven-project&amp;language=java&amp;platformVersion=2.5.0.M3&amp;packaging=jar&amp;jvmVersion=11&amp;groupId=com.example&amp;artifactId=demo&amp;name=demo&amp;description=Demo%20project%20for%20Spring%20Boot&amp;packageName=com.example.demo"&gt;start.spring.io&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://spring.io/projects/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-boot/docs/2.5.0-M2/reference/html/"&gt;Documentation&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>
