@@ -18,7 +18,7 @@
 <h2><a href="https://github.com/2everlove/dbWorks/tree/main/spring">DB</a> & <a href="https://github.com/2everlove/SpringWork1/blob/main/board/src/main/resources/jmp/spring/mapper/BoardMapper.xml">Mapper</a></h2>
 <p><ol><li><a href="https://github.com/2everlove/dbWorks/blob/main/spring/newuser.sql">DB를 사용하기 앞서서 프로젝트에서 사용할 oracle developer 계정 생성</a></li>
  <li><a href="https://github.com/2everlove/dbWorks/blob/main/spring/boardReply.sql">CREATE TABLE</a>
-  <ul><li>
+  <P><li>
    <table>
     <tr><th colspan=5>TBL_BOARD</th></tr>
     <tr><th>column</th><th>type</th><th>NOT NULL</th><th>key</th><th>value</th></tr>
@@ -29,7 +29,7 @@
     <tr><td>regdate</td><td>DATE</td><td></td><td>-</td><td>SYSDATE</td></tr>
     <tr><td>updatedate</td><td>DATE</td><td>-</td><td>-</td><td>-</td></tr>
    </table>
-  </li></ul></li>
+  </li></P></li>
  
  
  
