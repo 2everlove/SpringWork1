@@ -27,26 +27,28 @@
 <body>
 	<h1>${board.writer}의  작성글</h1>
 	<hr>
-	<table>
-		<tr>
-			<th>번호</th><td>${board.bno}</td>
-		</tr>
-		<tr>
-			<th>제목</th><td>${board.title}</td>
-		</tr>
-		<tr>
-			<th>내용</th><td>${board.content}</td>
-		</tr>
-		<tr>
-			<th>작성자</th><td>${board.writer}</td>
-		</tr>
-		<tr>
-			<th>수정일</th>
+	<form action="/board/edit" method="post">
+	<!-- Post는 절대 action태그에 ? 와 같은 쿼리를 전송하면 안된다. -->
+		<table>
+			<tr>
+				<th>번호</th><td>${board.bno}<input type="text" name="bno" value="${board.bno}" hidden></td>
+			</tr>
+			<tr>
+				<th>제목</th><td><input type="text" name="title" value="${board.title}"></td>
+			</tr>
+			<tr>
+				<th>내용</th><td><textarea name="content">${board.content}</textarea></td>
+			</tr>
+			<tr>
+				<th>작성자</th><td><input type="text" name="writer" value="${board.writer}"></td>
+			</tr>
+			<tr>
+				<th>수정일</th>
 			<c:choose>
 				<c:when test="${empty board.updateDate}">
 					<fmt:parseDate var="parseRegDate" value="${board.updateDate}" pattern="yyyy-MM-dd HH:mm:ss" />
 					<fmt:formatDate value="${parseRegDate}" pattern="yy.MM.dd HH:mm:ss" var="time"/>
-					<td>${time}</td>
+					<td>${time}></td>
 				</c:when>
 				<c:otherwise>
 					<fmt:parseDate var="parseRegDate" value="${board.regdate}" pattern="yyyy-MM-dd HH:mm:ss" />
@@ -54,15 +56,17 @@
 					<td>${time}</td>
 				</c:otherwise>
 			</c:choose>
-		</tr>
-		<tr>
-			<th>작성일</th>
-			<fmt:parseDate var="parseRegDate" value="${board.regdate}" pattern="yyyy-MM-dd HH:mm:ss" />
-			<fmt:formatDate value="${parseRegDate}" pattern="yy.MM.dd HH:mm:ss" var="time"/>
-			<td>${time}</td>
-		</tr>
-	</table>
-	<p style="position: absolute; right: 35%"><a href="./edit?bno=${board.bno}"><input type="button" value="수정"></a>
+			</tr>
+			<tr>
+				<th>작성일</th>
+				<fmt:parseDate var="parseRegDate" value="${board.regdate}" pattern="yyyy-MM-dd HH:mm:ss" />
+				<fmt:formatDate value="${parseRegDate}" pattern="yy.MM.dd HH:mm:ss" var="time"/>
+				<td>${time}</td>
+			</tr>
+		</table>
+		<input type="submit" value="수정" onlick="confirm('수정하시겠습니까?')">
+	</form>
+	
 	<p style="position: absolute; right: 20%"><a href="./list2"><input type="button" value="목록으로"></a>
 </body>
 </html>

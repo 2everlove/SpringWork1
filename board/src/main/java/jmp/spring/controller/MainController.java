@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jmp.spring.domain.BoardVO;
@@ -54,10 +55,19 @@ public class MainController {
 		return "redirect:/board/list2";
 	}
 	
-	@GetMapping("/get")//query를 pk인 bno로 받아서 로직에 전달
+	@GetMapping({"/get","/edit"})//query를 pk인 bno로 받아서 로직에 전달
 	public void getProcess(Long bno, Model model) {
 		log.info("get.........");
 		//model에 servie로직에 담긴 값을 담아서 넘김
 		model.addAttribute("board", service.get(bno));
+	}
+	
+	@PostMapping("/edit")
+	public String editPostProcess(BoardVO board) {
+		log.info("edit..........");
+		log.info(board);
+		service.modify(board);
+		log.info(board);
+		return "redirect:/board/get?bno="+board.getBno();
 	}
 }
