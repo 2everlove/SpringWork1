@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page session="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,12 +17,13 @@
 	.table__list:nth-child(2n-1) {background-color:#dfe4ea;}
 	.table__list:hover {background-color:#dff9fb;}
 </style>
+<script type="text/JavaScript"  src=http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js></script>
 <script type="text/javascript">
-	$(document).ready(function (){
-		const message = "${resMsg}";
+	const message = "${resMsg}";
+	$(document).ready(function(){
 		if("" != message && null != message)
 			alert(message);
-		});
+	});
 </script>
 </head>
 <body>
@@ -40,7 +42,7 @@
 			<td>${board.title}</td>
 			<td>${board.writer}</td>
 			<fmt:parseDate var="parseRegDate" value="${board.regdate}" pattern="yyyy-MM-dd HH:mm:ss" />
-			<fmt:formatDate value="${parseRegDate}" pattern="yyyy.MM.dd" var="time"/>
+			<fmt:formatDate value="${parseRegDate}" pattern="yy.MM.dd" var="time"/>
 			<td>${time}</td>
 		</tr>
 	</c:forEach> 
