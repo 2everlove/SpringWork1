@@ -11,9 +11,14 @@
  </ul></li>
  <li>exception
     <ul><li><a href="https://github.com/2everlove/SpringWork1/blob/main/Exception/src/main/webapp/WEB-INF/web.xml">web.xml</a>을 통해서 tomcat의 설정에서 404error가 발생하면 지정한 page로 이동하게 설정, 그 외의 error가 web.xml에 잡히면 error-page에 전송하기 위해 아래와 같은 설정을 함</a></li>
- <li><a href="https://github.com/2everlove/SpringWork1/blob/main/Exception/src/main/java/jmp/spring/exception/CommonExceptionAdvice.java">@ExceptionHandler</a>를 설정하여, 발생하는 error를 model에 담아서 지정한 error-page의 화면단으로 전송한다.</li>
-    </ul></li>
- </ol></p>
+ <li><a href="https://github.com/2everlove/SpringWork1/blob/main/Exception/src/main/java/jmp/spring/exception/CommonExceptionAdvice.java">@ExceptionHandler</a>를 설정하여, 발생하는 error를 model에 담아서 지정한 error-page의 화면단으로 전송한다.</li></ul></li>
+</ol></p>
+<br>
+<br>
+<h2><a href="https://github.com/2everlove/dbWorks/tree/main/spring">DB</a> & <a href="https://github.com/2everlove/SpringWork1/blob/main/board/src/main/resources/jmp/spring/mapper/BoardMapper.xml">Mapper</a></h2>
+</h2>
+ 
+ 
 <br>
 <hr>
 <p>Configuration
