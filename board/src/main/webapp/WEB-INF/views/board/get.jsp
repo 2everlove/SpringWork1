@@ -22,6 +22,11 @@
 	}
 </style>
 <script type="text/javascript">
+	$(document).ready(function(){
+		const msg = "${resMsg}";
+		if(msg != "")
+			alert(msg);	
+	});
 </script>
 </head>
 <body>
@@ -63,7 +68,10 @@
 			<td>${time}</td>
 		</tr>
 	</table>
-	<p style="position: absolute; right: 35%"><a href="./edit?bno=${board.bno}"><input type="button" value="수정"></a>
-	<p style="position: absolute; right: 20%"><a href="./list2"><input type="button" value="목록으로"></a>
+	<div style="text-align: right; margin: 20px 20%">
+		<button onclick="location.href='edit?bno=${board.bno}'">수정</button>  
+		<a href="delete?bno=${board.bno}" onclick="return confirm('삭제하시겠습니까?')")><button>삭제</button></a> 
+		<a href="./list2"><input type="button" value="목록으로"></a>
+	</div>
 </body>
 </html>

@@ -32,7 +32,7 @@ public class BoardMapperTests {
 	
 	@org.junit.Test
 	public void deleteTest() {
-		int count = boardMapper.delete(3L); //제거완료 ? 1..* :0
+		int count = boardMapper.delete(14L); //제거완료 ? 1..* :0
 		log.info(count);
 	}
 	

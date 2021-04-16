@@ -22,12 +22,30 @@
 	}
 </style>
 <script type="text/javascript">
+	
+	function check(){
+		const form = document.editForm;
+		const title = form.title.value;
+		const content = form.content.value;
+		if(title==""){
+			alert('제목을 입력해주세요.');
+			form.title.select();
+			return false;
+		}
+		else if(content==""){
+			alert('내용을 입력해주세요.');
+			form.content.select();
+			return false;
+		} else
+			form.submit();
+	}
+	
 </script>
 </head>
 <body>
 	<h1>${board.writer}의  작성글</h1>
 	<hr>
-	<form action="/board/edit" method="post">
+	<form name="editForm" action="/board/edit" method="post">
 	<!-- Post는 절대 action태그에 ? 와 같은 쿼리를 전송하면 안된다. -->
 		<table>
 			<tr>
@@ -65,9 +83,10 @@
 				<td>${time}</td>
 			</tr>
 		</table>
-		<input type="submit" value="수정" onlick="confirm('수정하시겠습니까?')">
+		<div style="text-align: right; margin: 20px 20%">
+			<input type="button" value="수정" onclick="check()">  <a href="./list2"><input type="button" value="목록으로"></a>
+		</div>
 	</form>
 	
-	<p style="position: absolute; right: 20%"><a href="./list2"><input type="button" value="목록으로"></a>
 </body>
 </html>

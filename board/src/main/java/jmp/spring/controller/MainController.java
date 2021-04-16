@@ -63,11 +63,37 @@ public class MainController {
 	}
 	
 	@PostMapping("/edit")
-	public String editPostProcess(BoardVO board) {
+	public String editPostProcess(BoardVO board, RedirectAttributes rttr) {
 		log.info("edit..........");
 		log.info(board);
-		service.modify(board);
+		boolean res = service.modify(board);
+		String resMsg = "";
+		if(res==true)
+			resMsg = "수정 되었습니다.";
+		else
+			resMsg = "error! 관리자에게 문의 해주세요";
 		log.info(board);
-		return "redirect:/board/get?bno="+board.getBno();
+		rttr.addAttribute("bno", board.getBno());
+		rttr.addFlashAttribute("resMsg", resMsg);
+		return "redirect:/board/get";
+	}
+	
+	@GetMapping("delete")
+	public String editExe(BoardVO board, RedirectAttributes rttr) {
+		log.info("delete...........");
+		Long bno = board.getBno();
+		String resMsg = "";
+		boolean res = service.remove(bno);
+		if(res) {
+			resMsg = bno+"번 글이 삭제되었습니다.";
+			rttr.addFlashAttribute("resMsg", resMsg);
+//			redirect를 안쓰면 delete?bno=10이 지워졌어도 url상엔 계속 남아있음
+			return "redirect:/board/list2";
+		} else {
+			resMsg = "error! 관리자에게 문의 해주세요.";
+			rttr.addAttribute("bno", bno);
+			return "redirect:/board/get";
+		}
+
 	}
 }
