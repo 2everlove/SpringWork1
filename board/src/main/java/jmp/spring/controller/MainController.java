@@ -20,7 +20,7 @@ public class MainController {
 	
 	private final jmp.spring.service.BoardService service;
 	
-	@GetMapping("/list2")
+	@GetMapping("/list")
 	public void getList(Model model) {
 		//화면단에서는 매개변수로 model을 받는다
 		log.info("list.........");
@@ -52,7 +52,7 @@ public class MainController {
 		rttr.addFlashAttribute("resMsg", bno+"번 글이 작성되었습니다.");
 		//redirect된 화면에 단 한번 전송해줌
 		
-		return "redirect:/board/list2";
+		return "redirect:/board/list";
 	}
 	
 	@GetMapping({"/get","/edit"})//query를 pk인 bno로 받아서 로직에 전달
