@@ -5,10 +5,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jmp.spring.domain.BoardVO;
+import jmp.spring.domain.Criteria;
+import jmp.spring.domain.PageDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
@@ -21,10 +22,12 @@ public class MainController {
 	private final jmp.spring.service.BoardService service;
 	
 	@GetMapping("/list")
-	public void getList(Model model) {
+	public void getList(Criteria cri, Model model) {
+		PageDTO page = new PageDTO(cri, service.getTotal());
 		//화면단에서는 매개변수로 model을 받는다
-		log.info("list.........");
-		model.addAttribute("list", service.getList());
+		log.info("list........."+page);
+		model.addAttribute("list", service.getList(cri));
+		model.addAttribute("pageMaker", page);
 	}
 	
 	@GetMapping("/register")
@@ -49,7 +52,7 @@ public class MainController {
 		
 		log.info("bno : "+bno);
 		
-		rttr.addFlashAttribute("resMsg", bno+"번 글이 작성되었습니다.");
+		rttr.addFlashAttribute("resMsg", bno);
 		//redirect된 화면에 단 한번 전송해줌
 		
 		return "redirect:/board/list";

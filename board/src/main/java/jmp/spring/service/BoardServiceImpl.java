@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jmp.spring.domain.BoardVO;
+import jmp.spring.domain.Criteria;
 import jmp.spring.mapper.BoardMapper;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -17,11 +18,11 @@ public class BoardServiceImpl implements BoardService {
 	@Setter(onMethod_ = @Autowired)
 	private BoardMapper boardMapper;
 	
-	@Override
+	/*@Override
 	public List<BoardVO> getList() {
 		log.info("getList.....");
 		return boardMapper.getList();
-	}
+	}*/
 
 	@Override
 	public Long register(BoardVO board) {
@@ -48,5 +49,19 @@ public class BoardServiceImpl implements BoardService {
 		log.info("remove....."+bno);
 		return boardMapper.delete(bno) == 1;
 	}
+
+	@Override
+	public List<BoardVO> getList(Criteria cri) {
+		log.info("paging....."+cri);
+		return boardMapper.getListWithPaging(cri);
+	}
+
+	@Override
+	public int getTotal() {
+		int total = boardMapper.getTotal();
+		log.info("getTotal....."+total);
+		return total;
+	}
+	
 
 }

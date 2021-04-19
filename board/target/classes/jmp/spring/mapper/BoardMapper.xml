@@ -22,6 +22,25 @@
 		select * from tbl_board order by bno asc
 	</select>
 	
+	<!-- 페이징 처리 CDATA은 xml에서 사용할 수 없는 부등호를 사용하기 위해 씀 -->
+	<!-- (page*amount)-9 ->  -->
+	<select id="getListWithPaging" resultType="jmp.spring.domain.BoardVO">
+		<![CDATA[
+		select bno, title, content, writer, regdate, updatedate 
+		from 
+			(
+			select /*+INDEX_DESC(tbl_board pk_board) */
+				rownum rn, bno, title, content, writer, regdate, updatedate
+			from tbl_board where rownum <= (#{pageNum} * #{amount}) order by bno desc
+			)
+		where rn > ((#{pageNum} - 1) * #{amount})
+		]]>
+	</select>
+	
+	<select id="getTotal" resultType="int">
+		select count(*) from tbl_board
+	</select>
+	
 	<!-- 수정 -->
 	<update id="update">
 		update tbl_board

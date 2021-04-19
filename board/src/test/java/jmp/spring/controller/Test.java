@@ -10,6 +10,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.zaxxer.hikari.HikariDataSource;
 
@@ -62,4 +64,10 @@ public class Test {
 		log.info(sqlSession.getConnection());
 		log.info(tm.getTime());
 	}
+	
+	/*
+	 * @org.junit.Test public void testListPaging() throws Exception {
+	 * log.info(mockMvc.perform( MockMvcRequestBuilders.get("/board/list")
+	 * .param("pageNum", "2") .param("amount", "50")) .andReturn(). }
+	 */
 }
