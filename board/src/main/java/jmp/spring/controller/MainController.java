@@ -3,6 +3,7 @@ package jmp.spring.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -23,7 +24,8 @@ public class MainController {
 	
 	@GetMapping("/list")
 	public void getList(Criteria cri, Model model) {
-		PageDTO page = new PageDTO(cri, service.getTotal());
+		int total = service.getTotal(cri);//전체 글 수
+		PageDTO page = new PageDTO(cri, total);
 		//화면단에서는 매개변수로 model을 받는다
 		log.info("list........."+page);
 		model.addAttribute("list", service.getList(cri));
@@ -59,14 +61,14 @@ public class MainController {
 	}
 	
 	@GetMapping({"/get","/edit"})//query를 pk인 bno로 받아서 로직에 전달
-	public void getProcess(Long bno, Model model) {
+	public void getProcess(Long bno, @ModelAttribute("cri") Criteria cri, Model model) {
 		log.info("get.........");
 		//model에 servie로직에 담긴 값을 담아서 넘김
 		model.addAttribute("board", service.get(bno));
 	}
 	
 	@PostMapping("/edit")
-	public String editPostProcess(BoardVO board, RedirectAttributes rttr) {
+	public String editPostProcess(BoardVO board, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
 		log.info("edit..........");
 		log.info(board);
 		boolean res = service.modify(board);
@@ -77,12 +79,14 @@ public class MainController {
 			resMsg = "error! 관리자에게 문의 해주세요";
 		log.info(board);
 		rttr.addAttribute("bno", board.getBno());
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
 		rttr.addFlashAttribute("resMsg", resMsg);
 		return "redirect:/board/get";
 	}
 	
-	@GetMapping("delete")
-	public String editExe(BoardVO board, RedirectAttributes rttr) {
+	@PostMapping("delete")
+	public String editExe(BoardVO board, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
 		log.info("delete...........");
 		Long bno = board.getBno();
 		String resMsg = "";
@@ -90,8 +94,10 @@ public class MainController {
 		if(res) {
 			resMsg = bno+"번 글이 삭제되었습니다.";
 			rttr.addFlashAttribute("resMsg", resMsg);
+			rttr.addAttribute("pageNum", cri.getPageNum());
+			rttr.addAttribute("amount", cri.getAmount());
 //			redirect를 안쓰면 delete?bno=10이 지워졌어도 url상엔 계속 남아있음
-			return "redirect:/board/list2";
+			return "redirect:/board/list";
 		} else {
 			resMsg = "error! 관리자에게 문의 해주세요.";
 			rttr.addAttribute("bno", bno);

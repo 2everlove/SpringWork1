@@ -73,7 +73,17 @@ public class BoardMapperTests {
 	}
 	
 	@Test
-	public void testGetTotal() {
-		log.info("Total : "+boardMapper.getTotal());
+	public void testGetTotal(Criteria cri) {
+		log.info("Total : "+boardMapper.getTotal(cri));
+	}
+	
+	@Test
+	public void testSearch() {
+		Criteria cri = new Criteria();
+		cri.setKeyword("j");
+		cri.setType("TC");
+		
+		List<BoardVO> list = boardMapper.getListWithPaging(cri);
+		list.forEach(board -> log.info(board));
 	}
 }

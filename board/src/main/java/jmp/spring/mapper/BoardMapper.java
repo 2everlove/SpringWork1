@@ -29,6 +29,6 @@ public interface BoardMapper {
 	void insertSelectKey(BoardVO board);
 	
 	//total (몇 페이지까지?) 
-	int getTotal();
+	int getTotal(Criteria cri);
 	
 }

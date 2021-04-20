@@ -5,7 +5,47 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2021-04-16T03:50:00Z</updated>
+  <updated>2021-04-20T07:26:00Z</updated>
+  <entry>
+    <title>This Week in Spring - April 20th, 2021</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/04/20/this-week-in-spring-april-20th-2021" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2021-04-20:4421</id>
+    <updated>2021-04-20T07:26:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! This week we&amp;rsquo;ve got a ton of stuff to get to so let&amp;rsquo;s dive right in! &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="https://www.youtube.com/watch?app=desktop&amp;v=DD_Q4jGJsZ0"&gt;5 WAYS to go to PRODUCTION with SPRING BOOT (ft. surprise guest)! - YouTube&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/04/15/a-bootiful-podcast-biden-campaign-cto-spinnaker-cofounder-target-distinguished-engineer-and-all-around-epic-guy-dan-woods"&gt;A Bootiful Podcast: Biden campaign CTO, Spinnaker cofounder, Target distinguished engineer, and all around epic guy Dan Woods&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/ghillert/status/1382258134232690688?s=12"&gt;A cool sample Spring Boot app from Oracle&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/odrotbohm/status/1382386586705391617?s=12"&gt;A nice blog on Spring HATEOAS&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/asirselvasingh/status/1382002413846945797?s=12"&gt;An interesting use case with Azure Spring Cloud and SwissRe&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://kubernetes.io/blog/2021/04/20/annotating-k8s-for-humans/"&gt;Blog: Annotating Kubernetes Services for Humans&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://kubernetes.io/blog/2021/04/20/defining-networkpolicy-conformance-cni-providers/"&gt;Blog: Defining Network Policy Conformance for Container Network Interface (CNI) providers&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://kubernetes.io/blog/2021/04/19/introducing-indexed-jobs/"&gt;Blog: Introducing Indexed Jobs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://kubernetes.io/blog/2021/04/14/local-storage-features-go-beta/"&gt;Blog: Local Storage: Storage Capacity Tracking, Distributed Provisioning and Generic Ephemeral Volumes hit Beta&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://kubernetes.io/blog/2021/04/15/three-tenancy-models-for-kubernetes/"&gt;Blog: Three Tenancy Models For Kubernetes&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://kubernetes.io/blog/2021/04/16/volume-health-monitoring-alpha-update/"&gt;Blog: Volume Health Monitoring Alpha Update&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=ZlgwVIBUU9M&amp;list=PLgGXSWYM2FpPw8rV0tZoMiJYSCiLhPnOc&amp;index=1"&gt;Bootiful Cassandra with DataStax&amp;rsquo;s Patrick McFadin, Cedrick Lunven, and Spring&amp;rsquo;s Josh Long - YouTube&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://vinsguru.medium.com/choreography-saga-pattern-with-spring-boot-microservice-design-patterns-fb35a1802bee"&gt;Choreography Saga Pattern With Spring Boot ? Microservice Design Patterns | by Vinoth Selvaraj | Medium&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=pzT1Iq4Vmo0&amp;t=2249s"&gt;Efficient web apps with Spring Boot | Stephane Nicoll and Brian Clozel ( Spring Committers) - YouTube&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://devxconf.org/#speakers"&gt;I&amp;rsquo;m so excited to be presenting at the first DevX Conf along such luminaries as Jason Warner, Erich Gamma, Ellen Chisa, and more. Please join me on April 28-29, 2021!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/04/13/introducing-spring-cloud-square"&gt;Introducing Spring Cloud Square&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://jackson.sh/posts/2021-04-java-underrated/"&gt;Java is criminally underhyped&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/msdev/status/1382091230008512519?s=12"&gt;Microsoft developer tweet about upcoming webinar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/04/15/spring-boot-2-3-10-is-now-available"&gt;Spring Boot 2.3.10 is now available&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/04/15/spring-boot-2-4-5-available-now"&gt;Spring Boot 2.4.5 available now&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/04/15/spring-boot-2-5-0-rc1-available-now"&gt;Spring Boot 2.5.0-RC1 available now&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/04/14/spring-data-2021-0-goes-ga"&gt;Spring Data 2021.0 goes GA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/04/14/spring-data-neumann-sr9-and-2020-0-8-available"&gt;Spring Data Neumann SR9 and 2020.0.8 available&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/04/13/spring-framework-5-3-6-and-5-2-14-available-now"&gt;Spring Framework 5.3.6 and 5.2.14 available now&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/04/14/spring-integration-5-5-rc1-5-4-6-5-3-7-available"&gt;Spring Integration 5.5 RC1, 5.4.6 &amp;amp; 5.3.7 Available&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/04/14/spring-for-apache-kafka-2-7-0-available"&gt;Spring for Apache Kafka 2.7.0 Available&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Boot 2.5.0-RC1 available now</title>
     <link rel="alternate" href="https://spring.io/blog/2021/04/15/spring-boot-2-5-0-rc1-available-now" />
@@ -755,19 +795,6 @@ public KeyResolver customKeyResolver {&#xD;
   &lt;li&gt;&lt;a href="https://www.sebastianbuza.com/2021/03/27/testing-the-file-upload-api-in-spring-boot-java-code-geeks/"&gt;Testing the file upload API in Spring Boot&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="https://reflectoring.io/spring-boot-elasticsearch/"&gt;Using Elasticsearch in Spring Boot&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>A Bootiful Podcast: Shigeru Urushibara, President and CEO at UL Systems, Inc., and Japanese technology ecosystem legend</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/03/25/a-bootiful-podcast-shigeru-urushibara-president-and-ceo-at-ul-systems-inc-and-japanese-technology-ecosystem-legend" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2021-03-25:4400</id>
-    <updated>2021-03-25T23:48:00Z</updated>
-    <content type="html">&lt;iframe title="Shigeru Urushibara, President and CEO at UL Systems, Inc., and Japanese technology ecosystem legend" allowtransparency="true" height="150" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=z3wk6-fedb28-pb&amp;from=pb6admin&amp;download=1&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Arial&amp;skin=1&amp;btn-skin=7"&gt;&lt;/iframe&gt;
-&lt;p&gt;Hi, Spring fans! In this episode, Josh Long (@starbuxman) talks to one of the most inspiring people in the technology world, a friend, and inspiration, Mr. Shigeru Urushibara (@urucrunch). Urushibara-san is a Java and Spring programmer and a general technology enthusiast. He&amp;rsquo;s founder, president, and director of ULS Group Inc., an information technology company headquartered in Tokyo that is listed on the JASDAQ Securities Exchange and that employs hundreds of people. He&amp;rsquo;s a friend of the Java community and we&amp;rsquo;re honored to have him on the show.&lt;/p&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>

@@ -30,9 +30,14 @@
                        			<label>Writer</label><input class="form-control" name="writer" value="${board.writer}" readonly="readonly">
                        		</div>
                        		<div>
-                       			<button type="submit" class="btn btn-default" onclick="location.href='/board/modify?bno=${board.bno}'">Modify</button>
-                       			<button type="reset" class="btn btn-info" onclick="location.href='/board/list'">List</button>
+                       			<button data-oper='edit' class="btn btn-default">Modify</button>
+                       			<button data-oper='list' class="btn btn-info">List</button>
                        		</div>
+                       		<form id='operForm' action="/board/edit" method="get">
+					           	<input type="hidden" id="bno" name="bno" value="<c:out value="${board.bno}" />">
+					           	<input type="hidden" name="pageNum" value="${cri.pageNum}">
+								<input type="hidden" name="amount" value="${cri.amount}">
+				            </form>
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -41,4 +46,19 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script type="text/javascript">
+            	$(document).ready(function(){
+            		const operForm = $("#operForm");
+            		$("button[data-oper='edit']").on("click", function(e){
+            			operForm.attr("action","/board/edit").submit();
+            		});
+            		$("button[data-oper='list']").on("click", function(e){
+            			operForm.find("#bno").remove();
+            			operForm.attr("action","/board/list")
+            			operForm.submit();
+            		});
+            	})
+            </script>
+            
             <%@include file="../includes/footer.jsp" %>

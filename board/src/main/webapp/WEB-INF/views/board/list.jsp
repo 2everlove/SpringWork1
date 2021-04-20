@@ -30,7 +30,7 @@
 						<c:forEach items="${list}" var="board">
 						<tr class="odd gradeX">
 							<td>${board.bno}</td>
-							<td><a href='/board/get?bno=${board.bno}'>${board.title}</a></td>
+							<td><a class='move' href='<c:out value="${board.bno}"/>'>${board.title}</a></td>
 							<td>${board.writer}</td>
 							<!-- regdate와 updateDate가 String 형태라 우선 Date형태로 만듬 -->
 							<fmt:parseDate var="regDate" value="${board.regdate}" pattern="yyyy-MM-dd HH:mm:ss" />
@@ -39,24 +39,50 @@
 							<fmt:formatDate value="${regDate}" pattern="yy.MM.dd" var="regdate"/>
 							<td>${regdate}</td>
 							<c:choose>
-							<c:when test="${empty board.updateDate}">
-							<td>${regdate}</td>
-							</c:when>
-							<c:otherwise>
-							<fmt:formatDate value="${updateDate}" pattern="yy.MM.dd" var="update"/>
-							<td>${update}</td>
-							</c:otherwise>
+								<c:when test="${empty board.updateDate}">
+									<td>${regdate}</td>
+								</c:when>
+								<c:otherwise>
+									<fmt:formatDate value="${updateDate}" pattern="yy.MM.dd" var="update"/>
+									<td>${update}</td>
+								</c:otherwise>
 							</c:choose>
 						</tr>
 						</c:forEach>
 					</table>
 					<!-- /.table-responsive -->
+					<div class="row">
+						<div class="col-lg-12">
+							<form id='searchForm' action="/board/list" method='get'>
+								<select name="type">
+									<option value="">--</option>
+									<option value="T">제목</option>
+									<option value="C">내용</option>
+									<option value="W">작성자</option>
+									<option value="TC">제목+내용</option>
+									<option value="TCW">제목+내용+작성자</option>
+								</select>
+								<input type="text" name="keyword">
+								<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
+								<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
+								<button class="btn btn-default">Search</button>
+							</form>
+						</div>
+					</div>
 					<div class='pull-right'>
 						<ul class="pagination">
 							<c:if test="${pageMaker.prev}">
 								<li class="paginate_button previous"><a href="${pageMaker.startPage - 1}">Previous</a></li>
 							</c:if>
 							<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+							<%-- <c:choose>
+								<c:when test="${page eq pageMaker.cri.pageNum}">
+									<li class="paginate_button active"><a href="${num}">${num}</a></li>
+								</c:when>
+								<c:otherwise>
+									<li class="paginate_button"><a href="${num}">${num}</a></li>
+								</c:otherwise>
+							</c:choose> --%>
 								<li class="paginate_button ${pageMaker.cri.pageNum == num ? "active":""}"><a href="${num}">${num}</a></li>
 							</c:forEach>
 							<c:if test="${pageMaker.next}">
@@ -121,5 +147,28 @@
 			actionForm.find("input[name='pageNum']").val($(this).attr("href"));
 			actionForm.submit();
 		});
+		$(".move").on("click", function(e){
+			e.preventDefault();
+			actionForm.append("<input type='hidden' name='bno' value='"+$(this).attr("href")+"'>");
+			actionForm.attr("action","/board/get");
+			actionForm.submit();
+		});
 	});
+	
+	
+	const searchForm = $('#searchForm');
+	$("#searchForm button").on("click", function(e){
+		if(!searchForm.find("option:selecte").val()){
+			alert("검색종류를 선택하세요");
+			return false;
+		}
+		if(!searchForm.find("input[name='keyword']").val()){
+			alert("키워드를 입력하세요");
+			return false;
+		}
+		searchForm.find("input[name='pageNum']").val("1");
+		e.preventDefault();
+		
+		searchForm.submit();
+	})
 </script>
