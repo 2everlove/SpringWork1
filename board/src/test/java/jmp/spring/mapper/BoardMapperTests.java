@@ -80,7 +80,7 @@ public class BoardMapperTests {
 	@Test
 	public void testSearch() {
 		Criteria cri = new Criteria();
-		cri.setKeyword("j");
+		cri.setKeyword("따뜻");
 		cri.setType("TC");
 		
 		List<BoardVO> list = boardMapper.getListWithPaging(cri);

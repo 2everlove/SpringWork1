@@ -80,7 +80,10 @@
 			console.log(operation);
 			
 			if(operation === 'delete'){
-				formObj.attr("action","/board/delete");
+				if(confirm('삭제하시겠습니까?'))
+					formObj.attr("action","/board/delete");
+				else
+					return;
 			} else if(operation === 'list'){
 				formObj.attr("action","/board/list").attr("method","get");
 				const pageNumTag= $("input[name='pageNum']").clone();

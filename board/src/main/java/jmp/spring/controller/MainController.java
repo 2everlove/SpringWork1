@@ -28,6 +28,7 @@ public class MainController {
 		PageDTO page = new PageDTO(cri, total);
 		//화면단에서는 매개변수로 model을 받는다
 		log.info("list........."+page);
+		log.info("keyword........."+cri.getKeyword()+cri.getType());
 		model.addAttribute("list", service.getList(cri));
 		model.addAttribute("pageMaker", page);
 	}
@@ -54,7 +55,7 @@ public class MainController {
 		
 		log.info("bno : "+bno);
 		
-		rttr.addFlashAttribute("resMsg", bno);
+		rttr.addFlashAttribute("resMsg", bno+"번 글이 작성되었습니다.");
 		//redirect된 화면에 단 한번 전송해줌
 		
 		return "redirect:/board/list";
@@ -71,18 +72,17 @@ public class MainController {
 	public String editPostProcess(BoardVO board, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
 		log.info("edit..........");
 		log.info(board);
+		Long bno = board.getBno();
 		boolean res = service.modify(board);
 		String resMsg = "";
 		if(res==true)
-			resMsg = "수정 되었습니다.";
+			resMsg = bno+"번 글이 수정 되었습니다.";
 		else
 			resMsg = "error! 관리자에게 문의 해주세요";
 		log.info(board);
 		rttr.addAttribute("bno", board.getBno());
-		rttr.addAttribute("pageNum", cri.getPageNum());
-		rttr.addAttribute("amount", cri.getAmount());
 		rttr.addFlashAttribute("resMsg", resMsg);
-		return "redirect:/board/get";
+		return "redirect:/board/list"+cri.getListLink();
 	}
 	
 	@PostMapping("delete")
@@ -94,10 +94,8 @@ public class MainController {
 		if(res) {
 			resMsg = bno+"번 글이 삭제되었습니다.";
 			rttr.addFlashAttribute("resMsg", resMsg);
-			rttr.addAttribute("pageNum", cri.getPageNum());
-			rttr.addAttribute("amount", cri.getAmount());
 //			redirect를 안쓰면 delete?bno=10이 지워졌어도 url상엔 계속 남아있음
-			return "redirect:/board/list";
+			return "redirect:/board/list"+cri.getListLink();
 		} else {
 			resMsg = "error! 관리자에게 문의 해주세요.";
 			rttr.addAttribute("bno", bno);
