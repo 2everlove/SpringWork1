@@ -23,14 +23,18 @@ public class MainController {
 	private final jmp.spring.service.BoardService service;
 	
 	@GetMapping("/list")
-	public void getList(Criteria cri, Model model) {
+	public String getList(Criteria cri, Model model) {
 		int total = service.getTotal(cri);//전체 글 수
 		PageDTO page = new PageDTO(cri, total);
+		//String resMsg = page.getTotal()==0 ? "게시물이 없습니다." : "";
 		//화면단에서는 매개변수로 model을 받는다
 		log.info("list........."+page);
+		log.info("model........."+model);
 		log.info("keyword........."+cri.getKeyword()+cri.getType());
 		model.addAttribute("list", service.getList(cri));
 		model.addAttribute("pageMaker", page);
+		//model.addAttribute("resMsg", resMsg);
+		return "/board/list";
 	}
 	
 	@GetMapping("/register")
@@ -80,6 +84,7 @@ public class MainController {
 		else
 			resMsg = "error! 관리자에게 문의 해주세요";
 		log.info(board);
+		//화면 이동시 bno에 대한 쿼리를 남겨줌 /board/list?bno=
 		rttr.addAttribute("bno", board.getBno());
 		rttr.addFlashAttribute("resMsg", resMsg);
 		return "redirect:/board/list"+cri.getListLink();

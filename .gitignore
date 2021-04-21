@@ -53,3 +53,4 @@ ex02/target/m2e-wtp/web-resources/META-INF/maven/jmp.spring/ojdbc/pom.properties
 *.json
 *.snap
 /.metadata/
+.metadata/.plugins/com.genuitec.eclipse.monitor/myeclipse-usage.properties

@@ -27,8 +27,14 @@
 							<th>수정일</th>
 						</tr>
 					</thead>
+						<c:if test="${pageMaker.total==0}">
+							<tr class="odd gradeX">
+								<td colspan="5" style="text-align:center; color:grey;"><b>게시글이 존재하지 않습니다.</b></td>
+							</tr>
+						</c:if>
 						<c:forEach items="${list}" var="board">
 						<tr class="odd gradeX">
+						
 							<td>${board.bno}</td>
 							<td><a class='move' href='<c:out value="${board.bno}"/>'>${board.title}</a></td>
 							<td>${board.writer}</td>
@@ -56,7 +62,7 @@
 							<form id='searchForm' action="/board/list" method='get'>
 								<select name="type">
 									<option value="" <c:out value="${pageMaker.cri.type == null?'selected':''}"/>>--</option>
-									<option value="T" <c:out value="${pageMaker.cri.type eq 'T'?'selected':''}"/>>제목</option>
+									<option value="T" <c:out value="${pageMaker.cri.type eq 'T'?'selected':''}"/> selected="selected">제목</option>
 									<option value="C" <c:out value="${pageMaker.cri.type eq 'C'?'selected':''}"/>>내용</option>
 									<option value="W" <c:out value="${pageMaker.cri.type eq 'W'?'selected':''}"/>>작성자</option>
 									<option value="TC" <c:out value="${pageMaker.cri.type eq 'TC'?'selected':''}"/>>제목+내용</option>

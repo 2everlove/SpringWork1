@@ -20,6 +20,9 @@
 				<form role="form" action="/board/edit" method="post">
 					<input type="hidden" name="pageNum" value="${cri.pageNum}">
 					<input type="hidden" name="amount" value="${cri.amount}">
+					<input type="hidden" name="type" value="${cri.type}">
+					<input type="hidden" name="keyword" value="${cri.keyword}">
+					
 					<div class="form-group">
 						<label>Bno</label><input class="form-control" name="bno" value='<c:out value="${board.bno}"/>' readonly="readonly">
 					</div>
@@ -39,18 +42,18 @@
 					<fmt:formatDate value="${regDate}" pattern="yy.MM.dd" var="regdate"/>
 					
 					<div class="form-group">
-						<label>RegDate</label><input class="form-control" name="regDate" value='<c:out value="${regdate}"/>'>
+						<label>RegDate</label><input class="form-control" name="regDate" value='<c:out value="${regdate}"/>' readonly="readonly">
 					</div>
 	
 					<div class="form-group">
 						<label>Update Date</label>
 						<c:choose>
 							<c:when test="${empty board.updateDate}">
-								<input class="form-control" name="updateDate" value='<c:out value="${regdate}"/>'>
+								<input class="form-control" name="updateDate" value='<c:out value="${regdate}"/>' readonly="readonly">
 							</c:when>
 							<c:otherwise>
 								<fmt:formatDate value="${updateDate}" pattern="yy.MM.dd" var="update"/>
-								<input class="form-control" name="updateDate" value='<c:out value="${update}"/>'>
+								<input class="form-control" name="updateDate" value='<c:out value="${update}"/>' readonly="readonly">
 							</c:otherwise>
 						</c:choose>
 					</div>
@@ -86,12 +89,21 @@
 					return;
 			} else if(operation === 'list'){
 				formObj.attr("action","/board/list").attr("method","get");
+				
+				//clone으로 요소값을 const로 선언된 변수에 할당
 				const pageNumTag= $("input[name='pageNum']").clone();
 				const amountTag= $("input[name='amount']").clone();
+				const keywordTag= $("input[name='keyword']").clone();
+				const typeTag= $("input[name='type']").clone();
 				
+				//요소의 내용을 지움
 				formObj.empty();
+				
+				//변수에 할당된 요소 값을 form에 생성해줌
 				formObj.append(pageNumTag);
 				formObj.append(amountTag);
+				formObj.append(keywordTag);
+				formObj.append(typeTag);
 			}
 			formObj.submit();
 		});

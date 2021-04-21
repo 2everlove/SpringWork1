@@ -48,7 +48,8 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            
+            <%@include file="../includes/footer.jsp" %>
             <script type="text/javascript">
             	$(document).ready(function(){
             		const operForm = $("#operForm");
@@ -62,5 +63,3 @@
             		});
             	})
             </script>
-            
-            <%@include file="../includes/footer.jsp" %>
