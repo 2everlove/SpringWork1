@@ -55,7 +55,8 @@ public class BoardServiceTests {
 	}
 	
 	@Test
-	public void testTotal(Criteria cri) {
+	public void testTotal() {
+		Criteria cri = new Criteria();
 		log.info(service.getTotal(cri));
 	}
 }

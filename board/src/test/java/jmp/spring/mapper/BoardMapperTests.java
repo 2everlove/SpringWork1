@@ -73,7 +73,12 @@ public class BoardMapperTests {
 	}
 	
 	@Test
-	public void testGetTotal(Criteria cri) {
+	public void testGetTotal() {
+		Criteria cri = new Criteria();
+		cri.setPageNum(1);
+		cri.setAmount(10);
+		cri.setKeyword("따뜻");
+		cri.setType("TC");
 		log.info("Total : "+boardMapper.getTotal(cri));
 	}
 	

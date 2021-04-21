@@ -43,9 +43,9 @@
 		<item value="org.eclipse.jst.ws.jaxws.feature:1.2.500.v201903021515"/>
 		<item value="org.eclipse.m2e.feature:1.13.0.20190716-1624"/>
 		<item value="org.eclipse.m2e.logback.feature:1.13.0.20190716-1624"/>
-		<item value="org.eclipse.m2e.wtp.feature:1.4.2.20190530-0057"/>
-		<item value="org.eclipse.m2e.wtp.jaxrs.feature:1.4.2.20190530-0057"/>
-		<item value="org.eclipse.m2e.wtp.jsf.feature:1.4.2.20190530-0057"/>
+		<item value="org.eclipse.m2e.wtp.feature:1.4.3.20191209-1849"/>
+		<item value="org.eclipse.m2e.wtp.jaxrs.feature:1.4.3.20191209-1849"/>
+		<item value="org.eclipse.m2e.wtp.jsf.feature:1.4.3.20191209-1849"/>
 		<item value="org.eclipse.mylyn.bugzilla_feature:3.25.0.v20190128-2356"/>
 		<item value="org.eclipse.mylyn.commons.identity:1.17.0.v20180628-1730"/>
 		<item value="org.eclipse.mylyn.commons.notifications:1.17.0.v20190115-0848"/>
@@ -82,7 +82,7 @@
 		<item value="org.jboss.tools.m2e.wro4j.feature:1.1.0.201406251020"/>
 		<item value="org.sonatype.m2e.buildhelper.feature:0.15.0.201207090124"/>
 		<item value="org.sonatype.m2e.egit.feature:0.15.1.201806191431"/>
-		<item value="org.sonatype.m2e.mavenarchiver.feature:0.17.4.201905300046"/>
+		<item value="org.sonatype.m2e.mavenarchiver.feature:0.17.5.202002191804"/>
 		<item value="org.springframework.ide.eclipse.ajdt.feature:3.9.11.201912160804-RELEASE"/>
 		<item value="org.springframework.ide.eclipse.aop.feature:3.9.11.201912160804-RELEASE"/>
 		<item value="org.springframework.ide.eclipse.autowire.feature:3.9.11.201912160804-RELEASE"/>
