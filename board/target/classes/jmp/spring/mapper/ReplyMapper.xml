@@ -16,7 +16,7 @@
 	</select>
 	
 	<delete id="delete">
-		delete from tbl_reply where bno = #{bno}
+		delete from tbl_reply where rno = #{rno}
 	</delete>
 	
 	<update id="update">

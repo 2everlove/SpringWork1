@@ -5,7 +5,458 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2021-04-20T07:26:00Z</updated>
+  <updated>2021-04-21T06:18:00Z</updated>
+  <entry>
+    <title>What's new in Spring Data 2021.0?</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/04/20/what-s-new-in-spring-data-2021-0" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Mark Paluch</name>
+    </author>
+    <id>tag:spring.io,2021-04-15:4418</id>
+    <updated>2021-04-21T06:18:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;Spring Data 2021.0, codenamed Pascal, is the second release following the new six-month cadence.
+It ships with refinements to many existing interfaces and programming models.
+This blog post explains the following topics:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="#delete-all-by-id"&gt;Introduce &lt;code&gt;deleteAllById&lt;/code&gt; for &lt;code&gt;CrudRepository&lt;/code&gt; and &lt;code&gt;ReactiveCrudRepository&lt;/code&gt;.&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="#jfr"&gt;Support for Spring Core Java Flight Recorder (JFR) metrics.&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="#query-by-example"&gt;&lt;code&gt;QueryByExample&lt;/code&gt; for R2DBC and Oracle support.&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="#kotlin"&gt;Enable Type- and Refactoring-safe Use of &lt;code&gt;KProperty&lt;/code&gt; and &lt;code&gt;KPropertyPath&lt;/code&gt; for Property Path Rendering.&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="#cassandra"&gt;Enable Cassandra Prepared Statements for Repositories and &lt;code&gt;CassandraTemplate&lt;/code&gt;.&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="#mongodb"&gt;Document Unwrapping Support &amp;amp; Relaxed Aggregation Type Checks for MongoDB.&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Repository projections &amp;amp; function execution for Apache Geode.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="#solr"&gt;Remove Spring Data Solr from the release train.&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="#jmolecules"&gt;Support for &lt;a href="https://github.com/xmolecules/jmolecules"&gt;jMolecules&lt;/a&gt;.&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="#spring-data-rest"&gt;Spring Data REST aggregate reference mapping in DTOs.&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="delete-all-by-id"&gt;&lt;a class="anchor" href="#delete-all-by-id"&gt;&lt;/a&gt;Introduce &lt;code&gt;deleteAllById&lt;/code&gt; for &lt;code&gt;CrudRepository&lt;/code&gt; and &lt;code&gt;ReactiveCrudRepository&lt;/code&gt;&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Since its inception, &lt;code&gt;CrudRepository&lt;/code&gt; has defined a method to delete individual entities by their identifiers.
+Back in the 1.x development line, &lt;code&gt;delete(・)&lt;/code&gt; methods were overloaded to accept various argument types following &lt;code&gt;delete(ID id)&lt;/code&gt; and &lt;code&gt;delete(Iterable&amp;lt;? extends T&amp;gt; entities)&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;With the Spring Data 2.0 release, we renamed the &lt;code&gt;CrudRepository&lt;/code&gt; methods to express what argument a particular method would accept. After the rename, the methods looked like &lt;code&gt;deleteById(ID id)&lt;/code&gt; and &lt;code&gt;deleteAll(Iterable&amp;lt;? extends T&amp;gt; entities)&lt;/code&gt;.
+The refined naming convention allows for some room to introduce a delete method that deletes entities by their identifier.
+As of this release, both, &lt;code&gt;CrudRepository&lt;/code&gt; and &lt;code&gt;ReactiveCrudRepository&lt;/code&gt; define &lt;code&gt;deleteAllById(Iterable&amp;lt;? extends ID&amp;gt; ids)&lt;/code&gt; to delete multiple entities.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Depending on the actual store module, this can be a batch delete (delete by query) if supported by the data store.
+The JPA implementation, for example, still materializes all entities first to immediately remove them, so that lifecycle callbacks are still invoked for the instances about to be deleted.
+An additional &lt;code&gt;deleteAllByIdInBatch(・)&lt;/code&gt; has been introduced in &lt;code&gt;JpaRepoository&lt;/code&gt; to also provide the faster execution variant using a batch query.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="jfr"&gt;&lt;a class="anchor" href="#jfr"&gt;&lt;/a&gt;Support for Spring Core Java Flight Recorder (JFR) metrics&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="https://docs.oracle.com/javacomponents/jmc-5-5/jfr-runtime-guide/preface_jfrrt.htm#JFRRT165"&gt;Java Flight Recorder (JFR)&lt;/a&gt; is a tool to collect, diagnose, and profile data about a running Java application.
+Its tight integration with the Java runtime allows low-overhead collection of events in production environments.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Spring Data repositories are typically bootstrapped on application startup, so they naturally contribute to startup time.
+The Pascal release introduces integration with Spring Framework&amp;#8217;s support for capturing &lt;a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/metrics/jfr/FlightRecorderApplicationStartup.html"&gt;startup events&lt;/a&gt;, available since version 5.3.
+By enabling JFR recording, you can collect and analyze the following repository startup events:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;strong&gt;For each enabled Spring Data module (&lt;code&gt;@Enable・Repositories&lt;/code&gt;)&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;spring.data.repository.scanning&lt;/code&gt;: Repository interface scanning&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;strong&gt;For each Repository&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;spring.data.repository.init&lt;/code&gt;: Repository initialization&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;spring.data.repository.metadata&lt;/code&gt;: Metadata retrieval&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;spring.data.repository.composition&lt;/code&gt;: Assembly of the repository composition&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;spring.data.repository.target&lt;/code&gt;: Repository target creation&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;spring.data.repository.proxy&lt;/code&gt;: Repository proxy creation&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;spring.data.repository.postprocessors&lt;/code&gt;: Repository proxy post-processing&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;You can enable JFR recording by starting your application with &lt;code&gt;java -XX:StartFlightRecording:filename=recording.jfr,duration=10s -jar ・&lt;/code&gt; on all Java 9 or newer runtimes or Java 8 update 262 or later.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="kotlin"&gt;&lt;a class="anchor" href="#kotlin"&gt;&lt;/a&gt;Type- and Refactoring-safe Use of &lt;code&gt;KProperty&lt;/code&gt; and &lt;code&gt;KPropertyPath&lt;/code&gt; for Property Path Rendering&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The Spring Data Kotlin integration is a strong driver for "syntactic sugar" enhancements of our language-specific extensions.
+Kotlin allows referencing individual properties as property references (&lt;code&gt;data class Book(val title: String)&lt;/code&gt;, &lt;code&gt;Book::title&lt;/code&gt;). They are refactoring- and compile-safe, as the Kotlin compiler immediately rejects invalid references.
+Modern IDE support considers property references when renaming a property, eliminating the risk of lingering references within plain strings.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="https://github.com/spring-projects/spring-data-mongodb/issues/3007"&gt;Spring Data MongoDB 2.2&lt;/a&gt; introduced support for &lt;code&gt;KProperty&lt;/code&gt; and &lt;code&gt;KPropertyPath&lt;/code&gt; for its &lt;code&gt;Criteria&lt;/code&gt; API&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;strong&gt;Classic usage of properties&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="kotlin"&gt;val classic = Criteria("title").isEqualTo("Moby-Dick")
+  .and("price").lt(950)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="kotlin"&gt;val typed = (Book::title isEqualTo "Moby-Dick")
+  .and(Book::price).lt(950)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Spring Data Commons 2.5 promotes &lt;code&gt;KPropertyPath&lt;/code&gt; as a top-level concept in Spring Data.
+To not require extensions or changes to all methods that accept a property path,  you can use`KPropertyPath` with existing Spring Data utilities by rendering the property path:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="kotlin"&gt;// KPropertyPath variant
+Sort.by((Book::author / Author::name).toDotPath())
+
+// String-path equivalent
+Sort.by("author.name")
+
+// KPropertyPath variant
+ExampleMatcher.matching()
+  .withMatcher((Book::author / Author::name).toDotPath(), contains())
+
+// String-path equivalent
+ExampleMatcher.matching()
+  .withMatcher("author.name", contains())&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="solr"&gt;&lt;a class="anchor" href="#solr"&gt;&lt;/a&gt;Removal of Spring Data for Apache Solr from the Release Train&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;This release train no longer ships with Spring Data for Apache Solr. After &lt;a href="https://spring.io/blog/2020/04/07/spring-data-for-apache-solr-discontinued"&gt;deprecating Spring Data Solr in 2020&lt;/a&gt;, the team has decided to discontinue maintenance of the Solr module.
+However, we are going to keep shipping service releases for the maintained 4.2 and 4.3 development lines until they reach their end of life in May 2021 and November 2021, respectively.
+Moving forward, we recommend using &lt;a href="https://github.com/spring-projects/spring-data-elasticsearch/"&gt;Spring Data Elasticsearch&lt;/a&gt; as the Spring Data module of choice for full-text search arrangements.
+Spring Data Elasticsearch is an actively maintained community module.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="query-by-example"&gt;&lt;a class="anchor" href="#query-by-example"&gt;&lt;/a&gt;&lt;code&gt;QueryByExample&lt;/code&gt; for R2DBC and Oracle support&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#query-by-example"&gt;Query by Example&lt;/a&gt; is a user-friendly querying technique with a simple interface.
+It allows dynamic query creation and does not require writing queries that contain field names.
+In fact, Query by Example does not require you to write queries by using SQL at all.
+It is available for multiple Spring Data modules.
+As of Spring Data R2DBC 1.3, you can query relational data by using examples through Spring Data R2DBC&amp;#8217;s implementation of &lt;code&gt;ReactiveQueryByExampleExecutor&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="java"&gt;PersonRepository people  = ・;
+DatabaseClient client = ・;
+
+var skyler = new Person(null, "Skyler", "White", 45);
+var walter = new Person(null, "Walter", "White", 50);
+var flynn = new Person(null, "Walter Jr. (Flynn)", "White", 17);
+var marie = new Person(null, "Marie", "Schrader", 38);
+var hank = new Person(null, "Hank", "Schrader", 43);
+
+var example = Example.of(new Person(null, null, "White", null));
+
+people.count(example).as(StepVerifier::create)
+  .expectNext(3L)
+  .verifyComplete();
+
+
+var example = Example.of(new Person(null, "Walter", "WHITE", null), matching()
+  .withIgnorePaths("age"). //
+  .withMatcher("firstname", startsWith())
+  .withMatcher("lastname", ignoreCase()));
+
+people.findAll(example).collectList()
+  .as(StepVerifier::create)
+  .consumeNextWith(actual -&amp;gt; {
+    assertThat(actual).containsExactlyInAnyOrder(flynn, walter);
+  })
+  .verifyComplete();&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Alongside other improvements, you can use Spring Framework 5.3.6 and Spring Data R2DBC 1.3 with Oracle&amp;#8217;s &lt;a href="https://github.com/oracle/oracle-r2dbc"&gt;&lt;code&gt;oracle-r2dbc&lt;/code&gt;&lt;/a&gt; (&lt;code&gt;com.oracle.database.r2dbc:oracle-r2dbc&lt;/code&gt;) driver. Creating &lt;code&gt;DatabaseClient&lt;/code&gt; or &lt;code&gt;R2dbcEntityTemplate&lt;/code&gt; by using the Oracle &lt;code&gt;ConnectionFactory&lt;/code&gt; selects the appropriate bind marker strategy and dialect.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="cassandra"&gt;&lt;a class="anchor" href="#cassandra"&gt;&lt;/a&gt;Enabling Cassandra Prepared Statements for Repositories and &lt;code&gt;CassandraTemplate&lt;/code&gt;&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Spring Data for Apache Cassandra accommodates for Cassandra-specific features wherever possible.
+Since its major rewrite in version 2.0, we introduced &lt;a href="https://docs.spring.io/spring-data/cassandra/docs/current/api/org/springframework/data/cassandra/core/cql/support/CachedPreparedStatementCreator.html"&gt;&lt;code&gt;CachedPreparedStatementCreator&lt;/code&gt;&lt;/a&gt; for prepared statement caching on the &lt;code&gt;CqlTemplate&lt;/code&gt; level, which allowed the use of prepared statements using plain CQL.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;With this release, we bring prepared statement support on &lt;code&gt;CassandraTemplate&lt;/code&gt; and its reactive and asynchronous variants.
+In fact, prepared statements are enabled by default. The main difference between &lt;code&gt;CqlTemplate&lt;/code&gt; and &lt;code&gt;CassandraTemplate&lt;/code&gt; is the abstraction level and the responsibility of CQL statement creation. &lt;code&gt;CqlTemplate&lt;/code&gt; requires CQL as input. &lt;code&gt;CassandraTemplate&lt;/code&gt; uses entities as input and generates CQL statements based on the actual action that should be performed using the entity.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The change to provide prepared statement functionality comes with a few changes when issuing queries:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="olist arabic"&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;
+&lt;p&gt;Parameters are bound by index when using &lt;code&gt;StatementBuilder&lt;/code&gt;. &lt;code&gt;StatementBuilder&lt;/code&gt; is used in all arrangements when building CQL queries for entity-related operations.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When binding parameters by index, inspecting a &lt;code&gt;SimpleStatement&lt;/code&gt; renders parameter bind markers within its CQL. CQL logging of &lt;code&gt;CqlTemplate&lt;/code&gt; is affected by this change as well: The logged CQL contains now &lt;code&gt;?&lt;/code&gt; instead of the literal value.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;These changes are required to allow statement preparation of parameterized statements.
+A statement to run is first prepared. Then, in a second step, it is bound with its actual parameters and then sent to the server for execution.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Cassandra&amp;#8217;s Java driver keeps track of prepared statement caching, so no work is required in terms of bean setup.
+Generally, you should experience a better query performance.
+Also, keep in mind that prepared statement caching requires additional memory to keep track of the prepared statement.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;You can disable prepared statement usage on &lt;code&gt;CassandraTemplate&lt;/code&gt; and its reactive and asynchronous variants:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="java"&gt;var template = new CassandraTemplate(session);
+template.setUsePreparedStatements(false);&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;You can find more detail in the &lt;a href="https://docs.spring.io/spring-data/cassandra/docs/current/reference/html/#cassandra.template.prepared-statements"&gt;Spring Data for Apache Cassandra reference documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="mongodb"&gt;&lt;a class="anchor" href="#mongodb"&gt;&lt;/a&gt;Document Unwrapping Support &amp;amp; Relaxed Aggregation Type Checks for MongoDB&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Value objects and record types help us create clearly structured domain models with maximum expressiveness.
+However, persisting those finely crafted models does not necessarily lead to a well-structured database document.
+What looks good in Java or Kotlin may cause unintended repetition of property names and deeply nested structures in the MongoDB native Document format that embeds entities within their parent structure.
+Consider the following trivial snippet and its representation:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="java"&gt;class User {
+  private String id;
+  private Email email;
+  // ・
+}
+
+record Email (String email) {}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="json"&gt;{
+  "_id" : "9708-ac32-beb0",
+  "email" : {
+    "email" : "me@home.somewhere"
+  },
+  // ・
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Although this works, it is obviously not an idiomatic representation for a document store, and that is exactly where &lt;code&gt;@Unwrapped&lt;/code&gt; comes into play.
+The annotation lets you flatten out (unwrap) a property into its parent:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="java"&gt; class User {
+  private String id;
+  @Unwrapped(onEmpty = OnEmpty.USE_NULL)
+  private Email email;
+  // ・
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;code&gt;@Unwrapped&lt;/code&gt; forces you to make a decision about how nonexistent values are treated by choosing an &lt;code&gt;onEmpty&lt;/code&gt; (none of the fields represented by the record is present) behavior.
+For those of you who prefer less verbose annotations, feel free to use &lt;code&gt;@Unwrapped.Nullable&lt;/code&gt; as an alternative or to create your own annotation by using &lt;code&gt;@Unwrapped&lt;/code&gt; as a meta annotation.
+Either way, the resulting document looks much more appealing:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="json"&gt;{
+  "_id" : "9708-ac32-beb0",
+  "email" : "me@home.somewhere",
+  // ・
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Both repositories and &lt;code&gt;MongoTemplate&lt;/code&gt; are able to deal with unwrapped properties.
+See the &lt;a href="https://docs.spring.io/spring-data/mongodb/docs/3.2.0/reference/html/#unwrapped-entities"&gt;reference documentation&lt;/a&gt; for more information. Also, check out the &lt;a href="https://github.com/spring-projects/spring-data-examples/blob/211d1440a26eebe407ae044eca4f7318232299b8/mongodb/example/src/test/java/example/springdata/mongodb/unwrapping/UnwrappingIntegrationTests.java"&gt;examples for &lt;code&gt;@Unwrapped&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="jmolecules"&gt;&lt;a class="anchor" href="#jmolecules"&gt;&lt;/a&gt;Support for jMolecules&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The Spring Data repository abstraction has always been a core concept within the project.
+It is a programming model for an architectural concept coined in Domain-Driven Design (DDD): the repository abstracts a collection of aggregates.
+In fact, Spring Framework itself aligns with a few other abstractions originating in DDD (such as services) and provides annotations to express them in user code.
+However, users often do not like to use framework-specific annotations and abstractions to express those concepts.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The &lt;a href="https://github.com/xmolecules/jmolecules"&gt;jMolecules&lt;/a&gt; project focuses solely on providing annotation and type-based abstractions with which different architectural concepts for technology can integrate.
+It essentially inverts the relationship: user code depends only on jMolecules annotations and interfaces, and technology integration is then provided&amp;#8201;&amp;#8212;&amp;#8201;in a second step&amp;#8201;&amp;#8212;&amp;#8201;either from &lt;a href="https://github.com/xmolecules/jmolecules-integrations"&gt;the extensive jMolecules integrations library&lt;/a&gt; or the frameworks themselves.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="modeling-associations"&gt;&lt;a class="anchor" href="#modeling-associations"&gt;&lt;/a&gt;Modeling Associations&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;One of the core abstractions in the Domain-Driven Design module of jMolecules is the &lt;code&gt;Association&lt;/code&gt; interface.
+It is typed to an &lt;code&gt;AggregateRoot&lt;/code&gt; as well as its &lt;code&gt;Identifier&lt;/code&gt; and is used in domain models to express a relationship to an aggregate in a strongly typed way:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="java"&gt;class Order implements AggregateRoot&amp;lt;Order, OrderIdentifier&amp;gt; {
+
+  OrderIdentifier id;
+  Association&amp;lt;Customer, CustomerIdentifier&amp;gt; customer;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Both &lt;code&gt;Order&lt;/code&gt; and &lt;code&gt;Customer&lt;/code&gt; are aggregates in this model, and the association between the two is explicitly mapped through the jMolecules &lt;code&gt;Association&lt;/code&gt; type.
+Spring Data 2021.0.0 ships mapping support for &lt;code&gt;Association&lt;/code&gt;s.
+They are properly detected as Spring Data associations and converted by using the identifier backing the instance.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;To transparently enable the support for those abstractions, add &lt;code&gt;org.jmolecules.integrations:jmolecules-spring&lt;/code&gt; to your classpath.
+Spring Data&amp;#8217;s mapping infrastructure detects that and automatically registers the necessary converters in the conversion parts of our object mapping facilities.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Support for &lt;code&gt;Association&lt;/code&gt; instances is also provided for JPA. However, in this case, Spring Data does not provide the actual translation, which is provided through integration with &lt;code&gt;AttributeConverter&lt;/code&gt; implementations provided by jMolecules itself.
+Using &lt;a href="https://github.com/xmolecules/jmolecules-integrations/tree/main/jmolecules-bytebuddy#reduce-boilerplate-for-aggregateroot-implementations"&gt;its ByteBuddy extension&lt;/a&gt; you can generate the necessary &lt;code&gt;AttributeConverter&lt;/code&gt; implementations and annotation configuration.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="mapping-between-identifiers-and-aggregate-instances"&gt;&lt;a class="anchor" href="#mapping-between-identifiers-and-aggregate-instances"&gt;&lt;/a&gt;Mapping between identifiers and aggregate instances&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;jMolecules' &lt;code&gt;Identifier&lt;/code&gt; interface incentivizes the use of dedicated identifier types for aggregates, as in the &lt;code&gt;OrderIdentifier&lt;/code&gt; and &lt;code&gt;CustomerIdentifier&lt;/code&gt; type used in the earlier example.
+When serializing the &lt;code&gt;Association&lt;/code&gt;, we now effectively have to translate the instance into a &lt;code&gt;CustomerIdentifier&lt;/code&gt; by calling &lt;code&gt;Association.getId()&lt;/code&gt; and &lt;code&gt;Identifier.getId()&lt;/code&gt; in turn to get to the value to actually persist.
+To materialize the association, we have to take the raw persisted value, create a &lt;code&gt;CustomerIdentifier&lt;/code&gt; instance by using an exposed, static factory method named &lt;code&gt;・.of(・)&lt;/code&gt; and eventually call &lt;code&gt;Association.of(・)&lt;/code&gt; again.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;All these translation steps are implemented in &lt;a href="https://github.com/xmolecules/jmolecules-integrations"&gt;&lt;code&gt;jmolecules-integrations&lt;/code&gt;&lt;/a&gt; and transparently added by Spring Data to the Spring &lt;code&gt;ConversionService&lt;/code&gt; for use by the framework.
+Assuming the &lt;code&gt;OrderIdentifier&lt;/code&gt; is backed by a &lt;code&gt;String&lt;/code&gt; representation of a &lt;code&gt;UUID&lt;/code&gt;, that also means that Spring Data&amp;#8217;s &lt;code&gt;DomainClassConverter&lt;/code&gt; is able to automatically bind a fully materialized aggregate instance to a Spring MVC controller method:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="java"&gt;@RestController
+class MyController {
+
+  @GetMapping("/orders/{id}")
+  HttpEntity&amp;lt;?&amp;gt; getOrders(@PathVariable("id") Order order) { /* ・ */ }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;In this example, a GET request to &lt;code&gt;/orders/462a692d-・&lt;/code&gt; automatically translates &lt;code&gt;462a692d-・&lt;/code&gt; into an &lt;code&gt;OrderIdentifier&lt;/code&gt; by using the jMolecules converters first and then using the repository declared for &lt;code&gt;Order&lt;/code&gt; to look up the aggregate instance.
+While the &lt;a href="https://docs.spring.io/spring-data/commons/docs/current/reference/html/#core.web.basic.domain-class-converter"&gt;general mechanism&lt;/a&gt; has been available for quite a while in Spring Data, the 2021.0.0 release adds the necessary, additional integration for jMolecules &lt;code&gt;Identifier&lt;/code&gt; implementations.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="spring-data-rest"&gt;&lt;a class="anchor" href="#spring-data-rest"&gt;&lt;/a&gt;Spring Data REST Aggregate Reference Mapping for DTOs&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The previously mentioned jMolecules &lt;code&gt;Converter&lt;/code&gt; implementations are also used in all places in which Spring Data REST needs to obtain and transform aggregate identifiers into URIs.
+The module also ships with a new Jackson deserializer that allows binding Spring Data REST managed aggregate instances into DTOs by deserializing URIs properly.
+Assume you have &lt;code&gt;Order&lt;/code&gt; managed by Spring Data REST and exposed through &lt;code&gt;/orders/・&lt;/code&gt; and a customer controller arrangement that looks like this:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="java"&gt;@BasePathAwareController
+class MyCustomController {
+
+  @PostMapping("/orders")
+  HttpEntity&amp;lt;?&amp;gt; postOrder(@RequestBody MyDto payload) {
+    /* Process submission */
+  }
+}
+
+@Data
+class MyDto {
+  List&amp;lt;Order&amp;gt; orders;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Now also assume the following payload submitted for the request:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="json"&gt;{
+  "orders" : [
+    "・/orders/462a692d-・"
+  ]
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Despite &lt;code&gt;MyDto&lt;/code&gt; being an ordinary data transfer object, the &lt;code&gt;payload&lt;/code&gt; instance contains the aggregate instance identified by &lt;code&gt;462a692d-・&lt;/code&gt; as an element of the &lt;code&gt;orders&lt;/code&gt; link.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>This Week in Spring - April 20th, 2021</title>
     <link rel="alternate" href="https://spring.io/blog/2021/04/20/this-week-in-spring-april-20th-2021" />
@@ -770,30 +1221,6 @@ public KeyResolver customKeyResolver {&#xD;
   &lt;li&gt;Spring Data Elasticsearch 4.1.7 - &lt;a href="https://repo.spring.io/libs-release/org/springframework/data/spring-data-elasticsearch/4.1.7"&gt;Artifacts&lt;/a&gt; - &lt;a href="https://docs.spring.io/spring-data/elasticsearch/docs/4.1.7/api"&gt;Javadoc&lt;/a&gt; - &lt;a href="https://docs.spring.io/spring-data/elasticsearch/docs/4.1.7/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="https://github.com/spring-projects/spring-data-elasticsearch/releases/tag/4.1.7"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Spring Data Couchbase 4.1.7 - &lt;a href="https://repo.spring.io/libs-release/org/springframework/data/spring-data-couchbase/4.1.7"&gt;Artifacts&lt;/a&gt; - &lt;a href="https://docs.spring.io/spring-data/couchbase/docs/4.1.7/api"&gt;Javadoc&lt;/a&gt; - &lt;a href="https://docs.spring.io/spring-data/couchbase/docs/4.1.7/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="https://github.com/spring-projects/spring-data-couchbase/releases/tag/4.1.7"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Spring Data for Apache Solr 4.3.7 - &lt;a href="https://repo.spring.io/libs-release/org/springframework/data/spring-data-solr/4.3.7"&gt;Artifacts&lt;/a&gt; - &lt;a href="https://docs.spring.io/spring-data/solr/docs/4.3.7/api"&gt;Javadoc&lt;/a&gt; - &lt;a href="https://docs.spring.io/spring-data/solr/docs/4.3.7/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="https://github.com/spring-projects/spring-data-solr/releases/tag/4.3.7"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - March 30th, 2021</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/03/30/this-week-in-spring-march-30th-2021" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2021-03-30:4401</id>
-    <updated>2021-03-30T18:38:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! Can you believe it&amp;rsquo;s nearly April? Time sure flies when you&amp;rsquo;re having fun! There&amp;rsquo;s a lot of good stuff to get to this week, particularly around the nascent and just announced Spring Native project which people seem to &lt;em&gt;love&lt;/em&gt;, so let&amp;rsquo;s get to it! &lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=wjyx-Uy-jMQ&amp;t=4272s"&gt;The amazing Andy Clement and I presented on Spring Native and GraalVM at JRush last week. Here&amp;rsquo;s the recording&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/03/25/a-bootiful-podcast-shigeru-urushibara-president-and-ceo-at-ul-systems-inc-and-japanese-technology-ecosystem-legend"&gt;A Bootiful Podcast: Shigeru Urushibara, President and CEO at UL Systems, Inc., and Japanese technology ecosystem legend&lt;/a&gt;. This is one of my favorite episodes of all time. Urushibara-san is a great technologist and an even better person.&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://www.infoq.com/news/2021/03/spring-native-beta-available/"&gt;A neat Infoq article on Spring Native&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;I like this German-language article on Spring Boot and container images called &lt;a href="https://www.heise.de/hintergrund/Container-Images-Abschied-vom-Dockerfile-5997535.html"&gt;&lt;em&gt;Container-Images: Abschied vom Dockerfile&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://www.youtube.com/watch?app=desktop&amp;v=dVLFx3oyiK8&amp;feature=youtu.be"&gt;How to Debug Your Spring Native Applications &lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://www.youtube.com/watch?app=desktop&amp;v=x1nVchtOn90"&gt;I tried Spring Native for GraalVM and I like it! - YouTube&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/cloudconfday/status/1375868653422399488?s=12"&gt;I¨ll be speaking at the Cloud Conf Day&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;The video from our recent SpringOne Tour 2021 day 1 ensemble performance, &lt;a href="https://spring.io/blog/2021/03/24/springone-tour-2021-booternetes"&gt;#Booternetes&lt;/a&gt;, is now up! There&amp;rsquo;s a &lt;em&gt;lot&lt;/em&gt; here so make some coffee and enjoy!&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://www.sebastianbuza.com/2021/03/27/testing-the-file-upload-api-in-spring-boot-java-code-geeks/"&gt;Testing the file upload API in Spring Boot&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://reflectoring.io/spring-boot-elasticsearch/"&gt;Using Elasticsearch in Spring Boot&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>

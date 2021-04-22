@@ -35,16 +35,16 @@ public class ReplyMapperTests {
 	public void insertTest() {
 		ReplyVO rv = new ReplyVO();
 		rv.setBno(203L);
-		rv.setReply("제목");
+		rv.setReply("제목11");
 		rv.setReplyer("작성자");
-		log.info(mapper.insert(rv));
+		int res = mapper.insert(rv);
+		log.info(mapper.insert(rv)+res);
 	}
 	
 	@Test
 	public void updateTest() {
 		ReplyVO rv = new ReplyVO();
-		rv.setBno(203L);
-		rv.setRno(7L);
+		rv.setRno(6L);
 		rv.setReply("제목title");
 		rv.setReplyer("작성자writer");
 		log.info(mapper.update(rv));
@@ -53,7 +53,7 @@ public class ReplyMapperTests {
 	@Test
 	public void deleteTest() {
 		ReplyVO rv = new ReplyVO();
-		rv.setBno(6L);
+		rv.setRno(6L);
 		log.info(mapper.delete(rv));
 	}
 }
