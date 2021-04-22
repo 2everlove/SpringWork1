@@ -3,28 +3,26 @@ package jmp.spring.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import jmp.spring.domain.BoardVO;
-import jmp.spring.domain.Criteria;
-import jmp.spring.service.BoardService;
+import jmp.spring.domain.ReplyVO;
+import jmp.spring.service.ReplyService;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
 @RestController
-@RequestMapping("/board/*")
+@RequestMapping("/reply/*")
 @Log4j
 public class ReplyController {
 	
 	@Setter(onMethod_= {@Autowired})
-	BoardService service;
+	ReplyService service;
+	/*
+	@Setter(onMethod_= {@Autowired})
+	BoardService bService;
 	
 	@GetMapping("/test")
 	public String restTest() {
@@ -34,14 +32,14 @@ public class ReplyController {
 	
 	@GetMapping("/test1") 
 	public BoardVO objectTest() { 
-		return service.get(7L); 
+		return bService.get(7L); 
 	}
 	
 	@GetMapping("/test2") 
 	public ResponseEntity<List<BoardVO>> objectTest2() { 
 		Criteria cri = new Criteria();
 		//return new ResponseEntity<List<BoardVO>>(service.getList(cri), HttpStatus.INTERNAL_SERVER_ERROR);
-		return new ResponseEntity<List<BoardVO>>(service.getList(cri), HttpStatus.valueOf(200));
+		return new ResponseEntity<List<BoardVO>>(bService.getList(cri), HttpStatus.valueOf(200));
 		//return service.getList(cri); 
 	}
 	
@@ -55,14 +53,15 @@ public class ReplyController {
 		cri.setAmount(amount);
 		cri.setPageNum(pageNo);
 		//return new ResponseEntity<List<BoardVO>>(service.getList(cri), HttpStatus.INTERNAL_SERVER_ERROR);
-		return new ResponseEntity<List<BoardVO>>(service.getList(cri), HttpStatus.valueOf(200));
+		return new ResponseEntity<List<BoardVO>>(bService.getList(cri), HttpStatus.valueOf(200));
 		//return service.getList(cri); 
 	}
-	
-	@GetMapping("/reply")
-	public void replyTest(Model model) {
-		log.info("rpl......");
-		model.addAttribute("resMsg", "여백이 생기면 안되는데");
+	*/
+	@GetMapping("/list/{bno}")
+	public List<ReplyVO> getList(@PathVariable("bno") Long bno) {
+		List<ReplyVO> list = service.getList(bno);
+		list.forEach(reply -> log.info(reply));
+		return list;
 	}
 	 
 }

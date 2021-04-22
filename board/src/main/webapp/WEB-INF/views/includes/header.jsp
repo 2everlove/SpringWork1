@@ -15,7 +15,11 @@
     <meta name="author" content="">
 
     <title>방명록</title>
-
+    
+	<link rel="shortcut icon" href="#">
+	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	
     <!-- Bootstrap Core CSS -->
     <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 

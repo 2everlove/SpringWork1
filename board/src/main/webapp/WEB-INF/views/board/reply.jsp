@@ -39,14 +39,14 @@ ${resMsg}
 							      <div class="panel-body">        
 							      
 							        <ul class="chat">
-										<li class='left clearfix' data-rno='"+list.rno+"'>
+										<!-- <li class='left clearfix' data-rno='"+list.rno+"'>
 										<div>
 											<div class='header'><strong class='primary-font'>[1] 홍길동</strong> 
 				    							<small class='pull-right text-muted'>12:00:00</small>
 				    						</div>
 				     						<p>수고가 많으십니다!</p>
 				     					</div>
-				     					</li>
+				     					</li> -->
 							        </ul>
 							        <!-- ./ end ul -->
 							      </div>
@@ -106,13 +106,44 @@ ${resMsg}
         </div>
         <!-- /.modal -->
                 
+<script type="text/javascript">
+$(document).ready(function(){
+	ajaxList();
+});
+function ajaxList(pageMaker, bno, callback, error){
+	$.ajax({
+		url:'/reply/list/203',
+		method:'get',
+		dataType:'json',
+		success:function(datas, status, jqXHR){
+			let replyLine ="";
+			$.each(datas, function(i, data){
+				replyLine += "<li class='left clearfix' data-rno='"+data.rno+
+				"'><div><div class='header'><strong class='primary-font'>["+i+"]"+data.replyer+
+				"</strong><small class='pull-right text-muted'>"+data.replydate+"</small>"+
+				"</div><p>"+data.reply+"</p></div></li>";
+			});
+			$('.chat').append(replyLine);
+		},
+		error : function(jqXHR, status, error){
+			console.log("error", error);
+			console.log("status", status);
+			console.log("jqXHR", jqXHR);
+			
+			// 콜백함수가 있으면 콜백함수 실행
+			if(error){
+				error(errorThrown);
+			}
+		
+		}
+	
+	});
+}
 
+</script>
         
 <jsp:include page="../includes/footer.jsp"/>
 
-<script type="text/javascript">
 
-
-</script>
 
 
