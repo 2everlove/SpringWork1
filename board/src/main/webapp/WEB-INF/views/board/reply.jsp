@@ -4,6 +4,8 @@
 <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 ${resMsg}
 <%@include file="../includes/header.jsp" %>
+<input type="text" value="203" id="bno"><br>
+<input type="text" id="rno">
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -47,6 +49,11 @@ ${resMsg}
 				     						<p>수고가 많으십니다!</p>
 				     					</div>
 				     					</li> -->
+				     					<li class='left clearfix' data-rno='"+list.rno+"'>
+										<div>
+											<textarea class="form-control" rows="3" ></textarea>
+				     					</div>
+				     					</li>
 							        </ul>
 							        <!-- ./ end ul -->
 							      </div>
@@ -97,7 +104,7 @@ ${resMsg}
                            </div>
                            <div class="modal-footer">
                                <button type="button" class="btn btn-default" data-dismiss="modal">cancle</button>
-                               <button type="button" class="btn btn-primary">save</button>
+                               <button type="button" class="btn btn-primary" id="replyInsertBtn">save</button>
                            </div>
                        </div>
                        <!-- /.modal-content -->
@@ -105,44 +112,41 @@ ${resMsg}
             <!-- /.modal-dialog -->
         </div>
         <!-- /.modal -->
-                
+<script type="text/javascript" src="/resources/js/reply.js"></script>      
 <script type="text/javascript">
 $(document).ready(function(){
+	
+	//addReplyBtn 클릭 시 modal창 띄움
+	$('#addReplyBtn').on("click",function(){
+		$('#replyInsertBtn').show();
+		$('#reply').val("");
+		$('#replyer').val("");
+		$('#myModal').modal("show");
+	});
+	
+	//저장버튼을 클릭하면 저장하고 모달창을 닫아줌
+	//모달창을 닫은 후 리스트를 다시 조회
+	$('#replyInsertBtn').on("click",function(){
+		ajaxInsert();
+	});
+	
+	//리스트 조회
 	ajaxList();
 });
-function ajaxList(pageMaker, bno, callback, error){
-	$.ajax({
-		url:'/reply/list/203',
-		method:'get',
-		dataType:'json',
-		success:function(datas, status, jqXHR){
-			let replyLine ="";
-			$.each(datas, function(i, data){
-				replyLine += "<li class='left clearfix' data-rno='"+data.rno+
-				"'><div><div class='header'><strong class='primary-font'>["+i+"]"+data.replyer+
-				"</strong><small class='pull-right text-muted'>"+data.replydate+"</small>"+
-				"</div><p>"+data.reply+"</p></div></li>";
-			});
-			$('.chat').append(replyLine);
-		},
-		error : function(jqXHR, status, error){
-			console.log("error", error);
-			console.log("status", status);
-			console.log("jqXHR", jqXHR);
-			
-			// 콜백함수가 있으면 콜백함수 실행
-			if(error){
-				error(errorThrown);
-			}
-		
-		}
-	
-	});
-}
 
+function replyDetail(rno){
+	//rno설정
+	$('#rno').val(rno);
+	//버튼 숨김
+	$('#replyInsertBtn').hide();
+	//modal show
+	$('#myModal').modal("show");
+	//선택한 reply의 값 가져오기
+	getAjax();
+}
 </script>
-        
 <jsp:include page="../includes/footer.jsp"/>
+
 
 
 

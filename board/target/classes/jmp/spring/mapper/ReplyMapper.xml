@@ -8,11 +8,23 @@
 	</insert>
 	
 	<select id="get" resultType="jmp.spring.domain.ReplyVO">
-		select * from tbl_reply where rno = #{rno}
+		select rno, bno, reply, replyer, replydate, 
+		    case
+		        when to_char(sysdate,'yyyymmdd') = to_char(updatedate,'yyyymmdd')
+		        then to_char(updatedate, 'hh:mi:ss')
+		        else to_char(updatedate, 'yyyy-mm-dd hh:mi:ss')
+		    end as updatedate
+		from tbl_reply where rno = #{rno}
 	</select>
 	
 	<select id="getList" resultType="jmp.spring.domain.ReplyVO">
-		select * from tbl_reply where bno = #{bno}
+		select rno, bno, reply, replyer, replydate, 
+		    case
+		        when to_char(sysdate,'yyyymmdd') = to_char(updatedate,'yyyymmdd')
+		        then to_char(updatedate, 'hh:mi:ss')
+		        else to_char(updatedate, 'yyyy-mm-dd hh:mi:ss')
+		    end as updatedate 
+	    from tbl_reply where bno = #{bno} order by replydate desc
 	</select>
 	
 	<delete id="delete">

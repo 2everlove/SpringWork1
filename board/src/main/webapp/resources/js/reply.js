@@ -1,0 +1,116 @@
+/**
+ * 리플 Ajax
+ */
+function ajaxList(pageMaker, bno, callback, error){
+	$.ajax({
+		url:'/reply/list/'+$('#bno').val(),
+		method:'get',
+		dataType:'json',
+		success:function(datas, status, jqXHR){
+			let replyLine ="";
+			$.each(datas, function(i, data){
+				replyLine += "<li class='replyList' onclick=replyDetail('"+data.rno+"'); class='left clearfix' data-rno='"+data.rno+
+				"'><div><div class='header'><strong class='primary-font'>["+data.rno+"]"+data.replyer+
+				"</strong><small class='pull-right text-muted'>"+data.updateDate+"</small>"+
+				"</div><p>"+data.reply+"</p></div></li>";
+			});
+			$('.chat').html(replyLine);
+		},
+		error : function(jqXHR, status, error){
+			console.log("error", error);
+			console.log("status", status);
+			console.log("jqXHR", jqXHR);
+			
+			// 콜백함수가 있으면 콜백함수 실행
+			if(error){
+				error(errorThrown);
+			}
+		
+		}
+	
+	});
+}//ajaxList
+
+//1건의 리플 삽입
+function ajaxInsert(){
+	
+	//js의 object
+	let replyData = {
+			bno:$('#bno').val(),
+			reply: $('#reply').val(),
+			replyer: $('#replyer').val()
+	};
+	
+	console.log(replyData);
+	console.log(JSON.stringify(replyData));
+	
+	$.ajax({
+		
+		url : '/reply/insert',
+		method : 'post',
+		//java에서 return값이 xml형태로 들어오므로 json으로 형태를 맞춰줌
+		dataType:'json',
+		//JSON 형식으로 변환
+		data : JSON.stringify(replyData),
+		contentType:'application/json; charset=UTF-8',
+		success: function(datas, status){
+			console.log(datas);
+			
+			if(datas.result=='success'){
+				//모달창 닫기
+				console.log('success');
+				ajaxList();
+				$('#myModal').modal('hide');
+				
+				//리스트 조회
+			} else {
+				alert('입력 중 오류가 발생했습니다.');				
+			}
+			
+		},
+		error : function(xhr, status, error){
+			console.log(error);
+		}
+	});
+}//ajaxInsert
+
+//1건의 리플을 조회
+function getAjax(){
+	$.ajax({
+		url:'/reply/get/'+$('#rno').val(),
+		method:'get',
+		dataType:'json',
+		success: function(datas, status){
+			console.log($('#rno').val());
+			$('#reply').val(datas.reply);
+			$('#replyer').val(datas.replyer);
+		},
+		error: function(xhr, status, errorThrown){
+			console.log(errorThrown);
+		}
+	})
+}
+
+function commAjax(url, method, data, callback, error){
+$.ajax({
+		
+		url : url,
+		method : method,
+		//java에서 return값이 xml형태로 들어오므로 json으로 형태를 맞춰줌
+		dataType:'json',
+		//JSON 형식으로 변환
+		data : JSON.stringify(data),
+		contentType:'application/json; charset=UTF-8',
+		success: function(datas, status){
+			if(callback){
+				callback(datas);			
+			}
+		},
+		error : function(xhr, status, errorThrown){
+			console.log(errorTh);
+			if(error){
+				error(errorThrown);
+			}
+		}
+	});
+}//commAjax

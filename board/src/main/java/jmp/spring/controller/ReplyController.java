@@ -1,10 +1,14 @@
 package jmp.spring.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,6 +24,41 @@ public class ReplyController {
 	
 	@Setter(onMethod_= {@Autowired})
 	ReplyService service;
+	
+	@GetMapping("/get/{rno}")
+	public ReplyVO get(@PathVariable("rno") Long rno) {
+		log.info("get.........."+rno);
+		ReplyVO reply = service.get(rno);
+		return reply; 
+	}
+	
+	@GetMapping("/list/{bno}")
+	public List<ReplyVO> getList(@PathVariable("bno") Long bno) {
+		log.info("list........");
+		List<ReplyVO> list = service.getList(bno);
+		list.forEach(reply -> log.info(reply));
+		return list;
+	}//
+	
+	@PostMapping("/insert")
+	public Map<String, Object> insert(@RequestBody ReplyVO reply) {
+		System.out.println("ddddddd");
+		log.info("insert......");
+		int res = service.insert(reply);
+		
+		log.info("insert : "+reply+"\nresult : "+(res==1?"success":"fail"));
+		service.getList(reply.getBno()).forEach(r -> log.info(r));
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		if(res > 0)
+			map.put("result", "success");
+		else
+			map.put("result", "fail");
+		
+		return map;
+	}//
+	 
 	/*
 	@Setter(onMethod_= {@Autowired})
 	BoardService bService;
@@ -56,12 +95,5 @@ public class ReplyController {
 		return new ResponseEntity<List<BoardVO>>(bService.getList(cri), HttpStatus.valueOf(200));
 		//return service.getList(cri); 
 	}
-	*/
-	@GetMapping("/list/{bno}")
-	public List<ReplyVO> getList(@PathVariable("bno") Long bno) {
-		List<ReplyVO> list = service.getList(bno);
-		list.forEach(reply -> log.info(reply));
-		return list;
-	}
-	 
-}
+	 */
+}//class
