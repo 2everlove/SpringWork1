@@ -3,18 +3,30 @@
  */
 function ajaxList(pageMaker, bno, callback, error){
 	$.ajax({
-		url:'/reply/list/'+$('#bno').val(),
+		url:'/reply/list/'+$('#bno').val()+'/'+$('#pageNum').val(),
 		method:'get',
 		dataType:'json',
 		success:function(datas, status, jqXHR){
-			let replyLine ="";
-			$.each(datas, function(i, data){
-				replyLine += "<li class='replyList' onclick=replyDetail('"+data.rno+"'); class='left clearfix' data-rno='"+data.rno+
-				"'><div><div class='header'><strong class='primary-font'>["+data.rno+"]"+data.replyer+
-				"</strong><small class='pull-right text-muted'>"+data.updateDate+"</small>"+
-				"</div><p>"+data.reply+"</p></div></li>";
-			});
-			$('.chat').html(replyLine);
+			let replyLine = "";
+			if(0 == datas.list.length){
+				replyLine += "<li class='replyList' class='left clearfix'><div><p>등록된 댓글이 없습니다.</p></div></li>";
+			} else {
+				$.each(datas.list, function(i, data){
+					console.log(datas.list.length);
+						console.log(data)
+						replyLine += "<li class='replyList' onclick=replyDetail('"+data.rno+"'); class='left clearfix' data-rno='"+data.rno+
+						"'><div><div class='header'><strong class='primary-font'>["+data.rno+"]"+data.replyer+
+						"</strong><small class='pull-right text-muted'>"+data.updateDate+"</small>"+
+						"</div><p>"+data.reply+"</p></div></li>";
+						
+				});
+				//리스트 보여주기
+				$('.chat').html(replyLine);
+				
+				// 페이지 처리
+				console.log(datas.pageNum);
+				replyPaging(datas.pageNum);
+			}
 		},
 		error : function(jqXHR, status, error){
 			console.log("error", error);

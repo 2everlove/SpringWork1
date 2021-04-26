@@ -6,6 +6,7 @@ ${resMsg}
 <%@include file="../includes/header.jsp" %>
 <input type="text" value="203" id="bno"><br>
 <input type="text" id="rno">
+<input type="text" id="pageNum" value="1">
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -59,7 +60,32 @@ ${resMsg}
 							      </div>
 							      <!-- /.panel .chat-panel -->
 							
-								<div class="panel-footer"></div>
+								<div class="panel-footer">
+					<div class='pull-right'>
+						<ul class="pagination">
+							<%-- <c:if test="${pageMaker.prev}">
+								<li class="paginate_button previous"><a href="${pageMaker.startPage - 1}">Previous</a></li>
+							</c:if>
+							<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+							<c:choose>
+								<c:when test="${page eq pageMaker.cri.pageNum}">
+									<li class="paginate_button active"><a href="${num}">${num}</a></li>
+								</c:when>
+								<c:otherwise>
+									<li class="paginate_button"><a href="${num}">${num}</a></li>
+								</c:otherwise>
+							</c:choose>
+								<li class="paginate_button ${pageMaker.cri.pageNum == num ? "active":""}"><a href="${num}">${num}</a></li>
+							</c:forEach>
+							<c:if test="${pageMaker.next}">
+								<li class="paginate_button next"><a href="${pageMaker.endPage + 1}">Next</a></li>
+							</c:if> --%>
+						</ul>
+					</div>
+					<!-- end Pagination -->
+								</div>
+								
+					
 							
 							
 									</div>
@@ -155,6 +181,30 @@ function replyDetail(rno){
 	$('#myModal').modal("show");
 	//선택한 reply의 값 가져오기
 	getAjax();
+}//
+
+function replyPaging(pageNum){
+	let startPage = pageNum.startPage; 
+	let endPage = pageNum.endPage;
+	
+	pageContent="";
+	// 이전 페이지
+	if(pageNum.prev){
+		pageContent = '<li class="paginate_button previous"><a href="'+startPage-1+'">Previous</a></li>';
+	}
+	
+	
+	for(startPage; startPage<=endPage; startPage++){
+		pageContent += '<li class="paginate_button"><a href="">'+startPage+'</a></li>'
+	}
+	
+	//다음 페이지
+	if(pageNum.next){
+		pageContent = '<li class="paginate_button next"><a href="'+endPage+1+'">Next</a></li>';
+	}
+	
+	$(".pagination").html(pageContent);
+	
 }
 </script>
 <jsp:include page="../includes/footer.jsp"/>
