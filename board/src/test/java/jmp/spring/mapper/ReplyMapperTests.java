@@ -47,13 +47,17 @@ public class ReplyMapperTests {
 		rv.setRno(6L);
 		rv.setReply("제목title");
 		rv.setReplyer("작성자writer");
+		rv.setUpdateDate("sysdate");
 		log.info(mapper.update(rv));
 	}
 	
 	@Test
 	public void deleteTest() {
-		ReplyVO rv = new ReplyVO();
-		rv.setRno(6L);
-		log.info(mapper.delete(rv));
+		log.info(mapper.delete(6L));
+	}
+	
+	@Test
+	public void getTotal() {
+		log.info(mapper.getTotal(203L));
 	}
 }

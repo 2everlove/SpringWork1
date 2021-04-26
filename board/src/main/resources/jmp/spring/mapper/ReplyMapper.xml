@@ -27,6 +27,10 @@
 	    from tbl_reply where bno = #{bno} order by replydate desc
 	</select>
 	
+	<select id="getTotal" resultType="int">
+		select count(*) from tbl_reply where bno = #{bno}
+	</select>
+	
 	<delete id="delete">
 		delete from tbl_reply where rno = #{rno}
 	</delete>

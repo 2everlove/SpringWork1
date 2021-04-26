@@ -1,5 +1,8 @@
 CONTENT_ASSIST_BACKGROUND_COLOR=224,224,224
 CONTENT_ASSIST_FOREGROUND_COLOR=15,15,15
+colored_labels_in_views=true
+content_assist_autoactivation=false
+content_assist_disabled_computers=
 content_assist_parameters_background=224,224,224
 content_assist_parameters_foreground=15,15,15
 content_assist_proposals_background=224,224,224
@@ -14,6 +17,8 @@ org.eclipse.wst.jsdt.ui.text.code_templates_migrated=true
 org.eclipse.wst.jsdt.ui.text.custom_code_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
 org.eclipse.wst.jsdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
 org.eclipse.wst.jsdt.ui.text.templates_migrated=true
+org.eclipse.wst.jsdt.ui.visibility.order=B,V,R,D,
+outlinesortoption=T,I,F,C,M,
 overriddenByCSS=,CONTENT_ASSIST_BACKGROUND_COLOR,CONTENT_ASSIST_FOREGROUND_COLOR,content_assist_parameters_background,content_assist_parameters_foreground,content_assist_proposals_background,content_assist_proposals_foreground,
 proposalOrderMigrated=true
 tabWidthPropagated=true

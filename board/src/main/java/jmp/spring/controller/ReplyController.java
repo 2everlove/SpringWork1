@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jmp.spring.domain.Criteria;
+import jmp.spring.domain.PageDTO;
 import jmp.spring.domain.ReplyVO;
 import jmp.spring.service.ReplyService;
 import lombok.Setter;
@@ -32,12 +34,26 @@ public class ReplyController {
 		return reply; 
 	}
 	
-	@GetMapping("/list/{bno}")
-	public List<ReplyVO> getList(@PathVariable("bno") Long bno) {
+	//board.bno에 해당하는 list불러옴
+	@GetMapping("/list/{bno}/{pageNum}")
+	public Map<String, Object> getList(@PathVariable("bno") Long bno, @PathVariable("pageNum") int pageNum) {
 		log.info("list........");
+		Criteria cri = new Criteria(1, 10);
+		
+		//page process
+		PageDTO page = new PageDTO(cri, service.getTotal(bno));
+		
+		//List process
 		List<ReplyVO> list = service.getList(bno);
 		list.forEach(reply -> log.info(reply));
-		return list;
+		
+		//결과를 map에 담아서 return
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("pageNum", page);
+		map.put("list", list);
+		
+		return map;
 	}//
 	
 	@PostMapping("/insert")
@@ -58,6 +74,41 @@ public class ReplyController {
 		
 		return map;
 	}//
+	
+	@GetMapping("/delete/{rno}")
+	public Map<String, String> delete(@PathVariable("rno") Long rno) {
+		
+		log.info("delete.........");
+		
+		int res = service.delete(rno);
+		
+		Map<String, String> map = new HashMap<String, String>();
+		
+		if(res>0)
+			map.put("result","success");
+		else
+			map.put("result","fail");
+		
+		return map;
+	}//
+	
+	//@param vo
+	//@return 업데이트 결과 Map<String, String>
+	//post방식이라서 url로 테스트 할 수 없음
+	@PostMapping("/update")
+	public Map<String, String> update(@RequestBody ReplyVO reply) {
+		log.info("update.........");
+		int res = service.update(reply);
+		
+		Map<String, String> map = new HashMap<String, String>();
+		
+		if(res>0)
+			map.put("result","success");
+		else
+			map.put("result","fail");
+		
+		return map;
+	}
 	 
 	/*
 	@Setter(onMethod_= {@Autowired})

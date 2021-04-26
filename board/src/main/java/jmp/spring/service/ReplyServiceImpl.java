@@ -22,7 +22,6 @@ public class ReplyServiceImpl implements ReplyService{
 
 	@Override
 	public List<ReplyVO> getList(Long bno) {
-		// TODO Auto-generated method stub
 		return mapper.getList(bno);
 	}
 
@@ -32,13 +31,18 @@ public class ReplyServiceImpl implements ReplyService{
 	}
 
 	@Override
-	public int delete(ReplyVO reply) {
-		return mapper.delete(reply);
+	public int delete(Long rno) {
+		return mapper.delete(rno);
 	}
 
 	@Override
 	public int update(ReplyVO reply) {
 		return mapper.update(reply);
+	}
+
+	@Override
+	public int getTotal(Long bno) {
+		return mapper.getTotal(bno);
 	}
 
 }

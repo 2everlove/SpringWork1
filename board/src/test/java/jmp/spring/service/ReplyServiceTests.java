@@ -48,9 +48,12 @@ public class ReplyServiceTests {
 	
 	@Test
 	public void deleteTest() {
-		ReplyVO reply = new ReplyVO();
-		reply.setRno(22L);
-		log.info(service.delete(reply));
+		log.info(service.delete(22L));
+	}
+	
+	@Test
+	public void getTotal() {
+		log.info(service.getTotal(203L));
 	}
 	
 }

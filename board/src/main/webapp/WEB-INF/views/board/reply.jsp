@@ -103,8 +103,10 @@ ${resMsg}
 							</ul>
                            </div>
                            <div class="modal-footer">
-                               <button type="button" class="btn btn-default" data-dismiss="modal">cancle</button>
-                               <button type="button" class="btn btn-primary" id="replyInsertBtn">save</button>
+                               <button type="button" class="btn btn-warnig" data-dismiss="modal" id="modify">Modify</button>
+                               <button type="button" class="btn btn-danger" data-dismiss="modal" id="remove">Remove</button>
+                               <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                               <button type="button" class="btn btn-primary" id="replyInsertBtn">Save</button>
                            </div>
                        </div>
                        <!-- /.modal-content -->
@@ -128,6 +130,16 @@ $(document).ready(function(){
 	//모달창을 닫은 후 리스트를 다시 조회
 	$('#replyInsertBtn').on("click",function(){
 		ajaxInsert();
+	});
+	
+	$('#remove').on("click", function(){
+		if(confirm('댓글('+$('#rno').val()+')을 지우시겠습니까?')){
+			deleteAjax();
+		}
+	});
+	
+	$('#modify').on("click", function(){
+		updateAjax();
 	});
 	
 	//리스트 조회
