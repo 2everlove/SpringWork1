@@ -3,34 +3,10 @@
 
 <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 ${resMsg}
-<%@include file="../includes/header.jsp" %>
-<input type="text" value="203" id="bno"><br>
-<input type="text" id="rno">
-<input type="text" id="pageNum" value="1">
-        <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Tables</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-           	</div>
-           	<!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            
-                            
-                            
-                           <!-- 답글 -->
-                           <div class='row'>
 
-							  <div class="col-lg-12">
-							
-							    <!-- /.panel -->
-							    <div class="panel panel-default">
+<input type="text" value="${board.bno}" id="bno" hidden=""><br>
+<input type="text" id="rno" hidden="">
+<input type="text" id="replyPageNum" value="1" hidden="">
 							      
 							      <div class="panel-heading">
 							        <i class="fa fa-comments fa-fw"></i> Reply
@@ -50,11 +26,6 @@ ${resMsg}
 				     						<p>수고가 많으십니다!</p>
 				     					</div>
 				     					</li> -->
-				     					<li class='left clearfix' data-rno='"+list.rno+"'>
-										<div>
-											<textarea class="form-control" rows="3" ></textarea>
-				     					</div>
-				     					</li>
 							        </ul>
 							        <!-- ./ end ul -->
 							      </div>
@@ -68,14 +39,14 @@ ${resMsg}
 							</c:if>
 							<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
 							<c:choose>
-								<c:when test="${page eq pageMaker.cri.pageNum}">
+								<c:when test="${page eq pageMaker.cri.replyPageNum}">
 									<li class="paginate_button active"><a href="${num}">${num}</a></li>
 								</c:when>
 								<c:otherwise>
 									<li class="paginate_button"><a href="${num}">${num}</a></li>
 								</c:otherwise>
 							</c:choose>
-								<li class="paginate_button ${pageMaker.cri.pageNum == num ? "active":""}"><a href="${num}">${num}</a></li>
+								<li class="paginate_button ${pageMaker.cri.replyPageNum == num ? "active":""}"><a href="${num}">${num}</a></li>
 							</c:forEach>
 							<c:if test="${pageMaker.next}">
 								<li class="paginate_button next"><a href="${pageMaker.endPage + 1}">Next</a></li>
@@ -88,25 +59,8 @@ ${resMsg}
 					
 							
 							
-									</div>
-							  </div>
-							  <!-- ./ end row -->
-							  
-							  
-							  
-							</div>
                             
                             
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            
-        </div>
-        <!-- /#page-wrapper -->
 			
 			
 			
@@ -157,7 +111,17 @@ $(document).ready(function(){
 	//저장버튼을 클릭하면 저장하고 모달창을 닫아줌
 	//모달창을 닫은 후 리스트를 다시 조회
 	$('#replyInsertBtn').on("click",function(){
-		ajaxInsert();
+		if($("#reply").val() == "" ){
+			alert("내용을 입력해주세요.");
+			$("#reply").select();
+		}	
+		else if ($("#replyer").val() == ""){
+			alert("작성자를 입력해주세요.");
+			$("#replyer").select();
+		}
+		else
+			ajaxInsert();
+			
 	});
 	
 	$('#remove').on("click", function(){
@@ -201,7 +165,11 @@ function replyPaging(pageNum){
 	}
 	console.log(startPage-1);
 	for(startPage; startPage<=endPage; startPage++){
-		pageContent += '<li class="paginate_button" onclick=getList('+startPage+');><a href="#" data-page="'+startPage+'">'+startPage+'</a></li>'
+		if(startPage == pageNum.cri.pageNum){
+			pageContent += '<li class="paginate_button active" onclick=getList('+startPage+');><a href="#" data-page="'+startPage+'">'+startPage+'</a></li>'
+		} else {
+			pageContent += '<li class="paginate_button" onclick=getList('+startPage+');><a href="#" data-page="'+startPage+'">'+startPage+'</a></li>'
+		}
 	}	
 	
 	//다음 페이지
@@ -210,13 +178,15 @@ function replyPaging(pageNum){
 	}
 	
 	$(".pagination").html(pageContent);
+	$('.paginate_button').on('click', function(){
+		$(this).attr('class','paginate_button active');
+	});
 	
 }//
 
 function getList(page){
 	event.preventDefault();
-	$('#pageNum').val(page);
-	$()
+	$('#replyPageNum').val(page);
 	let pageNo = $('#pageNum').val(page);
 	ajaxList();
 }

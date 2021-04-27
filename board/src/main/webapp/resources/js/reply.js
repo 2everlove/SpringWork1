@@ -4,13 +4,13 @@
 function ajaxList(){
 	console.log("ajaxList()");
 	$.ajax({
-		url:'/reply/list/'+$('#bno').val()+'/'+$('#pageNum').val(),
+		url:'/reply/list/'+$('#bno').val()+'/'+$('#replyPageNum').val(),
 		method:'get',
 		dataType:'json',
 		success:function(datas, status, jqXHR){
-			console.log("pageNum : "+$('#pageNum').val());
+			console.log("replyPageNum : "+$('#replyPageNum').val());
 			let replyLine = "";
-			if(0 == datas.list.length){
+			if(datas.list.length == 0){
 				replyLine += "<li class='replyList' class='left clearfix'><div><p>등록된 댓글이 없습니다.</p></div></li>";
 			} else {
 				$.each(datas.list, function(i, data){
@@ -21,13 +21,14 @@ function ajaxList(){
 						"</div><p>"+data.reply+"</p></div></li>";
 						
 				});
-				//리스트 보여주기
-				$('.chat').html(replyLine);
+				
 				
 				// 페이지 처리
 				console.log(datas.pageNum);
 				replyPaging(datas.pageNum);
 			}
+			//리스트 보여주기
+			$('.chat').html(replyLine);
 		},
 		error : function(jqXHR, status, error){
 			console.log("error", error);
@@ -89,7 +90,7 @@ function ajaxInsert(){
 			if(datas.result=='success'){
 				//모달창 닫기
 				console.log('success');
-				$('#pageNum').val(1);
+				$('#replyPageNum').val(1);
 				ajaxList();
 				$('#myModal').modal('hide');
 				

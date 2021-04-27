@@ -42,6 +42,7 @@
 				            </form>
                         </div>
                         <!-- /.panel-body -->
+                         <%@include file="reply.jsp" %>
                     </div>
                     <!-- /.panel -->
                 </div>
