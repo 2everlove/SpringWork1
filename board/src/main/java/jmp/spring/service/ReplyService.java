@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import jmp.spring.domain.Criteria;
 import jmp.spring.domain.ReplyVO;
 
 @Service
@@ -11,7 +12,7 @@ public interface ReplyService {
 	
 	public ReplyVO get(Long rno);
 	
-	public List<ReplyVO> getList(Long bno);
+	public List<ReplyVO> getList(Long bno, Criteria cri);
 	
 	public int insert(ReplyVO reply);
 	

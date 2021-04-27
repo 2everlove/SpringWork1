@@ -1,18 +1,19 @@
 /**
  * 리플 Ajax
  */
-function ajaxList(pageMaker, bno, callback, error){
+function ajaxList(){
+	console.log("ajaxList()");
 	$.ajax({
 		url:'/reply/list/'+$('#bno').val()+'/'+$('#pageNum').val(),
 		method:'get',
 		dataType:'json',
 		success:function(datas, status, jqXHR){
+			console.log("pageNum : "+$('#pageNum').val());
 			let replyLine = "";
 			if(0 == datas.list.length){
 				replyLine += "<li class='replyList' class='left clearfix'><div><p>등록된 댓글이 없습니다.</p></div></li>";
 			} else {
 				$.each(datas.list, function(i, data){
-					console.log(datas.list.length);
 						console.log(data)
 						replyLine += "<li class='replyList' onclick=replyDetail('"+data.rno+"'); class='left clearfix' data-rno='"+data.rno+
 						"'><div><div class='header'><strong class='primary-font'>["+data.rno+"]"+data.replyer+
@@ -43,6 +44,23 @@ function ajaxList(pageMaker, bno, callback, error){
 	});
 }//ajaxList
 
+//1건의 리플을 조회
+function getAjax(){
+	$.ajax({
+		url:'/reply/get/'+$('#rno').val(),
+		method:'get',
+		dataType:'json',
+		success: function(datas, status){
+			console.log($('#rno').val());
+			$('#reply').val(datas.reply);
+			$('#replyer').val(datas.replyer);
+		},
+		error: function(xhr, status, errorThrown){
+			console.log(errorThrown);
+		}
+	})
+}//
+
 //1건의 리플 삽입
 function ajaxInsert(){
 	
@@ -71,6 +89,7 @@ function ajaxInsert(){
 			if(datas.result=='success'){
 				//모달창 닫기
 				console.log('success');
+				$('#pageNum').val(1);
 				ajaxList();
 				$('#myModal').modal('hide');
 				
@@ -149,24 +168,6 @@ function updateAjax(){
 		
 	});
 }//
-
-
-//1건의 리플을 조회
-function getAjax(){
-	$.ajax({
-		url:'/reply/get/'+$('#rno').val(),
-		method:'get',
-		dataType:'json',
-		success: function(datas, status){
-			console.log($('#rno').val());
-			$('#reply').val(datas.reply);
-			$('#replyer').val(datas.replyer);
-		},
-		error: function(xhr, status, errorThrown){
-			console.log(errorThrown);
-		}
-	})
-}
 
 function commAjax(url, method, data, callback, error){
 $.ajax({

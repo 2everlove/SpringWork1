@@ -149,6 +149,8 @@ $(document).ready(function(){
 		$('#replyInsertBtn').show();
 		$('#reply').val("");
 		$('#replyer').val("");
+		$('#modify').hide();
+		$('#remove').hide();
 		$('#myModal').modal("show");
 	});
 	
@@ -177,6 +179,8 @@ function replyDetail(rno){
 	$('#rno').val(rno);
 	//버튼 숨김
 	$('#replyInsertBtn').hide();
+	$('#modify').show();
+	$('#remove').show();
 	//modal show
 	$('#myModal').modal("show");
 	//선택한 reply의 값 가져오기
@@ -186,25 +190,35 @@ function replyDetail(rno){
 function replyPaging(pageNum){
 	let startPage = pageNum.startPage; 
 	let endPage = pageNum.endPage;
-	
+	let start = startPage-1;
+	let end = endPage+1;
+	console.log(pageNum.prev);
+	console.log(pageNum.next);
 	pageContent="";
 	// 이전 페이지
 	if(pageNum.prev){
-		pageContent = '<li class="paginate_button previous"><a href="'+startPage-1+'">Previous</a></li>';
+		pageContent += '<li class="paginate_button previous" onclick=getList('+start+');><a href="#">Previous</a></li>';
 	}
-	
-	
+	console.log(startPage-1);
 	for(startPage; startPage<=endPage; startPage++){
-		pageContent += '<li class="paginate_button"><a href="">'+startPage+'</a></li>'
-	}
+		pageContent += '<li class="paginate_button" onclick=getList('+startPage+');><a href="#" data-page="'+startPage+'">'+startPage+'</a></li>'
+	}	
 	
 	//다음 페이지
 	if(pageNum.next){
-		pageContent = '<li class="paginate_button next"><a href="'+endPage+1+'">Next</a></li>';
+		pageContent += '<li class="paginate_button next" onclick=getList('+end+');><a href="#">Next</a></li>';
 	}
 	
 	$(".pagination").html(pageContent);
 	
+}//
+
+function getList(page){
+	event.preventDefault();
+	$('#pageNum').val(page);
+	$()
+	let pageNo = $('#pageNum').val(page);
+	ajaxList();
 }
 </script>
 <jsp:include page="../includes/footer.jsp"/>

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import jmp.spring.domain.Criteria;
 import jmp.spring.domain.ReplyVO;
 import jmp.spring.mapper.ReplyMapper;
 import lombok.Setter;
@@ -21,8 +22,8 @@ public class ReplyServiceImpl implements ReplyService{
 	}
 
 	@Override
-	public List<ReplyVO> getList(Long bno) {
-		return mapper.getList(bno);
+	public List<ReplyVO> getList(Long bno, Criteria cri) {
+		return mapper.getList(bno, cri);
 	}
 
 	@Override

@@ -118,7 +118,7 @@ public class BoardController {
 		model.addAttribute("replyer", json.get("replyer"));
 	}
 	
-	@GetMapping("reply")
+	@GetMapping("/reply")
 	public void replyTest() {
 		
 	}

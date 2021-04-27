@@ -18,13 +18,19 @@
 	</select>
 	
 	<select id="getList" resultType="jmp.spring.domain.ReplyVO">
-		select rno, bno, reply, replyer, replydate, 
-		    case
-		        when to_char(sysdate,'yyyymmdd') = to_char(updatedate,'yyyymmdd')
-		        then to_char(updatedate, 'hh:mi:ss')
-		        else to_char(updatedate, 'yyyy-mm-dd hh:mi:ss')
-		    end as updatedate 
-	    from tbl_reply where bno = #{bno} order by replydate desc
+		SELECT RN, RNO, BNO, REPLY, REPLYER, REPLYDATE, 
+		    CASE
+		        WHEN TO_CHAR(SYSDATE,'yyyymmdd') = TO_CHAR(UPDATEDATE,'yyyymmdd')
+		        THEN TO_CHAR(UPDATEDATE, 'hh:mi:ss')
+		        ELSE TO_CHAR(UPDATEDATE, 'yyyy-mm-dd hh:mi:ss')
+		    END UPDATEDATE
+		FROM (
+		    SELECT ROW_NUMBER() OVER (ORDER BY RNO DESC) RN, reply.*
+		    FROM tbl_reply reply
+		    WHERE bno=#{bno}
+		    ORDER BY rno DESC
+		    ) 
+		WHERE rn BETWEEN #{cri.pageNum} * #{cri.amount} - 9 AND #{cri.pageNum} * #{cri.amount}
 	</select>
 	
 	<select id="getTotal" resultType="int">

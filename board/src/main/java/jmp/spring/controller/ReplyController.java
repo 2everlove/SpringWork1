@@ -37,14 +37,15 @@ public class ReplyController {
 	//board.bno에 해당하는 list불러옴
 	@GetMapping("/list/{bno}/{pageNum}")
 	public Map<String, Object> getList(@PathVariable("bno") Long bno, @PathVariable("pageNum") int pageNum) {
+		
 		log.info("list........");
-		Criteria cri = new Criteria(1, 10);
+		Criteria cri = new Criteria(pageNum, 10);
 		
 		//page process
 		PageDTO page = new PageDTO(cri, service.getTotal(bno));
 		
 		//List process
-		List<ReplyVO> list = service.getList(bno);
+		List<ReplyVO> list = service.getList(bno, cri);
 		list.forEach(reply -> log.info(reply));
 		
 		//결과를 map에 담아서 return
@@ -62,8 +63,10 @@ public class ReplyController {
 		log.info("insert......");
 		int res = service.insert(reply);
 		
+		Criteria cri = new Criteria(1, 10);
+		
 		log.info("insert : "+reply+"\nresult : "+(res==1?"success":"fail"));
-		service.getList(reply.getBno()).forEach(r -> log.info(r));
+		service.getList(reply.getBno(), cri).forEach(r -> log.info(r));
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		
