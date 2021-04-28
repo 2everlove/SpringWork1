@@ -28,6 +28,7 @@ public class BoardController {
 	public String getList(Criteria cri, Model model) {
 		int total = service.getTotal(cri);//전체 글 수
 		PageDTO page = new PageDTO(cri, total);
+
 		//String resMsg = page.getTotal()==0 ? "게시물이 없습니다." : "";
 		//화면단에서는 매개변수로 model을 받는다
 		log.info("list........."+page);

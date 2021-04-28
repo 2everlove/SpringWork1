@@ -1,6 +1,8 @@
 /**
  * 리플 Ajax
  */
+
+//DB에서 data받아서 화면에 줌
 function ajaxList(){
 	console.log("ajaxList()");
 	$.ajax({

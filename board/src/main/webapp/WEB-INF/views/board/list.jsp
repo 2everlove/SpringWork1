@@ -34,7 +34,6 @@
 						</c:if>
 						<c:forEach items="${list}" var="board">
 						<tr class="odd gradeX">
-						
 							<td>${board.bno}</td>
 							<td><a class='move' href='<c:out value="${board.bno}"/>'>${board.title}</a></td>
 							<td>${board.writer}</td>
@@ -178,5 +177,6 @@
 			
 			searchForm.submit();
 		});
+
 	});
 </script>

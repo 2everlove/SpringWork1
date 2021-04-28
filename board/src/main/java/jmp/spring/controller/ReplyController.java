@@ -57,6 +57,25 @@ public class ReplyController {
 		return map;
 	}//
 	
+	//리플의 total을 전해줌
+	@GetMapping("/list/{bno}")
+	public Map<String, Integer> getReplyTotal(@PathVariable("bno") Long bno) {
+		
+		log.info("list........");
+		
+		//page process
+		
+		//List process
+		int total = service.getTotal(bno);
+		
+		//결과를 map에 담아서 return
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		
+		map.put("pageNum", total);
+		
+		return map;
+	}//
+	
 	@PostMapping("/insert")
 	public Map<String, Object> insert(@RequestBody ReplyVO reply) {
 		System.out.println("ddddddd");

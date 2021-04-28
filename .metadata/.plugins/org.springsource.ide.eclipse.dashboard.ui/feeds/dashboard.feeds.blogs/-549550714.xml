@@ -5,7 +5,37 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2021-04-23T00:08:00Z</updated>
+  <updated>2021-04-27T22:41:00Z</updated>
+  <entry>
+    <title>This Week in Spring - April 27th, 2021</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/04/27/this-week-in-spring-april-27th-2021" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2021-04-27:4424</id>
+    <updated>2021-04-27T22:41:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! We&amp;rsquo;ve got a &lt;em&gt;ton&lt;/em&gt; to get into, so let&amp;rsquo;s gooo!&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/JavaAtMicrosoft/status/1384914839005401095"&gt;Learn how to enable asynchronous messaging at cloud scale in Spring Boot Java apps using Java Message Service (JMS) API and Azure Service Bus. &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;In last week&amp;rsquo;s, &lt;a href="http://bootifulpodcast.fm"&gt;&lt;em&gt;A Bootiful Podcast&lt;/em&gt;,&lt;/a&gt; I talked to &lt;a href="https://spring.io/blog/2021/04/22/a-bootiful-podcast-reliably-ceo-russ-miles"&gt;Reliably CEO Russ Miles&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring-boot-cnb-hol-en.apps.pcfone.io/#0"&gt;An awesome hands-on-lab of using Cloud Native buildpacks with Spring Boot by Toshiaki Maki&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/ghillert/status/1385033192554389504?s=12"&gt;Check out Sam Brannan¡¯s epic wiki page on meta programming with Spring&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/maciejwalkowiak/status/1385182840334258178"&gt;I love this utility for Google Chrome-using Spring Boot developers from Spring Cloud AWS contributor and legend Maciej Walkowiak: a tiny extension that points you to the current version of the Spring documentation.&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.5.0-RC1"&gt;Check out the release notes for Spring Boot 2.5.0-RC1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/04/21/spring-cloud-hoxton-sr11-has-been-released"&gt;Spring Cloud Hoxton.SR11 has been released&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/04/20/what-s-new-in-spring-data-2021-0"&gt;What&amp;rsquo;s new in Spring Data 2021.0?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://github.com/microsoft/codetour"&gt;microsoft/codetour: VS Code extension that allows you to record and play back guided tours of codebases, directly within the editor.&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://kubernetes.io/blog/2021/04/22/evolving-kubernetes-networking-with-the-gateway-api/"&gt;Blog: Evolving Kubernetes networking with the Gateway API&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://kubernetes.io/blog/2021/04/21/graceful-node-shutdown-beta/"&gt;Blog: Graceful Node Shutdown Goes Beta&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://kubernetes.io/blog/2021/04/23/kubernetes-release-1.21-metrics-stability-ga/"&gt;Blog: Kubernetes 1.21: Metrics Stability hits GA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://www.mscharhag.com/java/vector-api"&gt;Looking into the JDK 16 vector API&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/JavaAtMicrosoft/status/1385285107708141573"&gt;Microsoft Build of OpenJDK 11.0.11 and 16.0.1 (EA) Now Available&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://www.oracle.com/java/technologies/java-se-support-roadmap.html"&gt;Oracle Java SE Support Roadmap - Oracle is offering extended support for Java 8 until 2030&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://blogs.oracle.com/javamagazine/mastering-the-mechanics-of-java-method-invocation"&gt;This is an interesting article by Ben Evans on how the JVM executes bytecode&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>A Bootiful Podcast: Reliably CEO Russ Miles</title>
     <link rel="alternate" href="https://spring.io/blog/2021/04/22/a-bootiful-podcast-reliably-ceo-russ-miles" />
@@ -1265,84 +1295,6 @@ interface HelloClient {&#xD;
   &lt;li&gt;&lt;a href="https://twitter.com/olehdokuka/status/1377177610992508939?s=12"&gt;Wanna join the Reactor team? We&amp;rsquo;re hiring!&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=EVkVtYn57qA"&gt;Want to learn more about RSocket Routing and the RSocket broker, check out this episode of Tanzu Code with special guest Oleh Dokuka - YouTube&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>API Rate Limiting with Spring Cloud Gateway</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/04/05/api-rate-limiting-with-spring-cloud-gateway" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Haytham Mohamed</name>
-    </author>
-    <id>tag:spring.io,2021-03-31:4403</id>
-    <updated>2021-04-05T19:46:00Z</updated>
-    <content type="html">&lt;p&gt;One of the imperative architectural concerns is to protect APIs and service endpoints from harmful effects, such as denial of service, cascading failure. or overuse of resources. Rate limiting is a technique to control the rate by which an API or a service is consumed. In a distributed system, no better option exists than to centralize configuring and managing the rate at which consumers can interact with APIs. Only those requests within a defined rate would make it to the API. Any more would raise an HTTP ¡°Many requests¡± error.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://static.spring.io/blog/haythamm/20210405/rate-limit-1.svg" alt="link to rate limit image" /&gt;&lt;/p&gt;
-&lt;p&gt;Spring Cloud Gateway (SCG) is a simple and lightweight component, yet it is an effective way to manage limiting API consumption rates. In this blog, I am going to illustrate how simply that can be accomplished by using a configuration method. As illustrated in the figure below, the demonstration consists of a frontend and backend services with a Spring Cloud Gateway service in between.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://static.spring.io/blog/haythamm/20210405/backend-gateway-frontend.svg" alt="link to rate limit image" /&gt;&lt;/p&gt;
-&lt;p&gt;No code whatsoever is needed to include the SCG in the architecture. You need to include a Spring Boot Cloud dependency &lt;code&gt;org.springframework.cloud:spring-cloud-starter-gateway&lt;/code&gt; in a vanilla Spring Boot application, and you¡¯re set to go with the appropriate configuration settings.&lt;/p&gt;
-&lt;p&gt;Requests received by SCG from a frontend service can be routed to a backend service based on a configured route definition. A route definition configuration specifies to the gateway how a request should be routed to a backend endpoint. A route configuration usually defines conditions based on information that can be extracted from HTTP requests, such as paths and headers.&lt;/p&gt;
-&lt;p&gt;For example, the snippet below lists a YAML stanza to configure the condition under which requests should be routed to a backend service. It shows that requests should target the backend service when the gateway is hit with ¡°/backend¡± in the path. In the configuration, the route is given an identifier and the backend service URI.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint yaml"&gt;spring:&#xD;
-  cloud:&#xD;
-    gateway:&#xD;
-      routes:&#xD;
-        - id: route1&#xD;
-          uri: http://localhost:8081&#xD;
-          predicates:&#xD;
-            - Path=/backend
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;RequestRateLimiter&lt;/strong&gt; is one of the many gateway filters offered by SCG. The implementation determines whether a request is allowed to proceed or has exceeded its limit. The implementation lets you (optionally) plug in a key to manage limiting the number of requests to different services. While it is customizable to implement how to resolve a key, the gateway comes with one that uses a user¡¯s &lt;strong&gt;Principal&lt;/strong&gt; name. A secured gateway is needed to resolve a user¡¯s principal name, but you have the option to implement the KeyResolver interface to instead resolve a different key from the ServerWebExchange. You can point to a custom KeyResolver bean (for example, named customKeyResolver) in the configuration by using a SPEL &lt;em&gt;#{@customKeyResolver}&lt;/em&gt; expression. The following listing shows the &lt;strong&gt;KeyResolver&lt;/strong&gt; interface:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint java"&gt;public interface KeyResolver {&#xD;
-    Mono&amp;lt;String&amp;gt; resolve(ServerWebExchange exchange);&#xD;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The gateway would deny requests if no key was resolved. To let the gateway accept a missing resolved key, you can set the following property:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint properties"&gt;spring.cloud.gateway.filter.request-rate-limiter.deny-empty-key=false
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You can also specify a status code that the gateway should report when it could not figure out a key by setting the following property:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint properties"&gt;spring.cloud.gateway.filter.request-rate-limiter.empty-key-status-code=
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Consider a blueprint architecture in which a gateway controls limiting API consumptions by using Redis. The provided Redis implementation uses the Token Bucket algorithm. To use it, you need to include the &lt;code&gt;spring-boot-starter-data-redis&lt;/code&gt; Spring Boot starter dependency in the gateway application. Basically, the token bucket algorithm uses balance tokens as a means to maintain an accumulating budget of utilization. The algorithm assumes tokens will be added to a bucket at a certain rate while calls to an API consume from these tokens. One API invocation may perform many operations to compose a response in order to fulfill a request (think of GraphQL-based APIs). In such cases, the algorithm helps to recognize that one invocation may cost an API more than one token.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://static.spring.io/blog/haythamm/20210405/redis-rate-limiting.svg" alt="link to rate limit image" /&gt;&lt;/p&gt;
-&lt;p&gt;The provided Redis implementation lets you define the request rate at which users can make calls within a certain time period. It also makes it possible to accommodate sporadic demands while constrained by the defined consumption rate. For example, a configuration can define a replenish rate of 500 requests per second by setting the &lt;code&gt;redis-rate-limiter.replenishRate=500&lt;/code&gt; property and a burst capacity of 1000 request per second by setting the &lt;code&gt;redis-rate-limiter.burstCapacity=1000&lt;/code&gt; property. Doing so limits consumption to 500 requests every second. If a burst in the number of requests occurs, only 1,000 requests are allowed. However, because 1,000 requests are a quota of 2 seconds, the gateway would not route requests for the next second. The configuration also lets you define how many tokens a request would cost by setting the property &lt;code&gt;redis-rate-limiter.requestedTokens&lt;/code&gt; property. Typically, it is set to 1.&lt;/p&gt;
-&lt;p&gt;To use a gateway with a request limiting feature, it needs to be configured with the RequestRateLimiter gateway filter. The configuration can specify arguments to define a replenish rate, burst capacity, and the number of tokens that a request costs. The example below illustrates how to configure a gateway with these arguments:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint yaml"&gt;spring:&#xD;
-  cloud:&#xD;
-    gateway:&#xD;
-      routes:&#xD;
-        - id: route1&#xD;
-          uri: http://localhost:8081&#xD;
-          predicates:&#xD;
-            - Path=/backend&#xD;
-          filters:&#xD;
-          - name: RequestRateLimiter&#xD;
-            args:&#xD;
-              redis-rate-limiter.replenishRate: 500&#xD;
-              redis-rate-limiter.burstCapacity: 1000&#xD;
-              redis-rate-limiter.requestedTokens: 1
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Spring cloud gateway provides the flexibility to define your own custom rate limiter implementation. It offers a RateLimiter interface to implement and define a bean. The rate limiter bean can be configured by using a SPEL expression, as in the case of a custom key resolver. For instance, you can define a custom rate limiter bean named customRateLimiter and a custom key resolver named customKeyResolver and configure a route like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint java"&gt;@Bean&#xD;
-public KeyResolver customKeyResolver {&#xD;
-	return exchange -&amp;gt; ....  // returns a Mono of String&#xD;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class="prettyprint yaml"&gt;spring:&#xD;
-  cloud:&#xD;
-    gateway:&#xD;
-      routes:&#xD;
-        - id: route1&#xD;
-          uri: http://localhost:8081&#xD;
-          predicates:&#xD;
-            - Path=/backend&#xD;
-          filters:&#xD;
-          - name: RequestRateLimiter&#xD;
-            args:&#xD;
-              rate-limiter: &amp;quot;#{customRateLimiter}&amp;quot;&#xD;
-              key-resolver: &amp;quot;#{customKeyResolver}&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;An illustrating example is available in &lt;a href="https://github.com/Haybu/blog-spring-cloud-gateway/tree/rate-limiting"&gt;GitHub&lt;/a&gt;&lt;/p&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>
