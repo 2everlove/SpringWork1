@@ -22,6 +22,7 @@
 		</trim>
 	</sql>
 	
+	
 	<insert id="insert">
 		insert into tbl_board(bno, title, content, writer) 
 			values (seq_tbl_board.NEXTVAL, #{title}, #{content}, #{writer})
@@ -47,11 +48,11 @@
 	<!-- 조건이 있을 수도 있고 없을 수도 있으므로 trim으로 설정함 -->
 	<select id="getListWithPaging" resultType="jmp.spring.domain.BoardVO">
 		<![CDATA[
-		select bno, title, content, writer, regdate, updatedate 
+		select bno, title, content, writer, regdate, updatedate, replycnt 
 		from 
 			(
 			select /*+INDEX_DESC(tbl_board pk_board) */
-				rownum rn, bno, title, content, writer, regdate, updatedate
+				rownum rn, bno, title, content, writer, regdate, updatedate, replycnt
 			from tbl_board where 
 		]]>
 			<include refid="criteria"></include>
@@ -86,6 +87,30 @@
 		
 		insert into tbl_board(bno, title, content, writer) 
 			values (#{bno}, #{title}, #{content}, #{writer})
+	</insert>
+	
+	<update id="updateTotal">
+		update tbl_board 
+		set replycnt = (select count(*) from tbl_reply where bno = #{bno})
+		where bno = #{bno}
+	</update>
+	
+	<insert id="boardBackup">
+		INSERT INTO tbl_board_bk
+    ( SELECT
+        seq_board_bk.NEXTVAL,
+        bno,
+        title,
+        content,
+        writer,
+        regdate,
+        updatedate,
+        sysdate
+    FROM
+        tbl_board
+    WHERE
+        bno = #{bno}
+    )
 	</insert>
 	
 </mapper>

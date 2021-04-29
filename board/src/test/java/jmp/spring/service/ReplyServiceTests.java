@@ -25,13 +25,13 @@ public class ReplyServiceTests {
 	
 	@Test
 	public void getListTest() {
-		log.info(service.getList(203L));
+		//log.info(service.getList(203L));
 	}
 	
 	@Test
 	public void insertTest() {
 		ReplyVO reply = new ReplyVO();
-		reply.setBno(203L);
+		reply.setBno(202L);
 		reply.setReply("댓글이  dal고 시퍼");
 		reply.setReplyer("댓글rer");
 		log.info(service.insert(reply));
@@ -48,7 +48,7 @@ public class ReplyServiceTests {
 	
 	@Test
 	public void deleteTest() {
-		log.info(service.delete(22L));
+		log.info(service.delete(246L));
 	}
 	
 	@Test

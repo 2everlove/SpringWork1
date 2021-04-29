@@ -42,14 +42,16 @@
 					<fmt:formatDate value="${regDate}" pattern="yy.MM.dd" var="regdate"/>
 					
 					<div class="form-group">
-						<label>RegDate</label><input class="form-control" name="regDate" value='<c:out value="${regdate}"/>' readonly="readonly">
+						<label>RegDate</label><input class="form-control" value='<c:out value="${regdate}"/>' readonly="readonly">
+						<input class="form-control" name="regDate" value='<c:out value="${regDate}"/>' hidden="">
 					</div>
 	
 					<div class="form-group">
 						<label>Update Date</label>
 						<c:choose>
 							<c:when test="${empty board.updateDate}">
-								<input class="form-control" name="updateDate" value='<c:out value="${regdate}"/>' readonly="readonly">
+								<input class="form-control" value='<c:out value="${regdate}"/>' readonly="readonly">
+								<input class="form-control" name="updateDate" value='<c:out value="${regDate}"/>' hidden="">
 							</c:when>
 							<c:otherwise>
 								<fmt:formatDate value="${updateDate}" pattern="yy.MM.dd" var="update"/>

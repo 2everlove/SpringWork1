@@ -27,8 +27,8 @@ public class ReplyMapperTests {
 	
 	@Test
 	public void getListTest() {
-		List<ReplyVO> list = mapper.getList(203L);
-		log.info(list);
+		//List<ReplyVO> list = mapper.getList(203L);
+		//log.info(list);
 	}
 	
 	@Test

@@ -7,6 +7,7 @@
 		insert into tbl_reply values(seq_reply.nextval, #{bno}, #{reply}, #{replyer}, sysdate, sysdate)
 	</insert>
 	
+	
 	<select id="get" resultType="jmp.spring.domain.ReplyVO">
 		select rno, bno, reply, replyer, replydate, 
 		    case

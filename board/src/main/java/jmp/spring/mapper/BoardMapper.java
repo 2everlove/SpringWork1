@@ -31,4 +31,7 @@ public interface BoardMapper {
 	//total (몇 페이지까지?) 
 	int getTotal(Criteria cri);
 	
+	public int updateTotal(Long bno);
+	
+	int boardBackup(Long bno);
 }

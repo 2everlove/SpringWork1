@@ -21,4 +21,5 @@ public interface ReplyService {
 	public int update(ReplyVO reply);
 	
 	public int getTotal(Long bno);
+	
 }

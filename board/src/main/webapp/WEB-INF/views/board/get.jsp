@@ -29,6 +29,9 @@
                        		<div class="form-group">
                        			<label>Writer</label><input class="form-control" name="writer" value="${board.writer}" readonly="readonly">
                        		</div>
+                       		<div class="form-group">
+                       			<label>reg-Date</label><input class="form-control" name="regdate" value="${board.regdate}" readonly="readonly">
+                       		</div>
                        		<div>
                        			<button data-oper='edit' class="btn btn-default">Modify</button>
                        			<button data-oper='list' class="btn btn-info">List</button>

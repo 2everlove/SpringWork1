@@ -10,4 +10,5 @@ public class BoardVO {
 	private String writer;
 	private String regdate;
 	private String updateDate;
+	private int replycnt;
 }

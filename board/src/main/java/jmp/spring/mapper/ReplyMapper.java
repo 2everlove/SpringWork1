@@ -20,4 +20,6 @@ public interface ReplyMapper {
 	public int update(ReplyVO reply);
 	
 	public int getTotal(Long bno);
+	
+	
 }

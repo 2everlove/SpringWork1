@@ -35,7 +35,7 @@
 						<c:forEach items="${list}" var="board">
 						<tr class="odd gradeX">
 							<td>${board.bno}</td>
-							<td><a class='move' href='<c:out value="${board.bno}"/>'>${board.title}</a></td>
+							<td><a class='move' href='<c:out value="${board.bno}"/>'>${board.title} <span>${board.replycnt>0?[board.replycnt]:""}</span></a></td>
 							<td>${board.writer}</td>
 							<!-- regdate와 updateDate가 String 형태라 우선 Date형태로 만듬 -->
 							<fmt:parseDate var="regDate" value="${board.regdate}" pattern="yyyy-MM-dd HH:mm:ss" />
