@@ -91,7 +91,7 @@
 	
 	<update id="updateTotal">
 		update tbl_board 
-		set replycnt = (select count(*) from tbl_reply where bno = #{bno})
+			set replycnt = (select count(*) from tbl_reply where bno = #{bno})
 		where bno = #{bno}
 	</update>
 	

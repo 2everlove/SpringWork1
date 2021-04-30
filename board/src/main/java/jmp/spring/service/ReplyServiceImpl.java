@@ -34,18 +34,23 @@ public class ReplyServiceImpl implements ReplyService{
 	@Transactional
 	@Override
 	public int insert(ReplyVO reply) {
+		int res = mapper.insert(reply);
 		//댓글의 갯수를 count -> tbl_board (replycnt) update
 		Long bno = reply.getBno();
 		boardMapper.updateTotal(bno);
-		return mapper.insert(reply);
+		return res;
 	}
 	
 	@Transactional
 	@Override
 	public int delete(Long rno) {
+		//rno에 해당하는 reply조회 후 객체 생성
 		ReplyVO reply = mapper.get(rno);
+		//reply에 해당하는 객체에서 bno꺼내 온 뒤 Long var에 저장
 		Long bno = reply.getBno();
+		//그 후 delete() 로직 실행
 		int res = mapper.delete(rno);
+		//삭제 후 해당 bno에 해당하는 게시글의 replyCNT를 업데이트
 		boardMapper.updateTotal(bno);
 		return res;
 	}

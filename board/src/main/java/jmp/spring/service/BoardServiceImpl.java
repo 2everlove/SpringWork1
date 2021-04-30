@@ -42,9 +42,10 @@ public class BoardServiceImpl implements BoardService {
 	@Transactional
 	@Override
 	public boolean modify(BoardVO board) {
+		int res = boardMapper.update(board);
 		log.info("modify........"+board);
 		boardMapper.boardBackup(board.getBno());
-		return boardMapper.update(board) == 1;
+		return res == 1;
 	}
 
 	@Override
