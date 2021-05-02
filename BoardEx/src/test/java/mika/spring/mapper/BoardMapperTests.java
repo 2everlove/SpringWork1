@@ -21,8 +21,24 @@ public class BoardMapperTests {
 	BoardMapper mapper;
 	
 	@Test
-	public void getList(){
+	public void getListTest(){
 		List<BoardVO> list = mapper.getList();
 		log.info(list);
+	}
+	
+	@Test
+	public void insertTest() {
+		BoardVO board = new BoardVO();
+		board.setContent("언제가지...");
+		board.setTitle("으으으");
+		board.setWriter("ㅇㅂㅇ");
+		log.info(mapper.insert(board));
+	}
+	
+	@Test
+	public void getBoardTest() {
+		BoardVO board = mapper.getBoard(246L);
+		
+		log.info(board);
 	}
 }

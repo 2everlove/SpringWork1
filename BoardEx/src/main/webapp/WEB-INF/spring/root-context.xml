@@ -28,6 +28,8 @@
 	
 	<mybatis-spring:scan base-package="mika.spring.mapper"/>
 	
+	<context:component-scan base-package="mika.spring.service"></context:component-scan>
+	
 	
 	
 </beans>

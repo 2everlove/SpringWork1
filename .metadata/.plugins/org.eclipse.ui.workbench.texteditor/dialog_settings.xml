@@ -6,6 +6,7 @@
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="regbtn"/>
 			<item value="tx"/>
 			<item value="replyInsertBtn"/>
 			<item value="board"/>
@@ -13,7 +14,6 @@
 			<item value="pageNum"/>
 			<item value="re"/>
 			<item value="replyInsert"/>
-			<item value="add"/>
 		</list>
 		<list key="replacehistory">
 			<item value="replyPageNum"/>
