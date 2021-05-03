@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jmp.spring.mapper.AttachMapper">
+
+<select id="getSeq" resultType="long">
+	select seq_attach.nextval from dual
+</select>
+
+<insert id="insert">
+	insert into tbl_attach values(#{attachNo}, #{uuid}, #{uploadPath}, #{fileName}, #{filetype}, sysdate)
+</insert>
+
+<select id="getList" resultType="jmp.spring.domain.AttachFileVO">
+	select attachNo,uuid,uploadPath,fileName,filetype as image
+        , uploadPath||uuid|| '_' ||fileName as savepath
+        , uploadPath||uuid|| '_' ||fileName as s_savepath
+	from tbl_attach
+	where attachNo = #{attachNo}
+</select>
+
+</mapper>

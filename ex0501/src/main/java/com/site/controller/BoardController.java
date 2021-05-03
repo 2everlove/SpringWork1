@@ -55,7 +55,6 @@ public class BoardController {
 			map.put("msg", "로그인 실패");
 			loginUrl="redirect:/login";
 		}
-		
 		return loginUrl;
 	}
 	

@@ -57,4 +57,10 @@ public class BoardController {
 		model.addAttribute("board", oneBoard);
 	}
 	
+	@PostMapping("/edit")
+	public void edit(BoardVO board, RedirectAttributes rttr) {
+		log.info("edit(post)..........");
+		
+	}
+	
 }

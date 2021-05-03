@@ -43,7 +43,7 @@
 					
 					<div class="form-group">
 						<label>RegDate</label><input class="form-control" value='<c:out value="${regdate}"/>' readonly="readonly">
-						<input class="form-control" name="regDate" value='<c:out value="${regDate}"/>' hidden="">
+						<input type="hidden"  class="form-control" name="regDate" value='<c:out value="${regDate}"/>'>
 					</div>
 	
 					<div class="form-group">
@@ -51,11 +51,11 @@
 						<c:choose>
 							<c:when test="${empty board.updateDate}">
 								<input class="form-control" value='<c:out value="${regdate}"/>' readonly="readonly">
-								<input class="form-control" name="updateDate" value='<c:out value="${regDate}"/>' hidden="">
+								<input type="hidden" class="form-control" name="updateDate" value='<c:out value="${regDate}"/>'>
 							</c:when>
 							<c:otherwise>
 								<fmt:formatDate value="${updateDate}" pattern="yy.MM.dd" var="update"/>
-								<input class="form-control" name="updateDate" value='<c:out value="${update}"/>' readonly="readonly">
+								<input type="hidden"  class="form-control" name="updateDate" value='<c:out value="${update}"/>' readonly="readonly">
 							</c:otherwise>
 						</c:choose>
 					</div>
