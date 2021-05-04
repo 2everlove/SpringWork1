@@ -5,7 +5,27 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2021-04-29T22:33:00Z</updated>
+  <updated>2021-05-03T20:38:00Z</updated>
+  <entry>
+    <title>Spring Security 5.5.0-RC2 released</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/05/03/spring-security-5-5-0-rc2-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Rob Winch</name>
+    </author>
+    <id>tag:spring.io,2021-05-03:4428</id>
+    <updated>2021-05-03T20:38:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;On behalf of the community, I¡¯m pleased to announce the release of Spring Security 5.5.0-RC2!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;After releasing 5.5.0-RC1 we received some feedback on our APIs that required further refinements. This release finalizes the APIs for the 5.5.0 release later this month.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;You can find the complete details in the &lt;a href="https://github.com/spring-projects/spring-security/releases/tag/5.5.0-RC2"&gt;release notes&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>A Bootiful Podcast: Oracle's Dilip Krishnan about Spring Fox, the Oracle Cloud Lift team, and more</title>
     <link rel="alternate" href="https://spring.io/blog/2021/04/29/a-bootiful-podcast-oracle-s-dilip-krishnan-about-spring-fox-the-oracle-cloud-lift-team-and-more" />
@@ -1276,23 +1296,6 @@ interface HelloClient {&#xD;
 &lt;/div&gt;
 &lt;div class="paragraph"&gt;
 &lt;p&gt;You can find the complete details in the &lt;a href="https://github.com/spring-projects/spring-security/releases/tag/5.5.0-RC1"&gt;release notes&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Security 5.2.10, 5.3.9, and 5.4.6 released</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/04/12/spring-security-5-2-10-5-3-9-and-5-4-6-released" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Josh Cummings</name>
-    </author>
-    <id>tag:spring.io,2021-04-12:4408</id>
-    <updated>2021-04-12T19:06:00Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;On behalf of the community, I&amp;#8217;m pleased to announce the release of Spring Security 5.2.10 (&lt;a href="https://github.com/spring-projects/spring-security/releases/tag/5.2.10.RELEASE"&gt;release notes&lt;/a&gt;), Spring Security 5.3.9 (&lt;a href="https://github.com/spring-projects/spring-security/releases/tag/5.3.9.RELEASE"&gt;release notes&lt;/a&gt;), and Spring Security 5.4.6 (&lt;a href="https://github.com/spring-projects/spring-security/releases/tag/5.4.6"&gt;release notes&lt;/a&gt;). These releases delivers bug fixes along with some minor improvements. Users are encouraged to update to the latest patch release.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="http://projects.spring.io/spring-security/"&gt;Project Site&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/"&gt;Reference&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-security"&gt;Help&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
