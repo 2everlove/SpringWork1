@@ -19,7 +19,7 @@ public class AttachFileVO {
 	public AttachFileVO(Long attachNo, String uploadPath, String fileName) {
 		UUID uuid = UUID.randomUUID();
 		this.uuid = uuid.toString();
-		this.filetype = "N"; //기본은 N , image일때만 Y로 변하게 ajaxController에서 처리
+		this.filetype = "Y"; //기본은 N , image일때만 Y로 변하게 ajaxController에서 처리
 		
 		this.attachNo = attachNo;
 		this.uploadPath = uploadPath;

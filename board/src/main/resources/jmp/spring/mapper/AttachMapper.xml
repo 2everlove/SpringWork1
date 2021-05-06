@@ -7,16 +7,28 @@
 	select seq_attach.nextval from dual
 </select>
 
+<select id="get" resultType="jmp.spring.domain.AttachFileVO">
+	select attachNo,uuid,uploadPath,fileName,filetype,regdate
+        , uploadPath||uuid|| '_' ||fileName as savepath
+        , uploadPath||'s_'||uuid|| '_' ||fileName as s_savepath
+	from tbl_attach
+	where uuid=#{uuid} and attachNo=#{attachNo}
+</select>
+
 <insert id="insert">
 	insert into tbl_attach values(#{attachNo}, #{uuid}, #{uploadPath}, #{fileName}, #{filetype}, sysdate)
 </insert>
 
 <select id="getList" resultType="jmp.spring.domain.AttachFileVO">
-	select attachNo,uuid,uploadPath,fileName,filetype as image
+	select attachNo,uuid,uploadPath,fileName,filetype,regdate
         , uploadPath||uuid|| '_' ||fileName as savepath
-        , uploadPath||uuid|| '_' ||fileName as s_savepath
+        , uploadPath||'s_'||uuid|| '_' ||fileName as s_savepath
 	from tbl_attach
 	where attachNo = #{attachNo}
 </select>
+
+<delete id="delete">
+	delete from tbl_attach where uuid=#{uuid} and attachNo=#{attachNo}
+</delete>
 
 </mapper>

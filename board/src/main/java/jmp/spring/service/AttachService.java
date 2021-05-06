@@ -13,4 +13,8 @@ public interface AttachService {
 	public int insert(AttachFileVO attachFileVO);
 	
 	public List<AttachFileVO> getList(Long attachNo);
+	
+	public int delete(String uuid, Long attachNo);
+	
+	public AttachFileVO get(String uuid, Long attachNo);
 }

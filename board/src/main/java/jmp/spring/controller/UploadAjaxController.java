@@ -2,6 +2,7 @@ package jmp.spring.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,6 +11,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,13 +37,90 @@ public class UploadAjaxController {
 	
 	private static final String ROOT_DIR = "C:\\upload\\temp\\";
 	
+	@GetMapping("/attachFileDelete/{uuid}/{attachNo}")
+	public String delete(@PathVariable("uuid") String uuid , @PathVariable("attachNo") Long attachNo) {
+		log.info("delete..........."+uuid+"========"+attachNo);
+		Long attachno = attachNo;
+		String res="";
+		int de = service.delete(uuid, attachno);
+		if(de>0) {
+			res=attachno+"가 삭제되었습니다.";
+			//저장된 파일을 조회
+			AttachFileVO attachFileVO = service.get(uuid, attachno);
+			log.info(attachFileVO);
+			File file = new File(ROOT_DIR+attachFileVO.getSavepath());
+			
+			//서버에 저장된 파일을 삭제
+			if(file.exists())
+				log.info("normal file: "+file);
+				file.delete();
+			
+			//만약에 이미지이면 서버에 이미지 파일의 썸네일도 삭제
+			if(attachFileVO.getFiletype()=="Y") {
+				File sFile = new File(ROOT_DIR+attachFileVO.getS_savepath());
+				
+				if(sFile.exists())
+					log.info("normal sFile: "+sFile);
+					sFile.delete();
+			}
+		} else
+			res="error";
+		return res;
+	}
 	
-	//파일리스트 조회
-	//@return List<AttachFileVO>
-	@GetMapping("/fileUploadAjax/{attachNo}")
-	public List<AttachFileVO> getList(@PathVariable("attachNo") Long attachNo){
-		List<AttachFileVO> list = service.getList(attachNo);
-	return list;	
+	@GetMapping("/download")
+	public ResponseEntity<byte[]> download(String fileName) {
+		log.info("download........."+fileName);
+		
+		//file 경로 : urlPath+uuid+_+경로 2021/05/06/파일이
+		//savePath에 경로 이미 넣어둠
+		File file = new File(ROOT_DIR+fileName);
+		if(file.exists()) {
+			HttpHeaders headers = new HttpHeaders();
+			headers.add("Content-type", MediaType.APPLICATION_OCTET_STREAM_VALUE);
+			try {
+				String place = fileName.substring(fileName.indexOf("_")+1);
+				log.info("subtring===="+place);
+				headers.add("Content-Disposition", "attachment;filename=\""
+							+ new String(place.getBytes("UTF-8"),"ISO-8859-1") + "\"");// \이후에 붙는문자는 String으로 처리
+				return new ResponseEntity<byte[]>(FileCopyUtils.copyToByteArray(file), headers, HttpStatus.OK);
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+				//파일 오류
+				return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+			} catch (IOException e) {
+				e.printStackTrace();
+				return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+		} else {
+			//파일 없음
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	//이미지 파일의 경로를 받아서 이미지를 반환
+	//@param fileName
+	@GetMapping("display")
+	public ResponseEntity<byte[]> display(String fileName) {
+		log.info("display............"+fileName);
+		//fileName:uploadpath+uuid+'_'+fileName
+		
+		//header는 content-type을 지정하여 hearder에 담아서, request&response시 header를 읽어 화면단에 출력될 수 있게 만들어줌
+		//header를 생략 시 그냥 byte[]형태로 화면단에 출력
+		HttpHeaders headers = new HttpHeaders();
+		File file = new File(ROOT_DIR+fileName);
+		
+		if(file.exists()) {
+			try {
+				headers.add("Content-Type", Files.probeContentType(file.toPath()));
+				return new ResponseEntity<byte[]>(FileCopyUtils.copyToByteArray(file), headers, HttpStatus.OK);
+				
+			} catch (IOException e) {
+				return new ResponseEntity<> (HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+		} else {
+			return new ResponseEntity<> (HttpStatus.NOT_FOUND);
+		}
 	}
 	
 	@PostMapping("/fileUploadAjax")
@@ -89,12 +172,15 @@ public class UploadAjaxController {
 					
 					//이미지면 VO의 fileType을 Y로 저장
 					attachFileVO.setFiletype("Y");
+					log.info(attachFileVO.getFiletype());
 					
+				} else {
+					attachFileVO.setFiletype("N");
 				}
 				//VO에 저장된 파일정보를 DB에 저장
 				if(service.insert(attachFileVO)>0) {
 					res++;
-				}
+				};
 			} catch (IllegalStateException | IOException e) {
 				e.printStackTrace();
 			}			
@@ -106,6 +192,16 @@ public class UploadAjaxController {
 		//log.info(list);
 		return map;
 	}//
+	
+	//파일리스트 조회
+	//@return List<AttachFileVO>
+	@GetMapping("/fileUploadAjax/{attachNo}")
+	public List<AttachFileVO> getList(@PathVariable("attachNo") Long attachNo){
+		log.info("getList........");
+		List<AttachFileVO> list = service.getList(attachNo);
+		log.info(list);
+	return list;	
+	}
 
 	//중복 방지용, 업로드 날자를 업로드 경로로 지정, 지정된 경로에 폴더가 존재하지 않으면 생성
 	//@return uploadPath

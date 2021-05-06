@@ -5,7 +5,159 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2021-05-03T20:38:00Z</updated>
+  <updated>2021-05-05T00:49:00Z</updated>
+  <entry>
+    <title>This Week in Spring - May 4th, 2021</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/05/04/this-week-in-spring-may-4th-2021" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2021-05-05:4429</id>
+    <updated>2021-05-05T00:49:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! How&amp;rsquo;re you doing? I hope you&amp;rsquo;re doing well, and that the Fourth (of May) is with you. &lt;/p&gt;
+&lt;p&gt;Today may be the 4th, but yesterday was the third of May, and that marks the 20th anniversary of the &lt;code&gt;JdbcTemplate&lt;/code&gt;, which I think is super cool! &lt;a href="https://twitter.com/starbuxman/status/1389497863009280000"&gt;Happy birthday, &lt;code&gt;JdbcTemplate&lt;/code&gt;&lt;/a&gt;! The &lt;code&gt;JdbcTemplate&lt;/code&gt; was important to a &lt;a href="https://twitter.com/NewpPaul/status/1389526918010228739"&gt;lot&lt;/a&gt; &lt;a href="https://twitter.com/microwatts/status/1389510296876855298"&gt;of&lt;/a&gt; &lt;a href="https://twitter.com/naveenkumaran_a/status/1389743476607127553"&gt;people&lt;/a&gt; &lt;a href="https://twitter.com/microwatts/status/1389510296876855298"&gt;because&lt;/a&gt; it&amp;rsquo;s one of those great little utilities that made it easy to justify pulling Spring into applications almost two decades ago. It also helped people learn a lot about some of the design patterns that Spring was trying to make commonplace. &lt;/p&gt;
+&lt;p&gt;As usual, we&amp;rsquo;ve got a ton of stuff to get to, so let&amp;rsquo;s begin! &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Don&amp;rsquo;t miss next &lt;a href="https://tanzu.vmware.com/developer/tv/springone-tour/0016/"&gt;week&amp;rsquo;s SpringOne Tour event&lt;/a&gt;! There&amp;rsquo;s a 90m presentation and then, on day two, a workshop. You&amp;rsquo;ll be able to hang out with all of us on both days and we&amp;rsquo;ll do our best to answer your questions.&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/04/29/a-bootiful-podcast-oracle-s-dilip-krishnan-about-spring-fox-the-oracle-cloud-lift-team-and-more"&gt;A Bootiful Podcast: Oracle&amp;rsquo;s Dilip Krishnan about Spring Fox, the Oracle Cloud Lift team, and more&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/mraible/status/1388191785462243336?s=12"&gt;A cool tutorial on JHipster 7!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://go.mariadb.com/21Q2-WBN-GLBL-OSSG-R2DBC-Connector-2021-01-13_Registration-LP.html"&gt;Creating fully reactive applications with R2DBC and MariaDB&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=oq5FcnqEMxk&amp;list=PL3TSF5whlprUTnpP9drAl-knNUnPqKrui&amp;index=3&amp;t=19s"&gt;I did a talk for the DevX conference, &amp;ldquo;Cloud Native Java,&amp;rdquo; in 20 minutes! Watch it here&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/brunoborges/status/1388306415572242437?s=12"&gt;In which Mr. Spring, Juergen Hoeller himself, looks at the future of Spring Framework and Java modules&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/05/04/spring-cloud-gateway-for-kubernetes"&gt;Spring Cloud Gateway for Kubernetes&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/05/03/spring-security-5-5-0-rc2-released"&gt;Spring Security 5.5.0-RC2 released&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://www.vmware.com/company/news/releases/vmw-newsfeed.U.S.-Army-Futures-Command-Partners-with-VMware-to-Create-Software-Factory.d92466ce-df4e-4a39-a075-75a6bd4706a0.html"&gt;U.S. Army Futures Command Partners with VMware to Create Software Factory&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/04/28/webinar-accelerate-spring-apps-to-cloud-at-scale"&gt;Webinar: Accelerate Spring Apps to Cloud at Scale&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Cloud Gateway for Kubernetes</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/05/04/spring-cloud-gateway-for-kubernetes" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Haytham Mohamed</name>
+    </author>
+    <id>tag:spring.io,2021-04-30:4427</id>
+    <updated>2021-05-04T21:06:00Z</updated>
+    <content type="html">&lt;p&gt;The &lt;a href="https://docs.pivotal.io/scg-k8s/1-0/"&gt;Spring Cloud Gateway&lt;/a&gt; (SCG) open-source project has been extended and offered commercially for the &lt;a href="https://kubernetes.io/"&gt;Kubernetes&lt;/a&gt; platform. This new offering lets you automate the deployment of an API gateway service by applying YAML configuration objects to a Kubernetes cluster. You can also update the routes of API gateways in Kubernetes by applying YAML configuration to the cluster.&lt;/p&gt;
+&lt;p&gt;Spring Cloud Gateway for Kubernetes supports routing to services that are written in any language, as long as they expose HTTP endpoints. A Kubernetes operator is offered to handle creating and configuring a gateway instance by applying defined custom resources to the cluster. You can dynamically configure a spawned SCG instance in a Kubernetes platform to enable API route updates for a continuous integration (CI) and continuous delivery (CD) pipeline. Furthermore, the SCG for Kubernetes offers commercial API route filters for Single Sign-On (SSO) authentication, role-based access control, scopes authorization, authorized token relay, client certificate authorization, rate limiting, and circuit breaker. SCG instances in a Kubernetes platform run with high availability and adjustable settings for memory and vCPU resources consumption. &lt;/p&gt;
+&lt;p&gt;Spring Cloud Gateway for Kubernetes is easy to install and use. In this blog. I show how to install SCG for Kubernetes in a local development environment and show how to create and configure a gateway instance with routes. You need to have both &lt;a href="https://www.docker.com/"&gt;Docker&lt;/a&gt; and the &lt;a href="https://helm.sh/"&gt;Helm&lt;/a&gt; command-line interface (CLI) tools installed. Let us first start by setting up an environment with a local Kubernetes cluster. It would be also helpful to configure the cluster with a local Docker registry and ingress controller. We can use &lt;a href="https://kind.sigs.k8s.io/"&gt;KinD&lt;/a&gt; to create a local cluster. You can install KinD from &lt;a href="https://kind.sigs.k8s.io/docs/user/quick-start/#installation"&gt;here&lt;/a&gt;. First, we spin off a local registry (named &lt;code&gt;myregistry&lt;/code&gt;) with port 5000 by using the ¡°registry¡± docker image as follows:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint [source, shell]"&gt;$ Docker run -d ?restart=always -p ¡°127.0.0.1:5000¡± ?name myregistry registry:2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can use the command below to create a new KinD cluster named &lt;code&gt;mycluster&lt;/code&gt;. The cluster consists of two nodes, one as a control plane node and the other as a workload node with port 80 and 443 mapped to your host to ingress into the cluster. The cluster is configured to use the above local Docker registry.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint [source, shell]"&gt;$ cat &amp;lt;&amp;lt;EOF | kind create cluster --config=-&#xD;
+kind: Cluster&#xD;
+apiVersion: kind.x-k8s.io/v1alpha4&#xD;
+containerdConfigPatches:&#xD;
+- |-&#xD;
+  [plugins.&amp;quot;io.containerd.grpc.v1.cri&amp;quot;.registry.mirrors.&amp;quot;localhost:5000&amp;quot;]&#xD;
+    endpoint = [&amp;quot;http://myregistry:5000&amp;quot;]&#xD;
+nodes:&#xD;
+- role: control-plane&#xD;
+- role: worker&#xD;
+  kubeadmConfigPatches:&#xD;
+  - |&#xD;
+    kind: JoinConfiguration&#xD;
+    nodeRegistration:&#xD;
+      kubeletExtraArgs:&#xD;
+        node-labels: &amp;quot;ingress-ready=true&amp;quot;&#xD;
+  extraPortMappings:&#xD;
+  - containerPort: 80&#xD;
+    hostPort: 80&#xD;
+    protocol: TCP&#xD;
+  - containerPort: 443&#xD;
+    hostPort: 443&#xD;
+    protocol: TCP&#xD;
+EOF
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You need to connect the registry to the cluster network by using the following command:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint [source, shell]"&gt;$ docker network connect mycluster myregistry || true
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Also, you need to create a Kubernetes ConfigMap to configure the local registry in the cluster: &lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint [source, shell]"&gt;$ cat &amp;lt;&amp;lt;EOF | kubectl apply -f -&#xD;
+apiVersion: v1&#xD;
+kind: ConfigMap&#xD;
+metadata:&#xD;
+  name: local-registry-hosting&#xD;
+  namespace: kube-public&#xD;
+data:&#xD;
+  localRegistryHosting.v1: |&#xD;
+    host: &amp;quot;localhost:5000&amp;quot;&#xD;
+    help: &amp;quot;https://kind.sigs.k8s.io/docs/user/local-registry/&amp;quot;&#xD;
+EOF
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;With that, you should have your local development environment ready with a tiny cluster to use. Now we can look into how to deploy SCG for Kubernetes. Provided that you have a license and access, you can download the installer of SCG for Kubernetes from VMware Tanzu Network. We are going to download the current version (1.0.0) of the installer and extract it to a folder. You need to first allocate Spring Cloud Gateway for Kubernetes docker images to the docker registry we installed in localhost at port 5000. From the extracted folder, run the image relocation script that is located in the &lt;code&gt;scripts&lt;/code&gt; directory. This command pulls, tags, and pushes the images to the docker registry:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint [source, shell]"&gt;$ ./scripts/relocate-images.sh localhost:5000
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Complete the installation by running the script below. By default, the Spring Cloud Gateway for Kubernetes operator and backing applications are deployed in the &lt;code&gt;spring-cloud-gateway&lt;/code&gt; namespace. &lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint [source, shell]"&gt;$ ./scripts/ install-spring-cloud-gateway.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can now create a gateway instance in the cluster. A new SCG instance is spawned with a &lt;code&gt;SpringCloudGateway&lt;/code&gt; CRD, a new route is defined with a &lt;code&gt;SpringCloudGatewayRouteConfig&lt;/code&gt; CRD, and a &lt;code&gt;SpringCloudGatewayMapping&lt;/code&gt; CRD configures a gateway with routes.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://static.spring.io/blog/haythamm/20210505/k8s-types.png" alt="image link" /&gt;&lt;/p&gt;
+&lt;p&gt;For example, you can create a file called &lt;code&gt;gateway-config.yaml&lt;/code&gt; with the following YAML definition:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint [source, yaml]"&gt;apiVersion: tanzu.vmware.com/v1&#xD;
+kind: SpringCloudGateway&#xD;
+metadata:&#xD;
+  name: my-gateway
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, apply this definition to your Kubernetes cluster:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint [source, shell]"&gt;$ kubectl apply -f gateway-config.yaml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This configuration creates a new Gateway instance (by default, the Gateway instance is created in the current namespace). To add routes and to map the routes to the gateway, we need to create a &lt;code&gt;SpringCloudGatewayRouteConfig&lt;/code&gt; object that describes the routes and a &lt;code&gt;SpringCloudGatewayMapping&lt;/code&gt; object that maps the route configuration to the gateway. Create a file called &lt;code&gt;route-config.yaml&lt;/code&gt; with the following YAML definition:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint [source, yaml]"&gt;apiVersion: tanzu.vmware.com/v1&#xD;
+kind: SpringCloudGatewayRouteConfig&#xD;
+metadata:&#xD;
+  name: my-gateway-routes&#xD;
+spec:&#xD;
+  routes:&#xD;
+  - id: test-route&#xD;
+    uri: https://github.com&#xD;
+    predicates:&#xD;
+      - Path=/github/**&#xD;
+    filters:&#xD;
+      - StripPrefix=1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then create a file called &lt;code&gt;mapping.yaml&lt;/code&gt; with the following YAML definition:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint [source, yaml]"&gt;apiVersion: tanzu.vmware.com/v1&#xD;
+kind: SpringCloudGatewayMapping&#xD;
+metadata:&#xD;
+  name: test-gateway-mapping&#xD;
+spec:&#xD;
+  gatewayRef:&#xD;
+    name: my-gateway&#xD;
+  routeConfigRef:&#xD;
+    name: my-gateway-routes
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Apply both definitions to your Kubernetes cluster to configure the gateway with the defined routes. Following these steps lets you route to APIs either inside or outside a Kubernetes platform. For example, you can configure a SCG to route to different backend collaborating APIs from an exposed frontend API. &lt;/p&gt;
+&lt;p&gt;&lt;img src="https://static.spring.io/blog/haythamm/20210505/k8s-architecture.png" alt="image link" /&gt;&lt;/p&gt;
+&lt;p&gt;The above illustrating gateway is configured to route to GitHub. You can install an ingress controller to reach the gateway from outside the cluster. For example, you can install &lt;code&gt;nginx&lt;/code&gt; ingress controller as follows:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint [source, shell]"&gt;$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/kind/deploy.yaml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And then you can create an ingress to reach out to the gateway. The created ingress below uses &lt;code&gt;/gateway&lt;/code&gt; as a path to the internal Kubernetes gateway service &lt;code&gt;my-gateway&lt;/code&gt; on port 80.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint [source, yaml]"&gt;apiVersion: networking.k8s.io/v1&#xD;
+kind: Ingress&#xD;
+metadata:&#xD;
+  name: gateway-ingress&#xD;
+  annotations:&#xD;
+    nginx.ingress.kubernetes.io/rewrite-target: /$2&#xD;
+spec:&#xD;
+  ingressClassName: nginx&#xD;
+  rules:&#xD;
+    - http:&#xD;
+        paths:&#xD;
+          - path: /gateway(/|$)(.*)&#xD;
+            pathType: Prefix&#xD;
+            backend:&#xD;
+              service:&#xD;
+                name: my-gateway&#xD;
+                port:&#xD;
+                  number: 80
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;With that, you will be able to launch GitHub through the configured gateway using &lt;code&gt;http://localhost/gateway/github&lt;/code&gt;&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Security 5.5.0-RC2 released</title>
     <link rel="alternate" href="https://spring.io/blog/2021/05/03/spring-security-5-5-0-rc2-released" />
@@ -1240,63 +1392,6 @@ interface HelloClient {&#xD;
 		&amp;lt;/dependencies&amp;gt;&#xD;
 &amp;lt;/dependencyManagement&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Framework 5.3.6 and 5.2.14 available now</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/04/13/spring-framework-5-3-6-and-5-2-14-available-now" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>St?phane Nicoll</name>
-    </author>
-    <id>tag:spring.io,2021-04-13:4410</id>
-    <updated>2021-04-13T11:47:00Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I am pleased to announce that Spring Framework &lt;code&gt;5.3.6&lt;/code&gt; and &lt;code&gt;5.2.14&lt;/code&gt; are available now.&lt;/p&gt;
-&lt;p&gt;Spring Framework &lt;code&gt;5.3.6&lt;/code&gt; includes &lt;a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.6"&gt;19 fixes and improvements&lt;/a&gt;. Spring Framework &lt;code&gt;5.2.14&lt;/code&gt; includes &lt;a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.2.14.RELEASE"&gt;11 selected fixes and improvements&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Stay tuned for follow-up Spring Boot releases later this week.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://projects.spring.io/spring-framework/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-framework/docs/5.3.6/spring-framework-reference"&gt;Documentation&lt;/a&gt;&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Security 5.5.0-RC1 released</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/04/12/spring-security-5-5-0-rc1-released" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Josh Cummings</name>
-    </author>
-    <id>tag:spring.io,2021-04-12:4409</id>
-    <updated>2021-04-12T19:22:00Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;On behalf of the community, I¡¯m pleased to announce the release of Spring Security 5.5.0-RC1!&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;In addition to dependency upgrades, bug fixes, and minor enhancements, the release candidate contains a few noteworthy changes:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="ulist"&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;JWT client authentication support for OAuth 2.0 clients&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;JWT bearer authorization grant support for OAuth 2.0 clients&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;AuthorizationManager&lt;/code&gt;, a new authorization API for filter security&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Kotlin coroutine support for reactive method security&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;OpenSAML 4 support&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;This release candidate is a good opportunity to give feedback before the actual GA release in mid-May. We look forward to hearing from you.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;You can find the complete details in the &lt;a href="https://github.com/spring-projects/spring-security/releases/tag/5.5.0-RC1"&gt;release notes&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>

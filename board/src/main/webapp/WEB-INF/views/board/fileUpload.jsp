@@ -59,18 +59,58 @@
 				let result ="";
 				$.each(datas, function(i, data){
 					console.log(data);
-					result += "<li>"+data.fileName+"</li>";
+					//이미지 썸네일의 경로를 인코딩 처리해서 서버에 보냄
+					
+					var s_savePath = encodeURIComponent(data.s_savepath);
+					var savePath = encodeURIComponent(data.savepath);
+					
+					console.log("인코딩 후 : "+savePath);
+					let fName = data.fileName;
+					//만약 이미지면 이미지 보여줌
+					if(data.filetype=='Y'){
+						result += "<li>"
+									+"<img src=/display?fileName="+s_savePath+">"
+									+"<a href=/display?fileName="+savePath+" download="+data.fileName+">"
+									+data.fileName+"</a>"
+									+" <a href=/download?fileName="+savePath+" download="+data.fileName+"><sub>[download]</sub></a>"
+									+"  <span onclick=attachFileDelete('"+data.uuid+"', '"+data.attachNo+"'); data-type='image' style='cursor: pointer'>❌</span></li>";
+					} else {
+						//이미지가 아니면 파일이름을 출력
+						result += "<li>"
+									+"<a href=/display?fileName="+savePath+" download='"+fName +"'>"
+									+data.fileName+"</a>"
+									+" <a href=/download?fileName="+savePath+" download='"+data.fileName+"'><sub>[download]</sub></a>"
+									+"  <span onclick=attachFileDelete('"+data.uuid+"','"+data.attachNo+"'); style='cursor: pointer'>❌</span></li>";
+					}
+					
 				});
 				if(datas.length == 0){
 					alert(attachNo+'번에 해당하는 데이터가 없습니다. 다시 검색해주세요.');
 					$('#attachNo').select();
 				}
 				$('#fileList').html(result);
+				
 			},
 			error : function(){
 				
 			}
 		});
+	}
+	
+	function attachFileDelete(uuid, attachNo){
+		console.log(uuid);
+		console.log(attachNo);
+		$.ajax({
+			url:'/attachFileDelete/'+uuid+'/'+attachNo,
+			method:'get',
+			success: function(datas){
+				console.log(url);
+				console.log(datas);
+			},
+			error : function(errorThrown){
+				console.log(errorThrown);
+			}
+		})
 	}
 </script>
 </head>

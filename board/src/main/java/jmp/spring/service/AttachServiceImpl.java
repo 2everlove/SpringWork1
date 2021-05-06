@@ -33,4 +33,15 @@ public class AttachServiceImpl implements AttachService {
 		return list;
 	}
 
+	@Override
+	public int delete(String uuid, Long attachNo) {
+		return mapper.delete(uuid, attachNo);
+	}
+
+	@Override
+	public AttachFileVO get(String uuid, Long attachNo) {
+		return mapper.get(uuid, attachNo);
+	}
+
+
 }
