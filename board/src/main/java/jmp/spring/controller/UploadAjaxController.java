@@ -42,11 +42,12 @@ public class UploadAjaxController {
 		log.info("delete..........."+uuid+"========"+attachNo);
 		Long attachno = attachNo;
 		String res="";
+		AttachFileVO attachFileVO = service.get(uuid, attachno);
 		int de = service.delete(uuid, attachno);
+		
 		if(de>0) {
 			res=attachno+"가 삭제되었습니다.";
 			//저장된 파일을 조회
-			AttachFileVO attachFileVO = service.get(uuid, attachno);
 			log.info(attachFileVO);
 			File file = new File(ROOT_DIR+attachFileVO.getSavepath());
 			

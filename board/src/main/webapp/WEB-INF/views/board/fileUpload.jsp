@@ -73,7 +73,7 @@
 									+"<a href=/display?fileName="+savePath+" download="+data.fileName+">"
 									+data.fileName+"</a>"
 									+" <a href=/download?fileName="+savePath+" download="+data.fileName+"><sub>[download]</sub></a>"
-									+"  <span onclick=attachFileDelete('"+data.uuid+"', '"+data.attachNo+"'); data-type='image' style='cursor: pointer'>❌</span></li>";
+									+"  <span onclick=attachFileDelete('"+data.uuid+"','"+data.attachNo+"'); data-type='image' style='cursor: pointer'>❌</span></li>";
 					} else {
 						//이미지가 아니면 파일이름을 출력
 						result += "<li>"
@@ -104,8 +104,8 @@
 			url:'/attachFileDelete/'+uuid+'/'+attachNo,
 			method:'get',
 			success: function(datas){
-				console.log(url);
 				console.log(datas);
+				searchFile(attachNo);
 			},
 			error : function(errorThrown){
 				console.log(errorThrown);

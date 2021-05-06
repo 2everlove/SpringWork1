@@ -16,5 +16,5 @@ public interface AttachMapper {
 	
 	public int delete(@Param("uuid") String uuid, @Param("attachNo") Long attachNo);
 	
-	public AttachFileVO get(String uuid, Long attachNo);
+	public AttachFileVO get(@Param("uuid") String uuid, @Param("attachNo") Long attachNo);
 }
