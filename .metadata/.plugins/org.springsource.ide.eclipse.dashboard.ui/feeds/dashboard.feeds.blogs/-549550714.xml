@@ -5,7 +5,20 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2021-05-05T00:49:00Z</updated>
+  <updated>2021-05-06T22:13:00Z</updated>
+  <entry>
+    <title>A Bootiful Podcast: Friend, fellow Spring Developer Advocate, Kotlin Google Developer Expert, and Java Champion, Mark Heckler</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/05/06/a-bootiful-podcast-friend-fellow-spring-developer-advocate-kotlin-google-developer-expert-and-java-champion-mark-heckler" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2021-05-06:4430</id>
+    <updated>2021-05-06T22:13:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of A Bootiful Podcast! This week, &lt;a href="https://twitter.com/starbuxman"&gt;Josh Long (@starbuxman)&lt;/a&gt; talks to his friend, fellow Spring Developer Advocate, Kotlin Google Developer Expert, and Java Champion: &lt;a href="https://twitter.com/mkheck"&gt;Mark Heckler (@mkheck)&lt;/a&gt;. Mark has also just written a well-recommended book from O&amp;rsquo;Reilly called Spring Boot: Up and Running.&lt;/p&gt;
+&lt;iframe title="Friend, fellow Spring Developer Advocate, Kotlin Google Developer Expert, and Java Champion, Mark Heckler" allowtransparency="true" height="150" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=sq3tr-102cb62-pb&amp;from=pb6admin&amp;download=1&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Arial&amp;skin=1&amp;btn-skin=7"&gt;&lt;/iframe&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>This Week in Spring - May 4th, 2021</title>
     <link rel="alternate" href="https://spring.io/blog/2021/05/04/this-week-in-spring-may-4th-2021" />
@@ -1244,154 +1257,6 @@ The consumers on the delayed topics are paused until the current time exceeds th
   &lt;li&gt;&lt;a href="https://kubernetes.io/blog/2021/04/14/local-storage-features-go-beta/"&gt;Blog: Local Storage: Storage Capacity Tracking, Distributed Provisioning and Generic Ephemeral Volumes hit Beta&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="https://kubernetes.io/blog/2021/04/13/kube-state-metrics-v-2-0/"&gt;Blog: kube-state-metrics goes v2.0&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Introducing Spring Cloud Square</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/04/13/introducing-spring-cloud-square" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Olga Maciaszek-Sharma</name>
-    </author>
-    <id>tag:spring.io,2021-04-09:4407</id>
-    <updated>2021-04-13T17:24:00Z</updated>
-    <content type="html">&lt;p&gt;We are happy to announce that we have released the first publicly available milestone version of the Spring Cloud Square incubator project. The project provides &lt;a href="https://docs.spring.io/spring-cloud-commons/docs/current/reference/html/#spring-cloud-loadbalancer"&gt;Spring Cloud LoadBalancer&lt;/a&gt; integration for &lt;a href="https://square.github.io/okhttp/"&gt;OkHttpClient&lt;/a&gt; and &lt;a href="https://square.github.io/retrofit/"&gt;Retrofit&lt;/a&gt;, as well as non-blocking &lt;a href="https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-webclient"&gt;WebClient&lt;/a&gt;-backed Retrofit clients. Retrofit is a declarative HTTP client from Square.&lt;/p&gt;
-&lt;p&gt;You can find more information on how to get started with the project below. You can also check the &lt;a href="https://github.com/spring-cloud-incubator/spring-cloud-square"&gt;project repository&lt;/a&gt; and &lt;a href="https://spring-cloud-incubator.github.io/spring-cloud-square/docs/current/reference/html/index.html"&gt;project documentation&lt;/a&gt; .&lt;/p&gt;&lt;h2&gt;&lt;a href="#okhttpclient-spring-cloud-loadbalancer-integration" class="anchor" name="okhttpclient-spring-cloud-loadbalancer-integration"&gt;&lt;/a&gt;OkHttpClient Spring Cloud LoadBalancer Integration&lt;/h2&gt;
-&lt;p&gt;An application interceptor is added to the &lt;code&gt;OkHttpClient&lt;/code&gt; created by auto-configuration. It resolves the scheme, host, and port from Spring Cloud LoadBalancer and rewrites the URL.&lt;/p&gt;
-&lt;p&gt;To use SC LoadBalancer to resolve and select instances to send requests to, add the &lt;code&gt;spring-cloud-square-okhttp&lt;/code&gt; dependency to your project:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint xml"&gt;&amp;lt;dependency&amp;gt;&#xD;
-		&amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt;&#xD;
-		&amp;lt;artifactId&amp;gt;spring-cloud-square-okhttp&amp;lt;/artifactId&amp;gt;&#xD;
-		&amp;lt;version&amp;gt;0.4.0-M1&amp;lt;/version&amp;gt;&#xD;
-&amp;lt;/dependency&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Then create a &lt;code&gt;@LoadBalanced&lt;/code&gt;-annotated &lt;code&gt;OkHttpClient.Builder&lt;/code&gt; bean:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint java"&gt;@Configuration&#xD;
-class OkHttpClientConfig{&#xD;
-@Bean&#xD;
-@LoadBalanced&#xD;
-public OkHttpClient.Builder okHttpClientBuilder() {&#xD;
-    return new OkHttpClient.Builder();&#xD;
-    }&#xD;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now you can use the &lt;code&gt;serviceId&lt;/code&gt; or virtual hostname rather than an actual &lt;code&gt;host:port&lt;/code&gt; in your requests. SC LoadBalancer resolves it by selecting one of available service instances.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint java"&gt;Request request = new Request.Builder()&#xD;
-                        .url(&amp;quot;http://serviceId/hello&amp;quot;).build();&#xD;
-Response response = builder.build().newCall(request).execute();
-&lt;/code&gt;&lt;/pre&gt;&lt;h2&gt;&lt;a href="#retrofit-with-okhttpclient-and-spring-cloud-loadbalancer" class="anchor" name="retrofit-with-okhttpclient-and-spring-cloud-loadbalancer"&gt;&lt;/a&gt;Retrofit with OkHttpClient and Spring Cloud LoadBalancer&lt;/h2&gt;
-&lt;p&gt;We also use load-balanced &lt;code&gt;OkHttpClient&lt;/code&gt; instances to run Retrofit calls.&lt;/p&gt;
-&lt;p&gt;To use Retrofit with Spring Cloud LoadBalancer-backed &lt;code&gt;OkHttpClient&lt;/code&gt;, add the&lt;br/&gt;&lt;code&gt;spring-cloud-square-retrofit&lt;/code&gt; and &lt;code&gt;spring-cloud-square-okhttp&lt;/code&gt; dependencies to your project:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint xml"&gt;&amp;lt;dependencies&amp;gt;&#xD;
-    &amp;lt;dependency&amp;gt;&#xD;
-		&amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt;&#xD;
-		&amp;lt;artifactId&amp;gt;spring-cloud-square-retrofit&amp;lt;/artifactId&amp;gt;&#xD;
-		&amp;lt;version&amp;gt;0.4.0-MILESTONE&amp;lt;/version&amp;gt;&#xD;
-    &amp;lt;/dependency&amp;gt;&#xD;
-    &amp;lt;dependency&amp;gt;&#xD;
-		&amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt;&#xD;
-		&amp;lt;artifactId&amp;gt;spring-cloud-square-okhttp&amp;lt;/artifactId&amp;gt;&#xD;
-		&amp;lt;version&amp;gt;0.4.0-MILESTONE&amp;lt;/version&amp;gt;&#xD;
-    &amp;lt;/dependency&amp;gt;&#xD;
-&amp;lt;/dependencies&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Use the &lt;code&gt;@EnableRetrofitClients&lt;/code&gt; annotation to let us automatically instantiate and inject Retrofit clients for you. Then create a &lt;code&gt;@LoadBalanced&lt;/code&gt;-annotated &lt;code&gt;OkHttpClient.Builder&lt;/code&gt; bean to be used under the hood:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint java"&gt;@Configuration&#xD;
-@EnableRetrofitClients&#xD;
-class OkHttpClientConfig {&#xD;
-&#xD;
-@Bean&#xD;
-@LoadBalanced&#xD;
-public OkHttpClient.Builder okHttpClientBuilder() {&#xD;
-    return new OkHttpClient.Builder();&#xD;
-    }&#xD;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Create a Retrofit client and annotate it with &lt;code&gt;@RetrofitClient&lt;/code&gt;, passing the &lt;code&gt;serviceId&lt;/code&gt; of your service as an argument (you can also use the annotation to pass a custom configuration that contains user-crated interceptors for the Retrofit client):&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint java"&gt;@RetrofitClient(&amp;quot;serviceId&amp;quot;)&#xD;
-interface HelloClient {&#xD;
-	@GET(&amp;quot;/&amp;quot;)&#xD;
-	Call&amp;lt;String&amp;gt; hello();&#xD;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Make sure to use Retrofit method annotations, such as &lt;code&gt;@GET(&amp;quot;/&amp;quot;)&lt;/code&gt;. You can now inject the Retrofit client and use it to run load-balanced calls (using &lt;code&gt;serviceId&lt;/code&gt; instead of actual &lt;code&gt;host:port&lt;/code&gt;):&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint java"&gt;class AService {&#xD;
-&#xD;
-    @Autowired&#xD;
-    HelloClient client;&#xD;
-&#xD;
-	public String hello() throws IOException {&#xD;
-		return client.hello().execute().body();&#xD;
-	}&#xD;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We created a &lt;a href="https://github.com/spring-cloud-samples/spring-cloud-square-retrofit-web"&gt;full sample for load-balanced-OkHttpClient-based Retrofit clients&lt;/a&gt;.&lt;/p&gt;&lt;h2&gt;&lt;a href="#retrofit-with-webclient-and-spring-cloud-loadbalancer" class="anchor" name="retrofit-with-webclient-and-spring-cloud-loadbalancer"&gt;&lt;/a&gt;Retrofit with WebClient and Spring Cloud LoadBalancer&lt;/h2&gt;
-&lt;p&gt;We also use adapters to provide WebClient support for Retrofit.&lt;/p&gt;
-&lt;p&gt;To use Retrofit with a Spring Cloud LoadBalancer-backed &lt;code&gt;WebClient&lt;/code&gt;, add the&lt;br/&gt;&lt;code&gt;spring-cloud-square-retrofit&lt;/code&gt; and &lt;code&gt;spring-boot-starter-webflux&lt;/code&gt; starter dependencies to your project:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint xml"&gt;&amp;lt;dependencies&amp;gt;&#xD;
-    &amp;lt;dependency&amp;gt;&#xD;
-		&amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt;&#xD;
-		&amp;lt;artifactId&amp;gt;spring-cloud-square-retrofit&amp;lt;/artifactId&amp;gt;&#xD;
-		&amp;lt;version&amp;gt;0.4.0-MILESTONE&amp;lt;/version&amp;gt;&#xD;
-    &amp;lt;/dependency&amp;gt;&#xD;
-    &amp;lt;dependency&amp;gt;&#xD;
-    	&amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;&#xD;
-    	&amp;lt;artifactId&amp;gt;spring-boot-starter-webflux&amp;lt;/artifactId&amp;gt;&#xD;
-    &amp;lt;/dependency&amp;gt;&#xD;
-&amp;lt;/dependencies&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Use the &lt;code&gt;@EnableRetrofitClients&lt;/code&gt; annotation to let us automatically instantiate and inject Retrofit clients for you. Then create a &lt;a href="https://docs.spring.io/spring-cloud-commons/docs/current/reference/html/#webclinet-loadbalancer-client"&gt;&lt;code&gt;@LoadBalanced&lt;/code&gt;-annotated &lt;code&gt;WebClient.Builder&lt;/code&gt; bean&lt;/a&gt; to be used under the hood:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint java"&gt;@Configuration&#xD;
-@EnableRetrofitClients&#xD;
-class OkHttpClientConfig {&#xD;
-&#xD;
-@Bean&#xD;
-@LoadBalanced&#xD;
-public WebClient.Builder okHttpClientBuilder() {&#xD;
-    return WebClient.builder();&#xD;
-    }&#xD;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Create a Retrofit client and annotate it with &lt;code&gt;@RetrofitClient&lt;/code&gt;, passing the &lt;code&gt;serviceId&lt;/code&gt; of your service as argument:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint java"&gt;@RetrofitClient(&amp;quot;serviceId&amp;quot;)&#xD;
-interface HelloClient {&#xD;
-	@GET(&amp;quot;/&amp;quot;)&#xD;
-	Mono&amp;lt;String&amp;gt; hello();&#xD;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Make sure to use Retrofit method annotations, such as &lt;code&gt;@GET(&amp;quot;/&amp;quot;)&lt;/code&gt;. You can now inject the Retrofit client and use it to run load-balanced calls (using &lt;code&gt;serviceId&lt;/code&gt; instead of actual &lt;code&gt;host:port&lt;/code&gt;):&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint java"&gt;class AService {&#xD;
-&#xD;
-    @Autowired&#xD;
-    HelloClient client;&#xD;
-&#xD;
-	public String hello() throws IOException {&#xD;
-		return client.hello();&#xD;
-	}&#xD;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We created a &lt;a href="https://github.com/spring-cloud-samples/spring-cloud-square-retrofit-webclient"&gt;full sample for load-balanced-WebClient-based Retrofit clients&lt;/a&gt;.&lt;/p&gt;&lt;h3&gt;&lt;a href="#note" class="anchor" name="note"&gt;&lt;/a&gt;NOTE:&lt;/h3&gt;
-&lt;p&gt;As the currently available release is a milestone, you need to add the Spring Milestone repository link to your projects for all the examples presented in this blog entry:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint xml"&gt;&amp;lt;repositories&amp;gt;&#xD;
-    &amp;lt;repository&amp;gt;&#xD;
-        &amp;lt;id&amp;gt;spring-milestones&amp;lt;/id&amp;gt;&#xD;
-        &amp;lt;url&amp;gt;https://repo.spring.io/milestone&amp;lt;/url&amp;gt;&#xD;
-    &amp;lt;/repository&amp;gt;&#xD;
-&amp;lt;/repositories&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We recommend using dependency management for other Spring Cloud dependencies:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint xml"&gt;&amp;lt;dependencyManagement&amp;gt;&#xD;
-		&amp;lt;dependencies&amp;gt;&#xD;
-			&amp;lt;dependency&amp;gt;&#xD;
-				&amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt;&#xD;
-				&amp;lt;artifactId&amp;gt;spring-cloud-dependencies&amp;lt;/artifactId&amp;gt;&#xD;
-				&amp;lt;version&amp;gt;${spring-cloud.version}&amp;lt;/version&amp;gt;&#xD;
-				&amp;lt;type&amp;gt;pom&amp;lt;/type&amp;gt;&#xD;
-				&amp;lt;scope&amp;gt;import&amp;lt;/scope&amp;gt;&#xD;
-			&amp;lt;/dependency&amp;gt;&#xD;
-		&amp;lt;/dependencies&amp;gt;&#xD;
-&amp;lt;/dependencyManagement&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>

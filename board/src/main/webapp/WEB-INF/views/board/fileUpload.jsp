@@ -86,6 +86,7 @@
 				});
 				if(datas.length == 0){
 					alert(attachNo+'번에 해당하는 데이터가 없습니다. 다시 검색해주세요.');
+					$('#attachNo').val("");
 					$('#attachNo').select();
 				}
 				$('#fileList').html(result);
