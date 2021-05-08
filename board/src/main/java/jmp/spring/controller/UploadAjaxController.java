@@ -37,6 +37,9 @@ public class UploadAjaxController {
 	
 	private static final String ROOT_DIR = "C:\\upload\\temp\\";
 	
+	//delete file
+	//@return String
+	//path로 부터 parameter를 추출해야하므로 {parameter}로 작성
 	@GetMapping("/attachFileDelete/{uuid}/{attachNo}")
 	public String delete(@PathVariable("uuid") String uuid , @PathVariable("attachNo") Long attachNo) {
 		log.info("delete..........."+uuid+"========"+attachNo);
@@ -46,7 +49,6 @@ public class UploadAjaxController {
 		int de = service.delete(uuid, attachno);
 		
 		if(de>0) {
-			res=attachno+"가 삭제되었습니다.";
 			//저장된 파일을 조회
 			log.info(attachFileVO);
 			File file = new File(ROOT_DIR+attachFileVO.getSavepath());
@@ -57,13 +59,14 @@ public class UploadAjaxController {
 				file.delete();
 			
 			//만약에 이미지이면 서버에 이미지 파일의 썸네일도 삭제
-			if(attachFileVO.getFiletype()=="Y") {
+			if(attachFileVO.getFiletype().equals("Y")) {
 				File sFile = new File(ROOT_DIR+attachFileVO.getS_savepath());
 				
 				if(sFile.exists())
 					log.info("normal sFile: "+sFile);
 					sFile.delete();
 			}
+			res=attachno+"가 삭제되었습니다.";
 		} else
 			res="error";
 		return res;

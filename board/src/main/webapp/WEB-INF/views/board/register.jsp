@@ -34,6 +34,7 @@
                         	</form>
                         </div>
                         <!-- /.panel-body -->
+		            <%@include file="fileUpload.jsp" %>
                     </div>
                     <!-- /.panel -->
                 </div>

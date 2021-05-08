@@ -7,6 +7,30 @@
 <meta charset="UTF-8">
 <title>File Upload</title>
 <link rel="shortcut icon" href="#">
+<style>
+.wrapper {
+	width: 100%;
+	background-color: gray;
+}
+
+.wrapper ul {
+	display: flex;
+	flex-flow: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.wrapper ul li {
+	list-style: none;
+	padding: 10px;
+}
+
+.wrapper ul li img {
+	width: 100px;
+}
+</style>
+
+
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
@@ -127,7 +151,8 @@
 	<!-- multiple 파일 여러개 보낼때 -->
 </form>
 	<button id="uploadBtn">Submit</button>
-<div id="wrapper">
+
+<div class="wrapper">
 	<ul id="fileList">
 		
 	</ul>
