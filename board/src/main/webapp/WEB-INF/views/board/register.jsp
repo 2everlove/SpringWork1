@@ -19,6 +19,7 @@
                         <div class="panel-body">
                         	<form role="form" action="/board/register" method="post">
                         		<div class="form-group">
+                        			<input class="form-control" name="attachNo" id="attachNoClone">
                         			<label>Title</label><input class="form-control" name="title">
                         		</div>
                         		<div class="form-group">
@@ -32,9 +33,10 @@
                         			<button type="reset" class="btn btn-default">Reset</button>
                         		</div>
                         	</form>
+                        	<br>
+				            <%@include file="fileUpload.jsp" %>
                         </div>
                         <!-- /.panel-body -->
-		            <%@include file="fileUpload.jsp" %>
                     </div>
                     <!-- /.panel -->
                 </div>

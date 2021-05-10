@@ -24,8 +24,8 @@
 	
 	
 	<insert id="insert">
-		insert into tbl_board(bno, title, content, writer) 
-			values (seq_tbl_board.NEXTVAL, #{title}, #{content}, #{writer})
+		insert into tbl_board(bno, title, content, writer, attachno) 
+			values (seq_tbl_board.NEXTVAL, #{title}, #{content}, #{writer}, #{attachno})
 	</insert><!-- #{vo.변수명} -> '값', ${vo.변수명} -> 값 // 형태로 들어감 -->
 	
 	<!-- 글 삭제 -->
@@ -48,11 +48,11 @@
 	<!-- 조건이 있을 수도 있고 없을 수도 있으므로 trim으로 설정함 -->
 	<select id="getListWithPaging" resultType="jmp.spring.domain.BoardVO">
 		<![CDATA[
-		select bno, title, content, writer, regdate, updatedate, replycnt 
+		select bno, title, content, writer, regdate, updatedate, replycnt, attachno
 		from 
 			(
 			select /*+INDEX_DESC(tbl_board pk_board) */
-				rownum rn, bno, title, content, writer, regdate, updatedate, replycnt
+				rownum rn, bno, title, content, writer, regdate, updatedate, replycnt, attachno
 			from tbl_board where 
 		]]>
 			<include refid="criteria"></include>
@@ -76,7 +76,8 @@
 		set title = #{title},
 		content = #{content},
 		writer = #{writer},
-		updateDate = sysdate
+		updateDate = sysdate,
+		attachno = #{attachNo}
 		where bno = #{bno}
 	</update>
 	
@@ -85,8 +86,8 @@
 			select seq_tbl_board.nextval from dual
 		</selectKey>
 		
-		insert into tbl_board(bno, title, content, writer) 
-			values (#{bno}, #{title}, #{content}, #{writer})
+		insert into tbl_board(bno, title, content, writer, attachno) 
+			values (#{bno}, #{title}, #{content}, #{writer}, #{attachNo})
 	</insert>
 	
 	<update id="updateTotal">

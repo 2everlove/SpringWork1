@@ -39,7 +39,8 @@
 		
 		$('#attachNo').on("change", function(){
 			searchFile($('#attachNo').val());
-		})
+		});
+		
 
 		$("#uploadBtn").on("click", function(){
 			if($('#fileUpload').val()==""){
@@ -62,7 +63,9 @@
 					console.log(datas);
 					alert(datas.count+"개가 업로드 되었습니다.");
 					let attachNo = "";
-					$('#attachNo').val(datas.attachNo);
+					//$('#attachNo').val(datas.attachNo);
+					/* $("") 태그 $("#") id $(".") class */
+					$('input[name=attachNo]').val(datas.attachNo);
 					//document.uploadForm.uploadFile.value="";
 					$('#fileupload').val("");
 					searchFile(datas.attachNo);
@@ -93,7 +96,7 @@
 					//만약 이미지면 이미지 보여줌
 					if(data.filetype=='Y'){
 						result += "<li>"
-									+"<img src=/display?fileName="+s_savePath+">"
+									+"<img src=/display?fileName="+s_savePath+"><br>"
 									+"<a href=/display?fileName="+savePath+" download="+data.fileName+">"
 									+data.fileName+"</a>"
 									+" <a href=/download?fileName="+savePath+" download="+data.fileName+"><sub>[download]</sub></a>"
@@ -101,7 +104,7 @@
 					} else {
 						//이미지가 아니면 파일이름을 출력
 						result += "<li>"
-									+"<a href=/display?fileName="+savePath+" download='"+fName +"'>"
+									+"<a href=/display?fileName="+savePath+" download='"+fName +"'><br>"
 									+data.fileName+"</a>"
 									+" <a href=/download?fileName="+savePath+" download='"+data.fileName+"'><sub>[download]</sub></a>"
 									+"  <span onclick=attachFileDelete('"+data.uuid+"','"+data.attachNo+"'); style='cursor: pointer'>❌</span></li>";
@@ -114,6 +117,9 @@
 					$('#attachNo').select();
 				}
 				$('#fileList').html(result);
+				if($(location).attr('pathname').match('/board/get')){
+					$('span[data-type=image]').remove();
+				}
 				
 			},
 			error : function(){
@@ -141,17 +147,19 @@
 </head>
 <body>
 
+<div id="fileWrapper">
 <form name="uploadForm" action="/uploadFormAction" method="post" enctype="multipart/form-data">
-	<label>AttachNo: <input type="text" name="attachNo" id="attachNo"></label>
+	<label>AttachNo: <input type="text" class="form-control" name="attachNo" id="attachNo"></label>
 	<br>
 	<br>
 	<label>파일: <input type="file" name="uploadFile" id="fileUpload" multiple="multiple"></label>
 	<br>
 	<br>
 	<!-- multiple 파일 여러개 보낼때 -->
+	<button type="button" id="uploadBtn">Submit</button>
 </form>
-	<button id="uploadBtn">Submit</button>
-
+</div>
+<br>
 <div class="wrapper">
 	<ul id="fileList">
 		

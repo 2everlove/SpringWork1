@@ -17,13 +17,14 @@
 			</div>
 			<!-- /.panel-heading -->
 			<div class="panel-body">
-				<form role="form" action="/board/edit" method="post">
+				<form role="form" action="/board/edit" method="post" id="formBoard">
 					<input type="hidden" name="pageNum" value="${cri.pageNum}">
 					<input type="hidden" name="amount" value="${cri.amount}">
 					<input type="hidden" name="type" value="${cri.type}">
 					<input type="hidden" name="keyword" value="${cri.keyword}">
 					
 					<div class="form-group">
+						<input type="hidden" class="form-control" name="attachNo">
 						<label>Bno</label><input class="form-control" name="bno" value='<c:out value="${board.bno}"/>' readonly="readonly">
 					</div>
 					<div class="form-group">
@@ -63,6 +64,8 @@
 					<button type="submit" data-oper='delete' class="btn btn-danger">Remove</button>
 					<button type="submit" data-oper='list' class="btn btn-info">List</button>
 				</form>
+	            <br>
+                <%@include file="fileUpload.jsp" %>
 			</div>
 			<!-- /.panel-body -->
 		</div>
@@ -73,10 +76,10 @@
 <!-- /.row -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function(){
-		const formObj = $("form");
+	$(document).ready(function(){		
+		const formObj = $("#formBoard");
 		
-		$('button').on("click", function(e){
+		$('button[type=submit]').on("click", function(e){
 			
 			e.preventDefault();
 			
@@ -109,6 +112,14 @@
 			}
 			formObj.submit();
 		});
+		
+		const attachno = '${board.attachNo}';
+		$('#attachNo').attr('readonly',true);
+		
+		if(attachno != ''){
+			$("input[name=attachNo]").val(${board.attachNo});
+			searchFile($('#attachNo').val());
+		}
 	});
 </script>
 <%@include file="../includes/footer.jsp" %>

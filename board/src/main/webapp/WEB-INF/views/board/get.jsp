@@ -19,6 +19,7 @@
                         <div class="panel-body">
                        		<div class="form-group">
                        			<label>Bno</label><input class="form-control" name="bno" value="${board.bno}" readonly="readonly">
+                       			<input type="hidden" class="form-control" name="attachNo" id="attachNo" readonly="readonly">
                        		</div>
                        		<div class="form-group">
                        			<label>Title</label><input class="form-control" name="title" value="${board.title}" readonly="readonly">
@@ -43,6 +44,8 @@
 								<input type="hidden" name="type" value="${cri.type}">
 								<input type="hidden" name="keyword" value="${cri.keyword}">
 				            </form>
+				            <br>
+	                        <%@include file="fileUpload.jsp" %>
                         </div>
                         <!-- /.panel-body -->
                          <%@include file="reply.jsp" %>
@@ -54,8 +57,17 @@
             <!-- /.row -->
             
             <%@include file="../includes/footer.jsp" %>
-            <script type="text/javascript">
+            <script type="text/javascript" defer>
             	$(document).ready(function(){
+            		const attachno = '${board.attachNo}';
+            		$('#fileWrapper').remove();
+            		$('#attachNo').attr('readonly',true);
+            		
+            		if(attachno != ''){
+            			$("input[name=attachNo]").val(${board.attachNo});
+            			searchFile($('#attachNo').val());
+            		}
+            		
             		const operForm = $("#operForm");
             		$("button[data-oper='edit']").on("click", function(e){
             			operForm.attr("action","/board/edit").submit();
@@ -65,5 +77,6 @@
             			operForm.attr("action","/board/list")
             			operForm.submit();
             		});
-            	})
+            	});
             </script>
+
