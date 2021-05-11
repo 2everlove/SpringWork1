@@ -1,10 +1,13 @@
 package jmp.spring.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jmp.spring.domain.User;
 import jmp.spring.service.UserService;
@@ -26,16 +29,31 @@ public class UserController {
 	}
 	
 	@PostMapping("/loginAction")
-	public String loginProcess(User user, RedirectAttributes rttr) {
+	public String loginProcess(User vo, Model model, HttpServletRequest req) {
 		log.info("login_post.....");
-		User users = service.login(user);
+		User user = service.login(vo);
 		String resMsg = "";
-		if(users==null) {
+		String page = "";
+		if(user==null) {
 			resMsg = "fail";
+			model.addAttribute("resMsg", resMsg);
+			return "/login";
 		} else {
+			//user객체를 세션에 담음
+			HttpSession session = req.getSession();
+			session.setAttribute("user", user);
+			log.info("============"+user);
 			resMsg = "success";
+			model.addAttribute("resMsg", resMsg);
+			model.addAttribute("user", user);
+			return "/loginAction";
 		}
-		rttr.addFlashAttribute("resMsg", resMsg);
-		return "redirect:/login";
+	}
+	
+	@GetMapping("/logout")
+	public String logout(HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		session.invalidate();
+		return "/login";
 	}
 }

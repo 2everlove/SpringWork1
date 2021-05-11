@@ -35,14 +35,16 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script defer type="text/javascript" charset="UTF-8">
+    $(document).ready(function(){
     	const resMsg = '${resMsg}';
     	if(resMsg != ''){
 	    	if(resMsg=='fail'){
-	    		alert("로그인 실패");
-	    	} else{
-	    		alert("로그인 성공");
+    		console.log(resMsg);
+	    		$('#errorMsgArea').text('아이디와 비밀번호가 틀렸습니다.');
 	    	}
     	}
+
+    });
     </script>
 
 </head>
@@ -57,12 +59,7 @@
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
-                    <c:if test="${resMsg != null && resMsg == 'success'}">
-                    <p style="color: blue; font-size: 20px;">${resMsg}
-                    </c:if>
-                    <c:if test="${resMsg != null && resMsg == 'fail'}">
-                    <p style="color: red; font-size: 20px;">${resMsg}
-                    </c:if>
+                    	<p id="errorMsgArea" style="color: red; font-size: 20px;"></p>
                         <form role="form" action="/loginAction" method="post">
                             <fieldset>
                                 <div class="form-group">

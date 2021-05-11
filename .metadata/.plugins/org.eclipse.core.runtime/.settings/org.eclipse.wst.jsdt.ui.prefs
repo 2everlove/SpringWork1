@@ -1,6 +1,12 @@
+CONTENT_ASSIST_BACKGROUND_COLOR=224,224,224
+CONTENT_ASSIST_FOREGROUND_COLOR=15,15,15
 colored_labels_in_views=true
 content_assist_autoactivation=false
 content_assist_disabled_computers=
+content_assist_parameters_background=224,224,224
+content_assist_parameters_foreground=15,15,15
+content_assist_proposals_background=224,224,224
+content_assist_proposals_foreground=15,15,15
 eclipse.preferences.version=1
 fontPropagated=true
 org.eclipse.jface.textfont=1|Consolas|13.2|0|WINDOWS|1|-22|0|0|0|400|0|0|0|0|3|2|1|49|Consolas;
@@ -13,6 +19,7 @@ org.eclipse.wst.jsdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UT
 org.eclipse.wst.jsdt.ui.text.templates_migrated=true
 org.eclipse.wst.jsdt.ui.visibility.order=B,V,R,D,
 outlinesortoption=T,I,F,C,M,
+overriddenByCSS=,CONTENT_ASSIST_BACKGROUND_COLOR,CONTENT_ASSIST_FOREGROUND_COLOR,content_assist_parameters_background,content_assist_parameters_foreground,content_assist_proposals_background,content_assist_proposals_foreground,
 proposalOrderMigrated=true
 tabWidthPropagated=true
 useAnnotationsPrefPage=true

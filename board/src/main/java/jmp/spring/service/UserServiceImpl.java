@@ -1,5 +1,7 @@
 package jmp.spring.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +17,12 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public User login(User user) {
-		return mapper.login(user);
+		User loginUser = mapper.login(user);
+		if(loginUser != null) {
+			List<String> role = mapper.getRole(loginUser.getId());
+			loginUser.setRole(role);
+		}
+		return loginUser; 
 	}
 
 }

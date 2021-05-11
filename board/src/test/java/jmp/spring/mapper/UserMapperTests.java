@@ -24,4 +24,8 @@ public class UserMapperTests {
 		user.setPwd("1234");
 		log.info(mapper.login(user));
 	}
+	@Test
+	public void roleTest() {
+		log.info(mapper.getRole("user01"));
+	}
 }
