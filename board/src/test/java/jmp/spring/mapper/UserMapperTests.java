@@ -28,4 +28,19 @@ public class UserMapperTests {
 	public void roleTest() {
 		log.info(mapper.getRole("user01"));
 	}
+	
+	@Test
+	public void sessionkeyTest() {
+		User user = new User();
+		user.setId("user01");
+		user.setPwd("1234");
+		log.info(mapper.updateSessionkey(user));
+	}
+	
+	@Test
+	public void loginSessionkeyTest() {
+		String sessionkey = "B858BFAC4F2B9CA72D3B31172CC159DC";
+		User user = mapper.loginSessionkey(sessionkey);
+		log.info(user);
+	}
 }

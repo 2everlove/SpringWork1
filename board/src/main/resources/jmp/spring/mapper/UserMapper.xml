@@ -10,5 +10,13 @@
 	<select id="getRole" resultType="string">
 		select role_id from users_role where id = #{id}
 	</select>
-
+	
+	<!-- 자동로그인 세션키값 저장 -->
+	<update id="updateSessionkey">
+		update users set sessionkey = #{sessionkey}, sessionlimit = sysdate+7 where id = #{id}
+	</update>
+	
+	<select id="loginSessionkey" resultType="jmp.spring.domain.User">
+		select * from users where sessionkey = #{sessionkey} and sessionlimit > sysdate
+	</select>
 </mapper>

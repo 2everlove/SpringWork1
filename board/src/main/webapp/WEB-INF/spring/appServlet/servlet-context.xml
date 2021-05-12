@@ -25,14 +25,20 @@
 	
 	<context:component-scan base-package="jmp.spring.controller" />
 	
+	<beans:bean id="loginInterceptor" class="jmp.spring.interceptor.LoginInterceptor"/>
+	
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"></beans:bean>
 	
 	<beans:bean id="authInterceptor" class="jmp.spring.interceptor.AuthInterceptor"></beans:bean>
 	
 	<interceptors>
 		<interceptor>
-			<mapping path="/board/**"/>
+			<mapping path="/board/list"/>
 			<beans:ref bean="authInterceptor"/>
+		</interceptor>
+		<interceptor>
+			<mapping path="/loginAction"/>
+			<beans:ref bean="loginInterceptor"/>
 		</interceptor>
 	</interceptors>
 	

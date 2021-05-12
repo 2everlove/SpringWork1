@@ -1,5 +1,7 @@
 package jmp.spring.aop;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
+
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;

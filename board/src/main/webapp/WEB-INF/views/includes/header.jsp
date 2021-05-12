@@ -265,7 +265,17 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <c:choose>
+							<!-- 세션 없음 -->
+							<!-- null을 직접적으로 사용하지 않으므로 문제 없음 -->
+							<c:when test="${sessionScope.user != null}">
+								<li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+							</c:when>
+							<c:otherwise>
+								<li><a href="/login"><i class="fa fa-sign-out fa-fw"></i> Login</a>
+							</c:otherwise>
+						</c:choose>
+                        
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
