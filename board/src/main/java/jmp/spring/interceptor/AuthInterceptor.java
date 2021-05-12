@@ -7,18 +7,18 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
+import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.util.WebUtils;
 
-import jdk.nashorn.internal.objects.annotations.Setter;
 import jmp.spring.domain.User;
 import jmp.spring.service.UserService;
 
-public class AuthInterceptor extends HandlerInterceptorAdapter {
+public class AuthInterceptor extends HandlerInterceptorAdapter{
 	
-	@lombok.Setter(onMethod_= @Autowired)
-	private UserService userService;
+	@Autowired
+	UserService userService;
 	
 	/**
 	 * This implementation always returns {@code true}.
@@ -26,28 +26,50 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-
 		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("user");
+		jmp.spring.domain.User user = (User)session.getAttribute("user");
 		
-		//만약 유저객체가 null이라면
-		if(user==null) {
-			//자동로그인이 가능한 사용자인지 판단
+		// 만약 유저객체가 널이라면 = 로그인 하지 않은 사용자가 접근 했다면
+		// 자동로그인 처리
+		if(user == null) {
+			// 자동로그인이 가능 한 사용자인지 판단
 			Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
-			user = userService.loginSessionkey(loginCookie.getValue());
-			session.setAttribute("user", user);
+			if(loginCookie != null) {
+				user = userService.loginSessionkey(loginCookie.getValue());
+				// 로그인 처리 : 세션에 유저 객체를 생성 합니다.
+				session.setAttribute("user", user);				
+			}
+			
 		}
 		
-		if(user == null || !(user.hasRole("ROLE_USER"))) {
+		// 로그인 OK
+		if( user != null) {
+			// ROLE_USER 권한 체크
+			if(user.hasRole("ROLE_USER")) {
+				return true;		
+			} else {
+				System.out.println(request.getRequestURI());
+				System.out.println(request.getQueryString());
+				
+				
+				String tmpUri = request.getRequestURI();
+				String queryString = request.getQueryString();
+				if(!StringUtils.isEmpty(queryString)) {
+					tmpUri += "?"+queryString; 
+				} 
+				session.setAttribute("tmpUrl", tmpUri);
+				System.out.println("tmpUri: "+tmpUri);
+				response.sendRedirect("/login");
+				return false;
+			}
+			
+		} else {
 			response.sendRedirect("/login");
 			return false;
-		} else {
-			String tmpUri = request.getRequestURI();
-			String query = request.getQueryString();
-			return true;
 		}
+		
 	}
-	
+
 	/**
 	 * This implementation is empty.
 	 */
