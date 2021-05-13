@@ -6,6 +6,7 @@
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="login"/>
 			<item value="../"/>
 			<item value="uploadFormAction"/>
 			<item value="uploadbtn"/>
@@ -13,7 +14,6 @@
 			<item value="Uns"/>
 			<item value="regbtn"/>
 			<item value="tx"/>
-			<item value="replyInsertBtn"/>
 		</list>
 		<list key="replacehistory">
 			<item value="/resources/"/>

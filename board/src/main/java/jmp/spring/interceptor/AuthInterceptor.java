@@ -27,7 +27,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		HttpSession session = request.getSession();
-		jmp.spring.domain.User user = (User)session.getAttribute("user");
+		User user = (User)session.getAttribute("user");
 		
 		// 만약 유저객체가 널이라면 = 로그인 하지 않은 사용자가 접근 했다면
 		// 자동로그인 처리

@@ -41,7 +41,7 @@ public class LoginInterceptor
 		// 로그인이 성공 했다면 = 세션에 user객체가 생성되어져 있다면
 		// 세션에 user 객체를 생성 하는 시점 : /loginAction
 		HttpSession session = request.getSession();
-		jmp.spring.domain.User user = (User)session.getAttribute("user");
+		User user = (User)session.getAttribute("user");
 	
 		System.out.println("interceptor ==================user "+ user);
 		System.out.println("useCookie ==================useCookie"+request.getAttribute("useCookie"));

@@ -36,7 +36,6 @@ public class UserController {
 		log.info("login_post.....");
 		User user = service.login(vo);
 		String resMsg = "";
-		String page = "";
 		if(user==null) {
 			resMsg = "fail";
 			model.addAttribute("resMsg", resMsg);
@@ -49,7 +48,7 @@ public class UserController {
 			resMsg = "success";
 			model.addAttribute("resMsg", resMsg);
 			model.addAttribute("user", user);
-			return "/loginAction";
+			return "redirect:/board/list";
 		}
 	}
 	
@@ -57,11 +56,15 @@ public class UserController {
 	public String logout(HttpServletRequest req, HttpServletResponse res) {
 		HttpSession session = req.getSession();
 		Cookie loginCookie = WebUtils.getCookie(req, "loginCookie");
-		loginCookie.setMaxAge(0);
-		//동일한 경로에 쿠키가 생기는걸 방지
-		loginCookie.setPath("/");
-		
-		res.addCookie(loginCookie);
+		if(loginCookie != null) {
+			
+			log.info(loginCookie);
+			loginCookie.setMaxAge(0);
+			//동일한 경로에 쿠키가 생기는걸 방지
+			loginCookie.setPath("/");
+			
+			res.addCookie(loginCookie);
+		}
 		
 		session.invalidate();
 		return "/login";
