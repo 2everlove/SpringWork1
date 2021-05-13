@@ -12,4 +12,5 @@ public interface UserService {
 	
 	public User loginSessionkey(String sessionkey);
 	
+	public int insertUser(User user);	
 }

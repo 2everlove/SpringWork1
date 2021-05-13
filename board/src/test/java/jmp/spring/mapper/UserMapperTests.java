@@ -43,4 +43,15 @@ public class UserMapperTests {
 		User user = mapper.loginSessionkey(sessionkey);
 		log.info(user);
 	}
+	
+	@Test
+	public void insertUser() {
+		User user = new User();
+		user.setId("user05");
+		user.setPwd("1234");
+		user.setEmail("5@naver.com");
+		user.setName("user05");
+		int res = mapper.insertUser(user);
+		log.info(res==1? "성공":"실패");
+	}
 }

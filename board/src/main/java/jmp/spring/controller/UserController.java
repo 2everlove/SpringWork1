@@ -69,4 +69,16 @@ public class UserController {
 		session.invalidate();
 		return "redirect:/login";
 	}
+	
+	
+	@GetMapping("/member")
+	public void member() {
+		log.info("member.........");
+	}
+	
+	@PostMapping("/registerMember")
+	public void registerMember(User user) {
+		int res = service.insertUser(user);
+	}
+	
 }

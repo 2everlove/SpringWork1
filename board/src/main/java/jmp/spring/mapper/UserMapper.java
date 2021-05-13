@@ -12,4 +12,8 @@ public interface UserMapper {
 	public int updateSessionkey(User user);
 	
 	public User loginSessionkey(String sessionkey);
+	
+	public int insertUser(User user);
+	
+	public int insertUserRole(User user);
 }

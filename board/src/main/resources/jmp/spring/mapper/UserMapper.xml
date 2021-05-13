@@ -19,4 +19,12 @@
 	<select id="loginSessionkey" resultType="jmp.spring.domain.User">
 		select * from users where sessionkey = #{sessionkey} and sessionlimit > sysdate
 	</select>
+	
+	<insert id="insertUser">
+		insert into users(id, pwd, enabled, name, email) values (#{id}, #{pwd}, 1,#{name}, #{email})
+	</insert>
+	
+	<insert id="insertUserRole">
+		insert into users_role(id, role_id) values (#{id}, #{role})
+	</insert>
 </mapper>

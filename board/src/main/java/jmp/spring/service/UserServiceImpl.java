@@ -38,4 +38,9 @@ public class UserServiceImpl implements UserService {
 		return user;
 	}
 
+	@Override
+	public int insertUser(User user) {
+		return mapper.insertUser(user);
+	}
+
 }
