@@ -70,13 +70,12 @@ public class LoginInterceptor
 			// 자동로그인을 위해 생성한 쿠키를 response 객체에 저장 합니다.
 			response.addCookie(loginCookie);
 			
-			String tmpUri = (String)session.getAttribute("tmpUri");
-			
-			if(!StringUtils.isEmpty(tmpUri)) {
-				response.sendRedirect(tmpUri);
-			}
-			
-			
+		}
+		String uri = (String)session.getAttribute("tmpUri");
+		System.out.println("loginUri"+uri);
+		
+		if(!StringUtils.isEmpty(uri)) {
+			response.sendRedirect(uri);
 		}
 	}
 

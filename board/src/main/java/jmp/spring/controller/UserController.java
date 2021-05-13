@@ -45,10 +45,10 @@ public class UserController {
 			HttpSession session = req.getSession();
 			session.setAttribute("user", user);
 			log.info("============"+user);
-			resMsg = "success";
+			resMsg = user.getId()+"님 환영합니다.";
 			model.addAttribute("resMsg", resMsg);
 			model.addAttribute("user", user);
-			return "redirect:/board/list";
+			return "/loginAction";
 		}
 	}
 	
@@ -67,6 +67,6 @@ public class UserController {
 		}
 		
 		session.invalidate();
-		return "/login";
+		return "redirect:/login";
 	}
 }
