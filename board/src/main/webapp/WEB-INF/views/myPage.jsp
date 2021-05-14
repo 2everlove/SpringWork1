@@ -60,7 +60,7 @@
 	        		$("input[name=email]").select();
 	        		return false;
 	        	}
-	        	if(newPwd != pwdChk && pwdChk==""){
+	        	if(newPwd != pwdChk || pwdChk==""){
 	        		alert("password가 틀립니다.");
 	        		$("input[name=newPwd]").select();
 	        		$("input[name=pwdChk]").val("");
@@ -69,11 +69,6 @@
         		$("button[type=button]").attr('type', 'submit');
         	});
     	});
-    	$('input[name=id]').on("change", function(){
-    		$("#successId").hide();
-    		$("#errorId").hide();
-    		getAjax();
-    	})
     </script>
 
 </head>
@@ -93,10 +88,8 @@
                             <fieldset>
                                 <div class="form-group">
                                 	<label>ID</label>
-                                	<p id="errorId"style="color: red; display: none;">중복된 아이디</p>
-                                	<p id="successId"style="color: blue; display: none;">사용 가능한 아이디</p>
-                                    <input class="form-control" placeholder="id" name="id" type="hidden" maxlength="12" pattern="[0-9A-Za-z]{5,12}" value="${user.id}">
-                                    <input class="form-control" placeholder="id" name="id" type="text" maxlength="12" pattern="[0-9A-Za-z]{5,12}" disabled="disabled" value="${user.id}">
+                                    <input class="form-control" placeholder="id" name="id" type="hidden" maxlength="12" pattern="[0-9A-Za-z]{5,12}" value="${sessionScope.user.id}">
+                                    <input class="form-control" placeholder="id" name="id" type="text" maxlength="12" pattern="[0-9A-Za-z]{5,12}" disabled="disabled" value="${sessionScope.user.id}">
                                 </div>
                                 <div class="form-group">
                                 	<label>기존 패스워드</label>
@@ -112,12 +105,12 @@
                                 </div>
                                 <div class="form-group">
                                 	<label>이름</label>
-                                    <input class="form-control" placeholder="name" name="name" type="hidden" maxlength="8" value="${user.name}">
-                                    <input class="form-control" placeholder="name" name="name" type="text" maxlength="8" disabled="disabled" value="${user.name}">
+                                    <input class="form-control" placeholder="name" name="name" type="hidden" maxlength="8" value="${sessionScope.user.name}">
+                                    <input class="form-control" placeholder="name" name="name" type="text" maxlength="8" disabled="disabled" value="${sessionScope.user.name}">
                                 </div>
                                 <div class="form-group">
                                 	<label>E-mail</label>
-                                    <input class="form-control" placeholder="email" name="email" type="email" maxlength="30" value="${user.email}">
+                                    <input class="form-control" placeholder="email" name="email" type="email" maxlength="30" value="${sessionScope.user.email}">
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
                                 <button type="button" class="btn btn-lg btn-success btn-block">정보수정</button>

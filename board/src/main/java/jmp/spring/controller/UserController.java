@@ -97,38 +97,50 @@ public class UserController {
 	
 	@PostMapping("/checkInfo")
 	public String checkInfo(User user, Model model) {
-		String name = user.getName();
-		String resMsg = "";
-		User findUser = new User();
-		if(name != null) { //아이디 찾기
-			findUser = service.checkId(user.getName(), user.getEmail());
-			if(findUser == null) {
-				resMsg = "notFound";
+		String path = "/login";
+		if(user != null) {
+			String name = user.getName();
+			String resMsg = "";
+			User findUser = new User();
+			if(name != null) { //아이디 찾기
+				findUser = service.checkId(user.getName(), user.getEmail());
+				if(findUser == null) {
+					resMsg = "notFound";
+					path = "/error";
+					return path;
+				} else {
+					resMsg = findUser.getId();
+				}
+			
 			} else {
-				resMsg = findUser.getId();
+				findUser = service.checkPwd(user.getId(), user.getEmail());
+				if(findUser == null) {
+					resMsg = "notFound";
+					path = "/error";
+					return path;
+				} else {
+					resMsg = user.getEmail()+"로 메일을 전송하였습니다.";
+				}
 			}
-		} else { 
-			findUser = service.checkPwd(user.getId(), user.getEmail());
-			if(findUser == null) {
-				resMsg = "notFound";
-			} else {
-				resMsg = user.getEmail()+"로 메일을 전송하였습니다.";
-			}
+			model.addAttribute("resMsg", resMsg);
+			return path;
+		} else {
+			path = "/error";
+			return path;
 		}
-		model.addAttribute("resMsg", resMsg);
-		return "/login";
 	}
 	
 	@GetMapping("/myPage")
 	public void myPage() {
-		
+		log.info("myPage.......");
 	}
 	
 	@PostMapping("/updateMember")
-	public String updateMember(User user, String newPwd) {
+	public String updateMember(User user, String newPwd, Model model) {
 		int res = service.updateUser(user, newPwd);
 		if(res>0) {
-			return "/login";
+			model.addAttribute("resMsg", "modify");
+			return "redirect:/board/list";
 		}else {
 			return "/error";
 		}

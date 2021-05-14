@@ -41,8 +41,8 @@
         	const pwd = $("input[name=pwd]").val();
         	const email = $("input[name=email]").val();
         	const name = $("input[name=name]").val();
-        	
-        	if(id==""){
+        	console.log($('#errorId').val());
+        	if(id=="" || $('#errorId').val()=="error"){
         		$("input[name=id]").select();
         		return false;
         	}
@@ -63,6 +63,7 @@
     	$('input[name=id]').on("change", function(){
     		$("#successId").hide();
     		$("#errorId").hide();
+    		$('#errorId').val('')
     		getAjax();
     	})
     	
@@ -77,8 +78,10 @@
     				console.log(datas);
     				if(datas==""){
     					$('#successId').show();
+    					$('#successId').val('');
     				} else {
     					$('#errorId').show();
+    					$('#errorId').val('error');
     				}
     			},
     			error: function(xhr, status, errorThrown){

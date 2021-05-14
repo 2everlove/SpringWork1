@@ -40,7 +40,7 @@
     	if(resMsg != ''){
 	    	if(resMsg=='fail'){
     		console.log(resMsg);
-	    		$('#errorMsgArea').text('아이디와 비밀번호가 틀렸습니다.');
+	    		$('#errorMsgArea').show();
 	    	} else if(resMsg=="notFound"){
 	    		alert("등록된 User가 없습니다");
 	    	} else if(resMsg=="success"){
@@ -51,6 +51,7 @@
     	}
 
 	$("#id, #pwd").on("change", function(){
+		$('#errorMsgArea').hide();
 		$('#idError').hide();
 		$('#pwdError').hide();
 		});
@@ -84,7 +85,7 @@
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
-                    	<p id="errorMsgArea" style="color: red; font-size: 20px;"></p>
+                    	<p id="errorMsgArea" style="color: red; font-size: 20px; display: none;">아이디와 비밀번호가 틀렸습니다.</p>
                         <form id="loginForm" role="form" action="/loginAction" method="post">
                             <fieldset>
                                 <div class="form-group">

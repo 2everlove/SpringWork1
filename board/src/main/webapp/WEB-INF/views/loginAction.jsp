@@ -42,6 +42,25 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+	<script type="text/javascript">
+	$(document).ready(function(){
+    	const resMsg = '${resMsg}';
+    	if(resMsg != ''){
+	    	if(resMsg=='fail'){
+    		console.log(resMsg);
+	    		$('#errorMsgArea').text('아이디와 비밀번호가 틀렸습니다.');
+	    	} else if(resMsg=="notFound"){
+	    		alert("등록된 User가 없습니다");
+	    	} else if(resMsg=="success"){
+	    		
+	    	} else if(resMsg=="modify") {
+	    		alert("수정되었습니다.");
+	    	} else {
+	    		alert(resMsg);
+	    	}
+    	}
+    });
+	</script>
 
 </head>
 
