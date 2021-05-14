@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="/resources/"/>
+		<item key="selection" value="preven"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="preven"/>
+			<item value="springframework"/>
 			<item value="login"/>
 			<item value="../"/>
 			<item value="uploadFormAction"/>
 			<item value="uploadbtn"/>
 			<item value="uploadFile"/>
 			<item value="Uns"/>
-			<item value="regbtn"/>
-			<item value="tx"/>
 		</list>
 		<list key="replacehistory">
 			<item value="/resources/"/>

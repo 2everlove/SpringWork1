@@ -4,12 +4,16 @@
 <mapper namespace="jmp.spring.mapper.UserMapper">
 
 	<select id="login" resultType="jmp.spring.domain.User">
-		select * from users where id = #{id} and pwd = #{pwd}
+		select * from users where id = #{id}
 	</select>
 	
 	<select id="getRole" resultType="string">
 		select role_id from users_role where id = #{id}
 	</select>
+	
+	<update id="pwdUdate">
+		update users set pwd = #{pwd} where id= #{id} and email= #{email}
+	</update>
 	
 	<!-- 자동로그인 세션키값 저장 -->
 	<update id="updateSessionkey">
@@ -20,11 +24,22 @@
 		select * from users where sessionkey = #{sessionkey} and sessionlimit > sysdate
 	</select>
 	
+	<select id="checkId" resultType="jmp.spring.domain.User">
+		select * from users where name = #{name} and email = #{email}
+	</select>
+	
+	<select id="checkPwd" resultType="jmp.spring.domain.User">
+		select * from users where id = #{id} and email = #{email}
+	</select>
+	
 	<insert id="insertUser">
 		insert into users(id, pwd, enabled, name, email) values (#{id}, #{pwd}, 1,#{name}, #{email})
 	</insert>
+	<insert id="updateUser">
+		update users set pwd = #{pwd}, email = #{email} where id =#{id}
+	</insert>
 	
 	<insert id="insertUserRole">
-		insert into users_role(id, role_id) values (#{id}, #{role})
+		insert into users_role values (#{id}, #{role})
 	</insert>
 </mapper>

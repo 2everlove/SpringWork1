@@ -47,9 +47,10 @@
 
 <body>
 <p>${resMsg}
-<p>${user}
+<p>${sessionScope.user}
 <form method="get" action="/logout">
 	<button type="submit">logout</button>
 </form>
+<a href="/myPage">myPage</a>
 </body>
 </html>

@@ -5,7 +5,86 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2021-05-12T15:10:00Z</updated>
+  <updated>2021-05-13T18:30:00Z</updated>
+  <entry>
+    <title>A Bootiful Podcast: Axon Framework Founder Allard Buijze on CQRS, Sagas, and more</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/05/13/a-bootiful-podcast-axon-framework-founder-allard-buijze-on-cqrs-sagas-and-more" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2021-05-13:4438</id>
+    <updated>2021-05-13T18:30:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! In this installment &lt;a href="https://twitter.com/starbuxman"&gt;Josh Long (@starbuxman) &lt;/a&gt; talks to Axon founder &lt;a href="https://twitter.com/allardbz"&gt;Allard Buijze (@allardbz)&lt;/a&gt; about &lt;a href="https://axoniq.io/"&gt;AxonIQ (@axoniq)&lt;/a&gt;, the Axon framework, architecture patterns like CQRS and Sagas, and more.&lt;/p&gt;
+&lt;iframe title="Axon Framework founder Allard Buijze on CQRS" allowtransparency="true" height="150" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=nch23-103699b-pb&amp;from=pb6admin&amp;download=1&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Arial&amp;skin=1&amp;btn-skin=7"&gt;&lt;/iframe&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Automate Spring Boot application deployments to Azure!</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/05/13/automate-spring-boot-application-deployments-to-azure" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2021-05-13:4437</id>
+    <updated>2021-05-13T17:00:00Z</updated>
+    <content type="html">&lt;p&gt;Today, we¡¯re excited to announce the availability of the Azure Pipeline Task for deploying Spring Boot applications to Azure Spring Cloud. You can get started by building your pipelines using the &lt;a href="https://docs.microsoft.com/en-us/azure/spring-cloud/how-to-cicd?pivots=programming-language-java"&gt;Azure Spring Cloud task&lt;/a&gt; to automate Spring Boot application deployments to any number of environments and Azure Regions.&lt;/p&gt;
+&lt;p&gt;Over the past 18 months, we worked with many enterprise customers to learn about their scenarios including thoughts on automating end-to-end from idea to provisioning Azure resources to building Spring Boot applications to deploying those applications to production. Many of these customers have thousands of Spring Boot applications running in on-premises data centers. As they migrate these applications to the cloud, they need everything automated end-to-end to ensure repeatability and meet the requirements set forth by their IT departments and/or regulatory bodies. They require a fully-featured Continuous Integration / Continuous Delivery (CI/CD) service that can automatically deploy updated Spring Boot applications to Azure Spring Cloud. In many customer environments, they use Azure CLI in Azure Pipelines to automate Spring Boot application deployments to Azure, and they asked Microsoft for an Azure Spring Cloud task to ease their automation effort and delegate the maintenance of the deployment task to Microsoft. Now, using the new Azure Spring Cloud task, anyone can automate deployments straight to production or automate blue-green strategies to stage for testing and then set to production.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&amp;ldquo;We are pleased to see further incremental improvements and simplifications and we plan to migrate our pipelines to use the out of the box tasks soon.&amp;rdquo; ? Jonathan Jones, Lead Solutions Architect, &lt;a href="https://www.swissre.com/"&gt;Swiss Re Management Ltd.&lt;/a&gt; (Switzerland)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&amp;ldquo;Azure Spring Cloud makes Spring Boot applications easy to deploy on Azure and provides wonderful features like App Insights, network isolation using Azure virtual network, blue-green deployments that help us deploy &amp;amp; monitor our applications easily. With every release of Azure Spring Cloud, we are able to find greater ease of integration and deployment of our applications.&amp;rdquo; - Shyam Kumar Sundarakumar, Senior Solutions Architect, &lt;a href="https://www.hcltech.com/"&gt;HCL Technologies Ltd&lt;/a&gt; (India).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&amp;ldquo;The Azure Pipelines Tasks for Azure Spring Cloud greatly simplifies creating automated CI/CD pipelines to deploy spring boot apps. These new tasks have the net effect of reducing cost, effort and time as well as adding robustness to deploying Spring Boot applications. These services will help Insight to guide their clients in automating their workloads end to end in Azure Spring Cloud.&amp;rdquo; ? Dan Lange, Principal Architect, &lt;a href="https://www.insight.com/en_US/home.html"&gt;Insight&lt;/a&gt; (United States)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&amp;ldquo;With the introduction of Azure Spring Cloud Task for Azure Pipelines, Microsoft has eliminated the pain of developing and maintaining scripts for Blue-Green Deployments for Spring Boot apps in Azure. These new features will allow Kin + Carta to help customers automate the CI/CD pipeline including the creation, assignment and maintenance of Production and Staging Deployments.&amp;rdquo; ? Sudeep Moothedath, Enterprise Architect, &lt;a href="https://www.kinandcarta.com/en-us/"&gt;Kin + Carta&lt;/a&gt; (United States)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&amp;ldquo;Microsoft continues to enhance the support for Spring Cloud! With the addition of the Azure DevOps pipeline task for Azure Spring Cloud Microsoft removes another obstacle in creating a highly flexible CI/CD pipeline for Spring Cloud. The Azure DevOps pipeline tasks allow developers to deploy to Spring Cloud applications to any number of environments while focusing on their application logic and letting Microsoft focus on the infrastructure and maintenance of pipeline tasks.&amp;rdquo; ? Armando Guzman, Principal Software Engineer, Unified Commerce, &lt;a href="https://www.raleys.com/about/raleys-corporate-fact-sheet/"&gt;Raley&amp;rsquo;s&lt;/a&gt; (United States)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&amp;ldquo;We are really happy about the Azure Pipelines Task for Azure Spring Cloud. It is well integrated and makes deployments to Azure Spring Cloud easily by offering the relevant parameters for selection. They are helpful for managing our various app deployments and switch them in multiple environments without writing any CLI statements.&amp;rdquo; ? &lt;a href="https://www.linkedin.com/in/georg-deschler-2395a52/"&gt;Georg Deschler&lt;/a&gt; and Philipp Stussak (Germany) &lt;/p&gt;
+&lt;/blockquote&gt;&lt;h2&gt;&lt;a href="#automate-blue-green-application-deployment-strategies" class="anchor" name="automate-blue-green-application-deployment-strategies"&gt;&lt;/a&gt;Automate blue-green application deployment strategies&lt;/h2&gt;
+&lt;p&gt;Azure Spring Cloud Standard permits two deployments for every application. Of those two deployments, one receives &lt;em&gt;Production&lt;/em&gt; traffic. The second deployment is designated for &lt;em&gt;Staging&lt;/em&gt;. You can implement a simple blue-green strategy with Azure Spring Cloud by creating two fixed deployments for every application and automating deployments to the &lt;em&gt;Staging&lt;/em&gt; deployment. When you are confident with a deployment in &lt;em&gt;Staging&lt;/em&gt;, you can set the deployment as &lt;em&gt;Production&lt;/em&gt;. You can use the new Azure Spring Cloud task in Azure Pipelines to implement this strategy.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Stage 1 ? automate deployments to the Staging deployment.&lt;/strong&gt;&lt;/p&gt;
+&lt;img src = "https://github.com/joshlong/blog-images/blob/master/automate-spring-boot-application-deployments-to-azure/azure-services-for-deploying-java-applications-05-12-2021.jpg?raw=true"/&gt;
+&lt;p&gt;When you run the pipeline, you can watch the progress through Azure Pipelines Logs as illustrated below.&lt;/p&gt;
+&lt;img src = "https://github.com/joshlong/blog-images/blob/master/automate-spring-boot-application-deployments-to-azure/azure-pipelines-logs.png?raw=true" /&gt;
+&lt;p&gt;&lt;strong&gt;Stage 2: Set the previous deployment to Production.&lt;/strong&gt;&lt;/p&gt;
+&lt;img src = "https://github.com/joshlong/blog-images/blob/master/automate-spring-boot-application-deployments-to-azure/azure-services-for-deploying-java-applications-2-05-12-2021.jpg?raw=true"/&gt;
+&lt;p&gt;For development and test environments, where disruption is not on the critical path, you can either implement blue-green deployment strategies or you can directly deploy applications to deployments that are receiving &lt;em&gt;Production&lt;/em&gt; traffic. The new Azure Spring Cloud task also supports deploying applications to deployments that are receiving Production traffic.&lt;/p&gt;&lt;h2&gt;&lt;a href="#automate-end-to-end-from-idea-to-production" class="anchor" name="automate-end-to-end-from-idea-to-production"&gt;&lt;/a&gt;Automate end-to-end ? from idea to production&lt;/h2&gt;
+&lt;p&gt;When you deploy Spring Boot applications to Azure Spring Cloud and Azure, you can build end-to-end automation from idea to provisioning Azure resources to building Spring Boot applications to deploying those applications to production using any automation tools and platforms of your choice ? such as Azure DevOps, Jenkins, Maven or Gradle. You can apply this automation strategy to any environment, including development, test and production, and any region.&lt;/p&gt;
+&lt;p&gt;Typically, developers automate end-to-end by using multiple pipelines which are broadly classified into three categories:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Provision&lt;/strong&gt; ? automate provisioning Azure resources using &lt;a href="https://github.com/Azure/azure-spring-cloud-reference-architecture/tree/main/terraform/brownfield-deployment"&gt;Terraform&lt;/a&gt;, &lt;a href="https://github.com/Azure/azure-spring-cloud-reference-architecture/tree/main/ARM/brownfield-deployment"&gt;ARM template&lt;/a&gt; and/or &lt;a href="https://github.com/Azure/azure-spring-cloud-reference-architecture/tree/main/CLI/brownfield-deployment"&gt;Azure CLI&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Build&lt;/strong&gt; ? automate building and storing binary artifacts such as JARs and WARs using Maven or Gradle&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Deploy&lt;/strong&gt; ? automate deployments using Azure Pipelines, GitHub Actions and Azure CLI. Blue-green deployment strategies without any disruption to production traffic are very popular. Developers who use Azure Pipelines can leverage the new Azure Spring Cloud task to automate blue-green deployment strategies.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img src = "https://github.com/joshlong/blog-images/blob/master/automate-spring-boot-application-deployments-to-azure/automate-from-idea-to-production-2.jpg?raw=true" /&gt;&lt;h2&gt;&lt;a href="#learn-more-about-azure-spring-cloud-and-start-building-and-automating-today" class="anchor" name="learn-more-about-azure-spring-cloud-and-start-building-and-automating-today"&gt;&lt;/a&gt;Learn more about Azure Spring Cloud and start building and automating today!&lt;/h2&gt;
+&lt;p&gt;Azure Spring Cloud is jointly built, operated, and supported by Microsoft and VMware. It is a fully managed service for Spring Boot applications. Azure Spring Cloud abstracts away the complexity of infrastructure management and Spring Cloud middleware management, so you can focus on building your business logic and let Azure take care of dynamic scaling, patches, security, compliance, and high availability. With a few steps, you can provision Azure Spring Cloud, create applications, deploy, and scale Spring Boot applications, automate end-to-end and start monitoring in minutes. We¡¯ll continue to bring more developer-friendly and enterprise-ready features to Azure Spring Cloud. &lt;/p&gt;
+&lt;p&gt;Get started with the &lt;a href="https://docs.microsoft.com/en-us/azure/spring-cloud/how-to-cicd?pivots=programming-language-java"&gt;Azure Spring Cloud task&lt;/a&gt; for Azure Pipelines to automate Spring Boot application deployments and these resources below!&lt;/p&gt;&lt;h2&gt;&lt;a href="#resources" class="anchor" name="resources"&gt;&lt;/a&gt;Resources&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Learn using an &lt;a href="https://docs.microsoft.com/en-us/learn/modules/azure-spring-cloud-workshop/"&gt;Microsoft Learn module&lt;/a&gt; or &lt;a href="https://github.com/microsoft/azure-spring-cloud-training"&gt;self-paced workshop&lt;/a&gt; on GitHub&lt;/li&gt;
+  &lt;li&gt;Learn &lt;a href="https://docs.microsoft.com/en-us/azure/spring-cloud/"&gt;more&lt;/a&gt; about implementing solutions on Azure Spring Cloud&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://github.com/Azure-Samples/spring-petclinic-microservices"&gt;Deploy&lt;/a&gt; a distributed version of Spring Petclinic built with Spring Cloud&lt;/li&gt;
+  &lt;li&gt;Learn about how to &lt;a href="https://docs.microsoft.com/en-us/azure/spring-cloud/how-to-cicd?pivots=programming-language-java"&gt;Automate Application Deployments to Azure Spring Cloud &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Learn about &lt;a href="https://docs.microsoft.com/en-us/azure/spring-cloud/concepts-blue-green-deployment-strategies"&gt;Blue-Green Deployment Strategies in Azure Spring Cloud&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Reference document ? &lt;a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/deploy/azure-spring-cloud?view=azure-devops"&gt;Azure Spring Cloud task for Azure Pipelines&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Deploy Spring Boot applications by leveraging enterprise best practices ? &lt;a href="https://docs.microsoft.com/en-us/azure/spring-cloud/reference-architecture"&gt;Azure Spring Cloud Reference Architecture&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Migrate your &lt;a href="https://docs.microsoft.com/en-us/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud"&gt;Spring Boot&lt;/a&gt;, &lt;a href="https://docs.microsoft.com/en-us/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud"&gt;Spring Cloud&lt;/a&gt;, and &lt;a href="https://docs.microsoft.com/en-us/azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud"&gt;Tomcat&lt;/a&gt; applications to Azure Spring Cloud&lt;/li&gt;
+  &lt;li&gt;Wire Spring applications &lt;a href="https://docs.microsoft.com/en-us/azure/developer/java/spring-framework/"&gt;to interact with Azure services &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;For feedback and questions, please &lt;a href="mailto:AzureSpringCloud-Talk@service.microsoft.com"&gt;e-mail us&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring HATEOAS 1.2.6 and 1.3.1 released</title>
     <link rel="alternate" href="https://spring.io/blog/2021/05/12/spring-hateoas-1-2-6-and-1-3-1-released" />
@@ -1111,36 +1190,6 @@ class MyDto {
     <updated>2021-04-16T02:51:00Z</updated>
     <content type="html">&lt;p&gt;Hi, Spring fans! In this installment &lt;a href="https://twitter.com/starbuxman"&gt;Josh Long (@starbuxman)&lt;/a&gt; talks to Netflixer, Spinnaker continuous delivery platform co-founder, Target distinguished engineer, Biden campaign CTO, RatPack contributor, and an all-around epic guy &lt;a href="https://twitter.com/danveloper"&gt;Dan Woods (@danveloper)&lt;/a&gt;. &lt;/p&gt;
 &lt;iframe title="Biden campaign CTO, Spinnaker cofounder, Target distinguished engineer, and all around epic guy Dan Woods" allowtransparency="true" height="150" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=bksh7-100d738-pb&amp;from=pb6admin&amp;download=1&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Arial&amp;skin=1&amp;btn-skin=7"&gt;&lt;/iframe&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Boot 2.4.5 available now</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/04/15/spring-boot-2-4-5-available-now" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>St?phane Nicoll</name>
-    </author>
-    <id>tag:spring.io,2021-04-15:4417</id>
-    <updated>2021-04-15T12:45:00Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I&amp;rsquo;m happy to announce that Spring Boot &lt;code&gt;2.4.5&lt;/code&gt; has been released and is now available from Maven Central.&lt;/p&gt;
-&lt;p&gt;This release includes &lt;a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.4.5"&gt;57 bug fixes, documentation improvements, and dependency upgrades&lt;/a&gt;. Thanks to all those who have contributed with issue reports and pull requests.&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
-&lt;p&gt;If you&amp;rsquo;re interested in helping out, check out the &lt;a href="https://github.com/spring-projects/spring-boot/labels/status%3A%20ideal-for-contribution"&gt;&amp;ldquo;ideal for contribution&amp;rdquo; tag&lt;/a&gt; in the issue repository. If you have general questions, please ask on &lt;a href="http://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="http://stackoverflow.com/tags/spring-boot"&gt;&lt;code&gt;spring-boot&lt;/code&gt; tag&lt;/a&gt; or chat with the community on &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://spring.io/projects/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-boot/docs/2.4.5/reference/html"&gt;Documentation&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Boot 2.3.10 is now available</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/04/15/spring-boot-2-3-10-is-now-available" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Andy Wilkinson</name>
-    </author>
-    <id>tag:spring.io,2021-04-15:4416</id>
-    <updated>2021-04-15T07:37:00Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I&amp;rsquo;m happy to announce that Spring Boot 2.3.10 has been released and is now available from Maven Central.&lt;/p&gt;
-&lt;p&gt;This release includes &lt;a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.3.10.RELEASE"&gt;78 bug fixes, documentation improvements, and dependency upgrades&lt;/a&gt;. Thanks to all those who have contributed with issue reports and pull requests.&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
-&lt;p&gt;If you&amp;rsquo;re interested in helping out, check out the &lt;a href="https://github.com/spring-projects/spring-boot/labels/status%3A%20ideal-for-contribution"&gt;&amp;ldquo;ideal for contribution&amp;rdquo; tag&lt;/a&gt; in the issue repository. If you have general questions, please ask on &lt;a href="http://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="http://stackoverflow.com/tags/spring-boot"&gt;&lt;code&gt;spring-boot&lt;/code&gt; tag&lt;/a&gt; or chat with the community on &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://spring.io/projects/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-boot/docs/2.3.10.RELEASE/reference/html"&gt;Documentation&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>

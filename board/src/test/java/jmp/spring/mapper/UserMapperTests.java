@@ -54,4 +54,22 @@ public class UserMapperTests {
 		int res = mapper.insertUser(user);
 		log.info(res==1? "성공":"실패");
 	}
+	
+	@Test
+	public void insertUserRole() {
+		String id = "user05";
+		String role = "USER_VIEWER";
+		int res = mapper.insertUserRole(id, role);
+		log.info(res==1? "성공":"실패");
+	}
+	
+	@Test
+	public void ch() {
+		String id = "2everlove";
+		String email = "2everlove@gmail.com";
+		User res = mapper.checkPwd(id, email);
+		log.info(res);
+	}
+	
+	
 }

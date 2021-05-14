@@ -36,14 +36,56 @@
     <![endif]-->
     <script defer type="text/javascript" charset="UTF-8">
     $(document).ready(function(){
-    	const resMsg = '${resMsg}';
-    	if(resMsg != ''){
-	    	if(resMsg=='fail'){
-    		console.log(resMsg);
-	    		$('#errorMsgArea').text('아이디와 비밀번호가 틀렸습니다.');
-	    	}
-    	}
-
+    	$("button[type=button]").click(function(){
+    		const id = $("input[name=id]").val();
+        	const pwd = $("input[name=pwd]").val();
+        	const email = $("input[name=email]").val();
+        	const name = $("input[name=name]").val();
+        	
+        	if(id==""){
+        		$("input[name=id]").select();
+        		return false;
+        	}
+        	if(pwd==""){
+        		$("input[name=pwd]").select();
+        		return false;
+        	}
+        	if(name==""){
+        		$("input[name=name]").select();
+        		return false;
+        	}
+        	if(email==""){
+        		$("input[name=email]").select();
+        		return false;
+        	}
+        	$("button[type=button]").attr('type', 'submit');
+    	});
+    	$('input[name=id]').on("change", function(){
+    		$("#successId").hide();
+    		$("#errorId").hide();
+    		getAjax();
+    	})
+    	
+    	
+    	//1건의 id를 조회
+    	function getAjax(){
+    		$.ajax({
+    			url:'/get/'+$('input[name=id]').val(),
+    			method:'get',
+    			dataType:'text',
+    			success: function(datas, status){
+    				console.log(datas);
+    				if(datas==""){
+    					$('#successId').show();
+    				} else {
+    					$('#errorId').show();
+    				}
+    			},
+    			error: function(xhr, status, errorThrown){
+    				console.log(errorThrown);
+    			}
+    		})
+    	}//
     });
     </script>
 
@@ -60,31 +102,28 @@
                     </div>
                     <div class="panel-body">
                     	<p id="errorMsgArea" style="color: red; font-size: 20px;"></p>
-                        <form role="form" action="/registeMember" method="post">
+                        <form id="joinForm" role="form" action="/registerMember" method="post">
                             <fieldset>
                                 <div class="form-group">
                                 	<label>ID</label>
-                                    <input class="form-control" placeholder="id" name="id" type="text" autofocus>
+                                	<p id="errorId"style="color: red; display: none;">중복된 아이디</p>
+                                	<p id="successId"style="color: blue; display: none;">사용 가능한 아이디</p>
+                                    <input class="form-control" placeholder="id" name="id" type="text" maxlength="12" pattern="[0-9A-Za-z]{5,12}" autofocus>
                                 </div>
                                 <div class="form-group">
                                 	<label>PASSWORD</label>
-                                    <input class="form-control" placeholder="Password" name="pwd" type="password">
+                                    <input class="form-control" placeholder="Password" name="pwd" maxlength="12" pattern="[0-9A-Za-z]{5,12}" type="password">
                                 </div>
                                 <div class="form-group">
                                 	<label>이름</label>
-                                    <input class="form-control" placeholder="name" name="name" type="text">
+                                    <input class="form-control" placeholder="name" name="name" type="text" maxlength="8">
                                 </div>
                                 <div class="form-group">
                                 	<label>E-mail</label>
-                                    <input class="form-control" placeholder="email" name="email" type="email">
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input name="useCookie" type="checkbox" value="Remember Me">Remember Me
-                                    </label>
+                                    <input class="form-control" placeholder="email" name="email" type="email" maxlength="30">
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <button type="submit" class="btn btn-lg btn-success btn-block">회원가입</button>
+                                <button type="button" class="btn btn-lg btn-success btn-block">회원가입</button>
                             </fieldset>
                         </form>
                     </div>

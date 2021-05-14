@@ -6,9 +6,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.method.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.util.WebUtils;
 
@@ -32,22 +34,20 @@ public class UserController {
 	}
 	
 	@PostMapping("/loginAction")
-	public String loginProcess(User vo, Model model, HttpServletRequest req) {
-		log.info("login_post.....");
+	public String loginAction(User vo, Model model, HttpServletRequest req) {
+		
 		User user = service.login(vo);
-		String resMsg = "";
-		if(user==null) {
-			resMsg = "fail";
-			model.addAttribute("resMsg", resMsg);
+		
+		if (user == null) {
+			model.addAttribute("resMsg","fail");
 			return "/login";
 		} else {
-			//user객체를 세션에 담음
+			// user 객체를 세션에 담아줍니다. - 로그인 처리
 			HttpSession session = req.getSession();
 			session.setAttribute("user", user);
-			log.info("============"+user);
-			resMsg = user.getId()+"님 환영합니다.";
-			model.addAttribute("resMsg", resMsg);
-			model.addAttribute("user", user);
+			log.info("===================="+user);
+			model.addAttribute("resMsg",user.getId()+"님 환영합니다.");
+			//model.addAttribute("user", user);
 			return "/loginAction";
 		}
 	}
@@ -77,8 +77,61 @@ public class UserController {
 	}
 	
 	@PostMapping("/registerMember")
-	public void registerMember(User user) {
-		int res = service.insertUser(user);
+	public String registerMember(HttpServletRequest request, User user) {
+		try {
+			int res = service.insertUser(user);
+			if(res > 0) {
+				return "forward:/loginAction";
+			} else {
+				return "/error";
+			}
+		} catch (Exception e) {
+			return "/error";
+		}
+	}
+	
+	@GetMapping({"/getId", "/getPwd"})
+	public String getId() {
+		return "/getInfo";
+	}
+	
+	@PostMapping("/checkInfo")
+	public String checkInfo(User user, Model model) {
+		String name = user.getName();
+		String resMsg = "";
+		User findUser = new User();
+		if(name != null) { //아이디 찾기
+			findUser = service.checkId(user.getName(), user.getEmail());
+			if(findUser == null) {
+				resMsg = "notFound";
+			} else {
+				resMsg = findUser.getId();
+			}
+		} else { 
+			findUser = service.checkPwd(user.getId(), user.getEmail());
+			if(findUser == null) {
+				resMsg = "notFound";
+			} else {
+				resMsg = user.getEmail()+"로 메일을 전송하였습니다.";
+			}
+		}
+		model.addAttribute("resMsg", resMsg);
+		return "/login";
+	}
+	
+	@GetMapping("/myPage")
+	public void myPage() {
+		
+	}
+	
+	@PostMapping("/updateMember")
+	public String updateMember(User user, String newPwd) {
+		int res = service.updateUser(user, newPwd);
+		if(res>0) {
+			return "/login";
+		}else {
+			return "/error";
+		}
 	}
 	
 }

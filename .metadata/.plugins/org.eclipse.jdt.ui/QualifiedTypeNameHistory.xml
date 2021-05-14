@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
-<fullyQualifiedTypeName name="java.sql.Date"/>
-<fullyQualifiedTypeName name="org.springframework.test.context.junit.jupiter.SpringJUnitConfig"/>
 <fullyQualifiedTypeName name="mika.spring.mapper.BoardMapper"/>
 <fullyQualifiedTypeName name="mika.spring.service.BoardService"/>
 <fullyQualifiedTypeName name="javax.xml.crypto.dsig.keyinfo.RetrievalMethod"/>
 <fullyQualifiedTypeName name="mika.spring.vo.BoardVO"/>
-<fullyQualifiedTypeName name="java.util.UUID"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="net.coobird.thumbnailator.Thumbnailator"/>
 <fullyQualifiedTypeName name="net.coobird.thumbnailator.Thumbnails"/>
@@ -25,8 +21,6 @@
 <fullyQualifiedTypeName name="org.springframework.http.MediaType"/>
 <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
 <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
-<fullyQualifiedTypeName name="org.apache.ibatis.annotations.Param"/>
 <fullyQualifiedTypeName name="jmp.spring.domain.AttachFileVO"/>
 <fullyQualifiedTypeName name="javax.mail.Authenticator"/>
 <fullyQualifiedTypeName name="javax.mail.Session"/>
@@ -44,20 +38,26 @@
 <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
 <fullyQualifiedTypeName name="java.util.Properties"/>
 <fullyQualifiedTypeName name="lombok.Data"/>
-<fullyQualifiedTypeName name="org.junit.Test"/>
 <fullyQualifiedTypeName name="jmp.spring.mapper.UserMapper"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
-<fullyQualifiedTypeName name="jmp.spring.service.UserService"/>
-<fullyQualifiedTypeName name="lombok.Setter"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
-<fullyQualifiedTypeName name="org.springframework.ui.Model"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.support.RedirectAttributes"/>
 <fullyQualifiedTypeName name="lombok.extern.log4j.Log4j"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.handler.HandlerInterceptorAdapter"/>
-<fullyQualifiedTypeName name="jmp.spring.domain.User"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="org.junit.Test"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+<fullyQualifiedTypeName name="lombok.Setter"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="jmp.spring.service.UserService"/>
+<fullyQualifiedTypeName name="java.util.UUID"/>
+<fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+<fullyQualifiedTypeName name="org.apache.ibatis.annotations.Param"/>
+<fullyQualifiedTypeName name="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+<fullyQualifiedTypeName name="org.springframework.security.access.method.P"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+<fullyQualifiedTypeName name="jmp.spring.domain.User"/>
 </qualifiedTypeNameHistroy>

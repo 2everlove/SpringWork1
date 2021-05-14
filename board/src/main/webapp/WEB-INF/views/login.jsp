@@ -41,10 +41,35 @@
 	    	if(resMsg=='fail'){
     		console.log(resMsg);
 	    		$('#errorMsgArea').text('아이디와 비밀번호가 틀렸습니다.');
+	    	} else if(resMsg=="notFound"){
+	    		alert("등록된 User가 없습니다");
+	    	} else if(resMsg=="success"){
+	    		
+	    	} else {
+	    		alert(resMsg);
 	    	}
     	}
 
+	$("#id, #pwd").on("change", function(){
+		$('#idError').hide();
+		$('#pwdError').hide();
+		});
     });
+    
+    function checkForm(){
+    	event.preventDefault();
+    	if($("#id").val()==""){
+			$("#id").select();
+			$('#idError').show();
+			return false;
+		}
+		if($("#pwd").val()==""){
+			$("#pwd").select();
+			$('#pwdError').show();
+			return false;
+		}
+		$("#loginForm").submit();
+    }
     </script>
 
 </head>
@@ -60,13 +85,15 @@
                     </div>
                     <div class="panel-body">
                     	<p id="errorMsgArea" style="color: red; font-size: 20px;"></p>
-                        <form role="form" action="/loginAction" method="post">
+                        <form id="loginForm" role="form" action="/loginAction" method="post">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="id" type="text" autofocus>
+                                	<p id="idError" style="display: none; color: red;">아이디를 입력해주세요.</p>
+                                    <input class="form-control" id="id" placeholder="id" name="id" type="text" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="pwd" type="password" value="">
+                               	 <p id="pwdError" style="display: none; color: red;">비밀번호를 입력해주세요.</p>
+                                    <input class="form-control" id="pwd" placeholder="Password" name="pwd" type="password" value="">
                                 </div>
                                 <div class="checkbox">
                                     <label>
@@ -74,9 +101,10 @@
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
-                                <a href="/member">회원가입</a>
-                                <a href="/member">비밀번호 찾기</a>
+                                <a type="button" class="btn btn-lg btn-success btn-block" onclick="checkForm();">Login</a>
+                                <br>
+                                	<span style="display: inline-block;"><a href="/getId">아이디</a>ㆍ<a href="/getPwd">비밀번호찾기</a></span>
+                                	&nbsp;&nbsp;<span style="display:inline-block; text-align: right;"><a href="/member">회원가입</a></span>
                             </fieldset>
                         </form>
                     </div>
