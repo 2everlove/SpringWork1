@@ -20,6 +20,10 @@ public class UserCheckController {
 		User user = new User();
 		user.setId(id);
 		String checkUser = service.checkLogin(user);
-		return checkUser;
+		if(checkUser!=null) {
+			return checkUser;
+		} else {
+			return "error";
+		}
 	}
 }
