@@ -40,10 +40,6 @@
 			<mapping path="/loginAction"/>
 			<beans:ref bean="loginInterceptor"/>
 		</interceptor>
-		<interceptor>
-			<mapping path="/myPage"/>
-			<beans:ref bean="loginInterceptor"/>
-		</interceptor>
 	</interceptors>
 	
 </beans:beans>
