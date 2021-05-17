@@ -46,7 +46,7 @@
 	    	} else if(resMsg=="success"){
 	    		
 	    	} else {
-	    		alert(resMsg);
+	    		alert("regMsg");
 	    	}
     	}
 

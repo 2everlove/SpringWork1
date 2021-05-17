@@ -21,8 +21,6 @@ public interface UserService {
 	
 	public User checkPwd(String id, String email);
 	
-	public int updateUser(User user);
-
-	int updateUser(User user, @Param("newPwd") String pwd);
+	public int updateUser(User user, @Param("newPwd") String pwd);
 	
 }

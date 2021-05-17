@@ -49,15 +49,7 @@
 	    	if(resMsg=='fail'){
     		console.log(resMsg);
 	    		$('#errorMsgArea').text('아이디와 비밀번호가 틀렸습니다.');
-	    	} else if(resMsg=="notFound"){
-	    		alert("등록된 User가 없습니다");
-	    	} else if(resMsg=="success"){
-	    		
-	    	} else if(resMsg=="modify") {
-	    		alert("수정되었습니다.");
-	    	} else {
-	    		alert(resMsg);
-	    	}
+	    	} 
     	}
     });
 	</script>
@@ -71,5 +63,8 @@
 	<button type="submit">logout</button>
 </form>
 <a href="/myPage">myPage</a>
+<hr>
+<a href="/board/list">게시판</a>
+
 </body>
 </html>

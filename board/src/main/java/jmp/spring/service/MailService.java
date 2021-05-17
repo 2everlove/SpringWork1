@@ -85,16 +85,16 @@ public class MailService {
 			// 보내는 날짜 지정
 			msg.setSentDate(new Date());
 			// 발송자 설정 (발송자의 메일, 발송자명)
-			msg.setFrom(new InternetAddress("springweb11@gmail.com", "webadmin"));
+			msg.setFrom(new InternetAddress("springweb11@gmail.com", "(주)한국시스템"));
              // 수신자 설정 
 			// Message.RecipientType.TO : 받는 사람 
 			InternetAddress to = new InternetAddress(email);
 			msg.setRecipient(Message.RecipientType.TO, to);
 			
             // 메일 제목
-			msg.setSubject("환영합니다.", "UTF-8");
+			msg.setSubject("고객 정보 변경 인증번호", "UTF-8");
 			// 메일 내용
-			msg.setText("인증번호는 "+encodingPwd+"입니다.", "UTF-8");
+			msg.setText("고객님이 요청하신 인증번호는 "+encodingPwd+"입니다.", "UTF-8");
 			
             // 메일 발송
 			Transport.send(msg);

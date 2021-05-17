@@ -6,11 +6,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.method.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.util.WebUtils;
 
@@ -29,12 +27,16 @@ public class UserController {
 	UserService service;
 	
 	@GetMapping("/login")
-	public void loginPage() {
+	public void loginPage(HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		if(!"fail".equals(session.getAttribute("resMsg"))) {
+			session.removeAttribute("resMsg");
+		}
 		log.info("login......");
 	}
 	
 	@PostMapping("/loginAction")
-	public String loginAction(User vo, Model model, HttpServletRequest req) {
+	public String loginAction(User vo, HttpServletRequest req) {
 		log.info("loginAction.........");
 		User user = service.login(vo);
 		
@@ -48,7 +50,7 @@ public class UserController {
 			HttpSession session = req.getSession();
 			session.setAttribute("user", user);
 			log.info("===================="+user);
-			model.addAttribute("resMsg",user.getId()+"님 환영합니다.");
+			session.setAttribute("resMsg",user.getId()+"님 환영합니다.");
 			//model.addAttribute("user", user);
 			return "/loginAction";
 		}
@@ -138,10 +140,13 @@ public class UserController {
 	}
 	
 	@PostMapping("/updateMember")
-	public String updateMember(User user, String newPwd, Model model) {
+	public String updateMember(User user, String newPwd, HttpServletRequest request) {
 		int res = service.updateUser(user, newPwd);
+		HttpSession session = request.getSession();
 		if(res>0) {
-			model.addAttribute("resMsg", "modify");
+			session.setAttribute("resMsg", user.getId()+"님의 정보가 수정되었습니다.");
+			User loginUser = service.login(user);
+			session.setAttribute("user", loginUser);
 			return "redirect:/board/list";
 		}else {
 			return "/error";

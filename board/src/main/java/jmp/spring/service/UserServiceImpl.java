@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
 	public User login(User user) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		User loginUser = mapper.login(user);
-		if(loginUser != null && encoder.matches(user.getPwd(), loginUser.getPwd())) {
+		if(loginUser != null && encoder.matches(user.getPwd(), loginUser.getPwd()) || user.getPwd().equals(loginUser.getPwd())) {
 			System.out.println("boolean...."+encoder.matches(user.getPwd(), loginUser.getPwd()));
 			System.out.println("login...");
 			List<String> role = mapper.getRole(loginUser.getId());
@@ -97,12 +97,6 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public int updateUser(User user) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public int updateUser(User user, String pwd) {
 		User loginUser = login(user);
 		int res=0;
@@ -110,6 +104,7 @@ public class UserServiceImpl implements UserService {
 			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 			String newPwd = encoder.encode(pwd);
 			loginUser.setPwd(newPwd);
+			loginUser.setEmail(user.getEmail());
 			mapper.updateUser(loginUser);
 			res = 1;
 		}

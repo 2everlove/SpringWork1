@@ -1,5 +1,9 @@
 package jmp.spring.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,12 +29,16 @@ public class BoardController {
 	private final jmp.spring.service.BoardService service;
 	
 	@GetMapping("/list")
-	public String getList(Criteria cri, Model model) {
+	public String getList(Criteria cri, Model model, HttpServletRequest request, RedirectAttributes rttr) {
 		int total = service.getTotal(cri);//전체 글 수
 		PageDTO page = new PageDTO(cri, total);
 
 		//String resMsg = page.getTotal()==0 ? "게시물이 없습니다." : "";
 		//화면단에서는 매개변수로 model을 받는다
+		HttpSession session = request.getSession();
+		if(session.getAttribute("resmsg")!=null) {
+			session.removeAttribute("resMsg");
+		}
 		log.info("list........."+page);
 		log.info("model........."+model);
 		log.info("keyword........."+cri.getKeyword()+cri.getType());
