@@ -83,6 +83,7 @@ public class LoginInterceptor
 		// 만약 자동로그인시 저장된 tmpUri가 세션에 존재 한다면
 		// 원래 요청한 페이지가 있었다면 그 요청 페이지로 이동 시켜 주고 싶어요
 		String tmpUri = (String)session.getAttribute("tmpUri");
+
 		
 		if(!StringUtils.isEmpty(tmpUri)) {
 			response.sendRedirect(tmpUri);

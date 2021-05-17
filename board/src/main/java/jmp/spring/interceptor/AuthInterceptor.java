@@ -1,5 +1,7 @@
 package jmp.spring.interceptor;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,6 +12,8 @@ import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.util.WebUtils;
+
+import com.ctc.wstx.shaded.msv.org_isorelax.dispatcher.Dispatcher;
 
 import jmp.spring.domain.User;
 import jmp.spring.service.UserService;
@@ -41,7 +45,8 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 				
 				if(user != null) {
 					// 로그인 처리 : 세션에 유저 객체를 생성 합니다.
-					session.setAttribute("user", user);					
+					session.setAttribute("user", user);
+					
 				}
 			}
 			
@@ -52,6 +57,9 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 		if( user != null) {
 			// ROLE_USER 권한 체크
 			if(user.hasRole("ROLE_USER")) {
+				if(session.getAttribute("resMsg").equals("fail")) {
+					session.removeAttribute("resMsg");
+				}
 				// 로그인이 되어 있고 권한이 충분한 자만이 /board/list에 접근 할수 있다
 				return true;		
 			}
@@ -69,7 +77,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 		}
 		
 		session.setAttribute("tmpUri", uri);
-		
+
 		// 로그인 안했니
 		response.sendRedirect("/login");
 		return false;

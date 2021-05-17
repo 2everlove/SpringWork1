@@ -39,8 +39,9 @@ public class UserController {
 		User user = service.login(vo);
 		
 		if (user == null || user.getEmail() == null) {
+			HttpSession session = req.getSession();
 			log.info("action1....");
-			model.addAttribute("resMsg","fail");
+			session.setAttribute("resMsg","fail");
 			return "/login";
 		} else {
 			// user 객체를 세션에 담아줍니다. - 로그인 처리
