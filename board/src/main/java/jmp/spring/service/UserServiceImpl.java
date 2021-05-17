@@ -28,8 +28,8 @@ public class UserServiceImpl implements UserService {
 	public User login(User user) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		User loginUser = mapper.login(user);
-		System.out.println("boolean...."+encoder.matches(user.getPwd(), loginUser.getPwd()));
 		if(loginUser != null && encoder.matches(user.getPwd(), loginUser.getPwd())) {
+			System.out.println("boolean...."+encoder.matches(user.getPwd(), loginUser.getPwd()));
 			System.out.println("login...");
 			List<String> role = mapper.getRole(loginUser.getId());
 			loginUser.setRole(role);

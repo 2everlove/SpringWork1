@@ -38,8 +38,8 @@
     $(document).ready(function(){
     	const resMsg = '${resMsg}';
     	if(resMsg != ''){
-	    	if(resMsg=='fail'){
     		console.log(resMsg);
+	    	if(resMsg=='fail'){
 	    		$('#errorMsgArea').show();
 	    	} else if(resMsg=="notFound"){
 	    		alert("등록된 User가 없습니다");

@@ -35,10 +35,11 @@ public class UserController {
 	
 	@PostMapping("/loginAction")
 	public String loginAction(User vo, Model model, HttpServletRequest req) {
-		
+		log.info("loginAction.........");
 		User user = service.login(vo);
 		
-		if (user == null) {
+		if (user == null || user.getEmail() == null) {
+			log.info("action1....");
 			model.addAttribute("resMsg","fail");
 			return "/login";
 		} else {
@@ -109,7 +110,7 @@ public class UserController {
 					path = "/error";
 					return path;
 				} else {
-					resMsg = findUser.getId();
+					resMsg = "고객님의 ID는 "+findUser.getId()+"입니다.";
 				}
 			
 			} else {
