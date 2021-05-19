@@ -43,10 +43,8 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 				if(user != null) {
 					// 로그인 처리 : 세션에 유저 객체를 생성 합니다.
 					session.setAttribute("user", user);
-					
 				}
 			}
-			
 		}
 		
 		// 1. 로그인 확인

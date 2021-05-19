@@ -43,8 +43,13 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 	<script type="text/javascript">
-		alert("error");
-		history.back(-1);
+		const resMsg = '${resMsg}';
+		if(resMsg!= ''){
+			alert(resMsg);
+		} else {
+			alert("error");
+		}
+			history.back(-1);
 	</script>
 </head>
 

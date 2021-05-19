@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="style"/>
+		<item key="selection" value="res"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="check"/>
+			<item value="res"/>
+			<item value="resMsgq"/>
 			<item value="secur"/>
 			<item value=".modal"/>
 			<item value="alert"/>
 			<item value="ㄱㄷ"/>
 			<item value="resMsg"/>
-			<item value="post"/>
-			<item value="log"/>
-			<item value="preven"/>
 		</list>
 		<list key="replacehistory">
 			<item value="resMsglogin"/>
