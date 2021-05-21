@@ -103,6 +103,7 @@
 		<item value="org.springsource.sts:3.9.11.201912161153-RELEASE"/>
 	</list>
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\webProject\Spring-WebProject"/>
 		<item value="C:\Users\FlexAlpha\Downloads\SpringWork1\SpringWork1\board1"/>
 	</list>
 	<section name="org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog">
@@ -114,8 +115,8 @@
 		<section name="DialogBoundsSettings">
 			<item key="DIALOG_HEIGHT" value="500"/>
 			<item key="DIALOG_WIDTH" value="600"/>
-			<item key="DIALOG_X_ORIGIN" value="870"/>
-			<item key="DIALOG_Y_ORIGIN" value="351"/>
+			<item key="DIALOG_X_ORIGIN" value="1618"/>
+			<item key="DIALOG_Y_ORIGIN" value="425"/>
 			<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 		</section>
 	</section>

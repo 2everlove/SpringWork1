@@ -37,7 +37,7 @@
     <![endif]-->
     <script defer type="text/javascript" charset="UTF-8">
     $(document).ready(function(){
-    	$("button[type=button]").click(function(){
+    	$("#registerButton").click(function(){
     		const id = $("input[name=id]").val();
         	const pwd = $("input[name=pwd]").val();
         	const email = $("input[name=email]").val();
@@ -59,12 +59,12 @@
         		$("input[name=email]").select();
         		return false;
         	}
-        	$("button[type=button]").attr('type', 'submit');
+        	$("#registerButton").attr('type', 'submit');
     	});
     	$('input[name=id]').on("change", function(){
     		$("#successId").hide();
     		$("#errorId").hide();
-    		$('#errorId').val('')
+    		$('#errorId').val('');
     		getAjax();
     	})
     	
@@ -113,10 +113,12 @@
                                 	<p id="errorId"style="color: red; display: none;">중복된 아이디</p>
                                 	<p id="successId"style="color: blue; display: none;">사용 가능한 아이디</p>
                                     <input class="form-control" placeholder="id" name="id" type="text" maxlength="12" pattern="[0-9A-Za-z]{5,12}" autofocus>
+                                    <button type="button" class="form-control" id="idCheck">중복 확인</button>
                                 </div>
                                 <div class="form-group">
                                 	<label>PASSWORD</label>
                                     <input class="form-control" placeholder="Password" name="pwd" maxlength="12" pattern="[0-9A-Za-z]{5,12}" type="password">
+                                    <input class="form-control" placeholder="Password Check" maxlength="12" pattern="[0-9A-Za-z]{5,12}" type="password">
                                 </div>
                                 <div class="form-group">
                                 	<label>이름</label>
@@ -127,7 +129,7 @@
                                     <input class="form-control" placeholder="email" name="email" type="email" maxlength="30">
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <button type="button" class="btn btn-lg btn-success btn-block">회원가입</button>
+                                <button type="button" id="registerButton" class="btn btn-lg btn-success btn-block">회원가입</button>
                             </fieldset>
                         </form>
                     </div>

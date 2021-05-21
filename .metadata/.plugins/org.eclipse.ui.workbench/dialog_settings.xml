@@ -38,11 +38,26 @@
 		<item key="EditorSelectionDialog.STORE_ID_DESCR" value="org.eclipse.ui.genericeditor.GenericEditor"/>
 	</section>
 	<section name="ImportExportAction">
-		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.e4.ui.importer.wizard"/>
+		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.egit.ui.internal.clone.SmartImportGitWizard"/>
 		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
 			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.egit.ui.internal.clone.gitclonecategory"/>
 		</list>
 	</section>
 	<section name="FileSystemImportWizard">
+	</section>
+	<section name="org.eclipse.ui.internal.dialogs.WorkbenchEditorsDialog">
+		<item key="allPersp" value="false"/>
+		<item key="sort" value="0"/>
+		<list key="bounds">
+			<item value="-2140"/>
+			<item value="213"/>
+			<item value="1002"/>
+			<item value="693"/>
+		</list>
+		<list key="columns">
+			<item value="318"/>
+			<item value="638"/>
+		</list>
 	</section>
 </section>

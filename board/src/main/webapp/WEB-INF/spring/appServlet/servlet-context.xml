@@ -30,6 +30,7 @@
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"></beans:bean>
 	
 	<beans:bean id="authInterceptor" class="jmp.spring.interceptor.AuthInterceptor"></beans:bean>
+	<beans:bean id="menuInterceptor" class="jmp.spring.interceptor.MenuInterceptor"></beans:bean>
 	
 	<interceptors>
 		<interceptor>
@@ -43,6 +44,10 @@
 		<interceptor>
 			<mapping path="/loginAction"/>
 			<beans:ref bean="loginInterceptor"/>
+		</interceptor>
+		<interceptor>
+			<mapping path="/board/*"/>
+			<beans:ref bean="menuInterceptor"/>
 		</interceptor>
 	</interceptors>
 	
