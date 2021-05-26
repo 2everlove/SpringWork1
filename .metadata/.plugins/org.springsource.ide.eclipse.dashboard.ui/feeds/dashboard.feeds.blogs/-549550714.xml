@@ -5,7 +5,42 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2021-05-21T00:37:29Z</updated>
+  <updated>2021-05-25T06:00:00Z</updated>
+  <entry>
+    <title>This Week in Spring - May 25th, 2021</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/05/24/this-week-in-spring-may-25th-2021" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2021-05-25:4455</id>
+    <updated>2021-05-25T06:00:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! How&amp;rsquo;re you doing? I&amp;rsquo;m still fresh off my little vacation last week, feeling fantastic. I&amp;rsquo;ve spent the last several days working with Spring Boot and Spring Native and I have to tell you, they&amp;rsquo;re epic. &lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s gotten to the point where I sometimes spend time working on enabling Spring Native integrations for other projects - it really makes some third party abstractions come alive! It&amp;rsquo;s hard to know what the right comparison is. There&amp;rsquo;s not much you can do in this life that results in such an instantaneous, night-and-day difference in performance and memory profile with so few (user-visibile) changes. Imagine snapping your fingers and having your luxury hypercar (Spring Boot in this metaphor) transform into an equally capable, and &lt;em&gt;very&lt;/em&gt; comfortable, rocket ship capable of interstellar travel. That&amp;rsquo;s the sort of paradigm shift implied by Spring Native. Or, at least it feels like that to me! What a wonderful time to be alive. &lt;/p&gt;
+&lt;p&gt;Last night (at 5am, my time!), I did a presentation for the JavaDay Istanbul conference. Remember: I&amp;rsquo;ve been on vacation. I never realized that the Spring Boot team had released Spring Boot 2.5.0. So, I gave this performance for the first time, with not a second of pre-flight or hesitation, using Spring Boot 2.5.0 and the newly minted Spring Native 0.10.0. It all worked &lt;em&gt;flawlessly&lt;/em&gt;, with the only drawback that I was awkwardly waiting for certain Spring Boot dependencies to download, live, on the stream. Sometimes these things don&amp;rsquo;t go so swimmingly. Remember, Spring Native is &lt;em&gt;technically&lt;/em&gt; experimental! &lt;/p&gt;
+&lt;p&gt;Anyway, we&amp;rsquo;ve got a &lt;em&gt;ton&lt;/em&gt; to cover, so let&amp;rsquo;s dive right into it! &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Last week I spoke to developer advocate extraordinairre James Ward. He&amp;rsquo;s my mentor and friend and a hero in the Java community. Listen. You won&amp;rsquo;t be sorry. Here it is: &lt;a href="https://spring.io/blog/2021/05/20/a-bootiful-podcast-james-ward"&gt;A Bootiful Podcast, with James Ward&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;This was cool to see: &lt;a href="https://irishdev.com/Home/News/1998-Spring-Boot-Tutorial-Brian-Matthews.html"&gt;A Spring Boot tutorial&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/moderneinc/status/1395039039544233986?s=12"&gt;A recipe to fix CSRF issues in Spring applications&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://www.eventbrite.com/e/dvt-techtalk-build-a-spring-boot-based-microservice-to-azure-spring-cloud-tickets-155581497447"&gt;Check out this upcoming event: DVT TechTalk- Build a Spring Boot based microservice to Azure Spring Cloud Tickets, Tue, Jun 1, 2021 at 11:00 AM | Eventbrite&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Wanna see me live? Don&amp;rsquo;t miss this performance of &lt;a href="https://www.youtube.com/watch?v=Gjx3Arm_3IA"&gt;&lt;em&gt;Cloud Native Java&lt;/em&gt;&lt;/a&gt;! It&amp;rsquo;s there. Just note the countdown timer and join me for that viewing.&lt;/li&gt;
+  &lt;li&gt;Not related to Spring, &lt;em&gt;per se&lt;/em&gt;, but this is very interesting: &lt;a href="https://www.infoq.com/presentations/java-windows-arm/?itm_campaign=rightbar_v2&amp;itm_source=infoq&amp;itm_medium=presentations_link&amp;itm_content=link_text"&gt;Enabling Java: Windows on Arm64 ? a Success Story!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://www.i-programmer.info/news/80-java/14594-improve-your-spring-boot-error-handling-.html"&gt;Improve your Spring Boot error handling&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/kaitoedter/status/1397082837296324608?s=12"&gt;Kai T?dter just released version 0.17.0 of JSON:API for Spring HATEOAS&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Baeldung has a nice, &lt;a href="https://www.baeldung.com/spring-bean-scopes"&gt;quick guide to Spring bean scopes &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;the Okta Developer blog has a nice post, &lt;a href="https://developer.okta.com/blog/2021/05/12/spring-boot-r2dbc"&gt;&lt;em&gt;R2DBC and Spring for Non-Blocking Database Access&lt;/em&gt; &lt;/a&gt;: check it out!&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/05/19/spring-batch-4-2-7-and-4-3-3-are-out"&gt;Spring Batch 4.2.7 and 4.3.3 are out!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/05/20/spring-boot-2-4-6-available-now"&gt;Spring Boot 2.4.6 available now&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/05/20/spring-boot-2-5-is-now-ga"&gt;Spring Boot 2.5 is now GA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/05/19/spring-integration-5-5-goes-ga"&gt;Spring Integration 5.5 goes GA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/05/20/spring-integration-for-aws-2-5-goes-ga"&gt;Spring Integration for AWS 2.5 goes GA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://www.devteams.at/react_spring_boot/2020/04/06/spring-isomorphic-react-4-server-side-data.html"&gt;Spring and Isomorphic React 4: Render Data on the Server Side | Developing Software Together&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/JavaAtMicrosoft/status/1395437918139916289"&gt;Don¡¯t miss these Java sessions at Microsoft Build Conference. Expect exciting announcements! Register now - all free, all virtual. &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/JavaAtMicrosoft/status/1397259930416132103"&gt; Both Java 11 and Java 16 builds of OpenJDK for x64 are GA. Java 16 builds for AArch64 (ARM64) are Early Access. Java 11 is a Long-Term Supported version until at least 2024. &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Boot 2.5 is now GA</title>
     <link rel="alternate" href="https://spring.io/blog/2021/05/20/spring-boot-2-5-is-now-ga" />
@@ -14,8 +49,9 @@
       <name>Madhura Bhave</name>
     </author>
     <id>tag:spring.io,2021-05-20:4454</id>
-    <updated>2021-05-21T00:37:29Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the Spring Boot team and everyone that has contributed, I am pleased to announce that Spring Boot 2.5.0 has been released and is available from Maven Central. &lt;/p&gt;
+    <updated>2021-05-21T00:37:00Z</updated>
+    <content type="html">&lt;p&gt;&lt;strong&gt;Update 2021-05-25:&lt;/strong&gt; The release contains fixes for Spring Framework &lt;a href="https://tanzu.vmware.com/security/cve-2021-22118"&gt;CVE-2021-22118&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;On behalf of the Spring Boot team and everyone that has contributed, I am pleased to announce that Spring Boot 2.5.0 has been released and is available from Maven Central. &lt;/p&gt;
 &lt;p&gt;This release adds a significant number of new features and improvements. For full &lt;a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.5-Release-Notes#upgrading-from-spring-boot-24"&gt;upgrade instructions&lt;/a&gt; and &lt;a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.5-Release-Notes#new-and-noteworthy"&gt;new and noteworthy&lt;/a&gt; features please see the &lt;a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.5-Release-Notes"&gt;release notes&lt;/a&gt;.&lt;/p&gt;&lt;h2&gt;&lt;a href="#what-rsquo-s-new-in-2-5" class="anchor" name="what-rsquo-s-new-in-2-5"&gt;&lt;/a&gt;What&amp;rsquo;s new in 2.5&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;Support for Java 16&lt;/li&gt;
@@ -50,7 +86,8 @@
     </author>
     <id>tag:spring.io,2021-05-20:4451</id>
     <updated>2021-05-21T00:11:00Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I&amp;rsquo;m happy to announce that Spring Boot &lt;code&gt;2.4.6&lt;/code&gt; has been released and is now available from Maven Central.&lt;/p&gt;
+    <content type="html">&lt;p&gt;&lt;strong&gt;Update 2021-05-25:&lt;/strong&gt; This release contains fixes for Spring Framework &lt;a href="https://tanzu.vmware.com/security/cve-2021-22118"&gt;CVE-2021-22118&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;On behalf of the team and everyone who has contributed, I&amp;rsquo;m happy to announce that Spring Boot &lt;code&gt;2.4.6&lt;/code&gt; has been released and is now available from Maven Central.&lt;/p&gt;
 &lt;p&gt;This release includes &lt;a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.4.6"&gt;84 bug fixes, documentation improvements, and dependency upgrades&lt;/a&gt;. Thanks to all those who have contributed with issue reports and pull requests.&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
 &lt;p&gt;If you&amp;rsquo;re interested in helping out, check out the &lt;a href="https://github.com/spring-projects/spring-boot/labels/status%3A%20ideal-for-contribution"&gt;&amp;ldquo;ideal for contribution&amp;rdquo; tag&lt;/a&gt; in the issue repository. If you have general questions, please ask on &lt;a href="http://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="http://stackoverflow.com/tags/spring-boot"&gt;&lt;code&gt;spring-boot&lt;/code&gt; tag&lt;/a&gt; or chat with the community on &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://spring.io/projects/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-boot/docs/2.4.6/reference/html"&gt;Documentation&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;
@@ -123,8 +160,8 @@ Plus it includes upgrades to the latest dependencies, including recently release
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
   <entry>
-    <title>Spring Web Services 3.1.1 it out!</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/05/20/spring-web-services-3-1-1-it-out" />
+    <title>Spring Web Services 3.1.1 is out!</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/05/20/spring-web-services-3-1-1-is-out" />
     <category term="releases" label="Releases" />
     <author>
       <name>Greg L. Turnquist</name>
@@ -552,41 +589,18 @@ Artem&lt;/p&gt;
   </entry>
   <entry>
     <title>Spring Framework 5.3.7 and 5.2.15 available now</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/05/11/spring-framework-5-3-7-and-5-2-15-available-now" />
+    <link rel="alternate" href="https://spring.io/blog/2021/05/12/spring-framework-5-3-7-and-5-2-15-available-now" />
     <category term="releases" label="Releases" />
     <author>
       <name>St?phane Nicoll</name>
     </author>
     <id>tag:spring.io,2021-05-12:4435</id>
     <updated>2021-05-12T13:21:00Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I am pleased to announce that Spring Framework &lt;code&gt;5.3.7&lt;/code&gt; and &lt;code&gt;5.2.15&lt;/code&gt; are available now.&lt;/p&gt;
+    <content type="html">&lt;p&gt;&lt;strong&gt;Update 2021-05-25:&lt;/strong&gt; The releases contains fixes for Spring Framework &lt;a href="https://tanzu.vmware.com/security/cve-2021-22118"&gt;CVE-2021-22118&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;On behalf of the team and everyone who has contributed, I am pleased to announce that Spring Framework &lt;code&gt;5.3.7&lt;/code&gt; and &lt;code&gt;5.2.15&lt;/code&gt; are available now.&lt;/p&gt;
 &lt;p&gt;Spring Framework &lt;code&gt;5.3.7&lt;/code&gt; includes &lt;a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.7"&gt;45 fixes and improvements&lt;/a&gt;. Spring Framework &lt;code&gt;5.2.15&lt;/code&gt; includes &lt;a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.2.15.RELEASE"&gt;9 selected fixes and improvements&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Stay tuned for follow-up Spring Boot releases later this week.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://projects.spring.io/spring-framework/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-framework/docs/5.3.7/spring-framework-reference"&gt;Documentation&lt;/a&gt;&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - May 11th, 2021</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/05/11/this-week-in-spring-may-11th-2021" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2021-05-12:4434</id>
-    <updated>2021-05-12T00:57:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! First: a happy belated mother&amp;rsquo;s day to you! Being a mom is already the hardest job, and it got considerably harder this last year as a global pandemic descended on the world forcing so many new complications on an already fraught enterprise: raising a family. So, thank you, moms. (Also: you deserve far more than just a day!) &lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Have you registered for tomorrow&amp;rsquo;s brand new (_free_!) &lt;a href="https://twitter.com/vmwaretanzu/status/1392168130814824451?s=21"&gt;SpringOne Tour installment&lt;/a&gt;? Don&amp;rsquo;t miss this! It&amp;rsquo;s going to be a jam packed exploration of using Spring to expand the opportunities implied by Kubernetes with yours truly, Mark Heckler, Mario Gray, Nate Schutta, David Turanski, Tiffany Jernigan and Chris Sterling.&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/05/06/a-bootiful-podcast-friend-fellow-spring-developer-advocate-kotlin-google-developer-expert-and-java-champion-mark-heckler"&gt;A Bootiful Podcast: Friend, fellow Spring Developer Advocate, Kotlin Google Developer Expert, and Java Champion, Mark Heckler&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/javaatmicrosoft/status/1392162587870040067?s=12"&gt;Check out the recording of my talk with Microsoft&amp;rsquo;s Julien Dubois, and Rory Preddy&lt;/a&gt; on Azure Spring Cloud&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://blogs.vmware.com/vmworld/2021/05/five-compelling-reasons-to-submit-a-proposal-to-speak-at-vmworld-2021.html"&gt;Five compelling reasons to submit a proposal to speak at VMworld 2021&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/kviglucci/status/1391462401128734722"&gt;Kevin Viglucci on Twitter: &amp;quot;Just merged a PR that adds the start of a guides section to the #RSocket website. This includes an initial pass at an rsocket-js guide. Hopefully adding other language impls as time allows. Please don&amp;rsquo;t hesitate to provide feed&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/05/10/spring-authorization-server-0-1-1-available-now"&gt;Spring Authorization Server 0.1.1 available now&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/05/04/spring-cloud-gateway-for-kubernetes"&gt;Spring Cloud Gateway for Kubernetes&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/05/10/springone-tour-booternetes-europe"&gt;SpringOne Tour Booternetes Europe&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/gamussa/status/1390540039663362049?s=12"&gt;They¡¯re going to be publishing a Spring for Kafka course soon!&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;I loved this video that, among other things, &lt;a href="https://www.youtube.com/watch?v=UYyf0uzOez0"&gt;looked at the new Java records&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>

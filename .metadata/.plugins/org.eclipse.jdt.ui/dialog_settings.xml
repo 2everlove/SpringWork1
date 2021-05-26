@@ -80,7 +80,7 @@
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>
 	<section name="ClasspathContainerSelectionPage">
-		<item key="index" value="3"/>
+		<item key="index" value="2"/>
 	</section>
 	<section name="RefactoringWizard.preview">
 		<item key="width" value="600"/>

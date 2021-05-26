@@ -153,4 +153,9 @@ public class UserController {
 		}
 	}
 	
+	@GetMapping("user/login")
+	public void getClassLogin() {
+		
+	}
+	
 }

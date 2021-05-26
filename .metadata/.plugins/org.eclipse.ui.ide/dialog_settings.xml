@@ -103,6 +103,8 @@
 		<item value="org.springsource.sts:3.9.11.201912161153-RELEASE"/>
 	</list>
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\JavaWorks\BankApp"/>
+		<item value="C:\Users\FlexAlpha\Documents\카카오톡 받은 파일\BankApp"/>
 		<item value="C:\webProject\Spring-WebProject"/>
 		<item value="C:\Users\FlexAlpha\Downloads\SpringWork1\SpringWork1\board1"/>
 	</list>
