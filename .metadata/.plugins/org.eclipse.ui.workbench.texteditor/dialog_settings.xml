@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="Dash"/>
+		<item key="selection" value="product_name"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
+		<item key="wrap" value="true"/>
+		<item key="incremental" value="false"/>
 		<list key="findhistory">
-			<item value="border"/>
-			<item value="&lt;div class=&quot;section__typoWrapper&quot;&gt;&lt;div class=&quot;section__typoWrapper&quot;&gt;"/>
-			<item value="대"/>
-			<item value="대메뉴"/>
-			<item value="dash"/>
-			<item value="jdbc"/>
-			<item value="check"/>
-			<item value="res"/>
+			<item value="product_name"/>
+			<item value="getProductId"/>
+			<item value="getProductManuCate"/>
+			<item value="checkProductName"/>
+			<item value="pn"/>
+			<item value="code_type"/>
+			<item value="manufacturer"/>
+			<item value="select"/>
 		</list>
 		<list key="replacehistory">
+			<item value="userMapper"/>
 			<item value="resMsglogin"/>
 			<item value="/resources/"/>
 			<item value="attachNo"/>
@@ -28,6 +31,13 @@
 		<item key="DIALOG_Y_ORIGIN" value="312"/>
 		<item key="DIALOG_WIDTH" value="717"/>
 		<item key="DIALOG_HEIGHT" value="559"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1411"/>
+		<item key="DIALOG_Y_ORIGIN" value="382"/>
+		<item key="DIALOG_WIDTH" value="319"/>
+		<item key="DIALOG_HEIGHT" value="454"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>
 </section>

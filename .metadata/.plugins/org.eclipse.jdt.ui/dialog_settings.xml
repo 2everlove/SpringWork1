@@ -23,6 +23,8 @@
 		<item key="create_unimplemented" value="true"/>
 	</section>
 	<section name="completion_proposal_size">
+		<item key="size.x" value="538"/>
+		<item key="size.y" value="315"/>
 	</section>
 	<section name="quick_assist_proposal_size">
 	</section>
@@ -83,8 +85,8 @@
 		<item key="index" value="2"/>
 	</section>
 	<section name="RefactoringWizard.preview">
-		<item key="width" value="600"/>
-		<item key="height" value="400"/>
+		<item key="width" value="3095"/>
+		<item key="height" value="1167"/>
 	</section>
 	<section name="ProblemSeveritiesConfigurationBlock">
 		<item key="expanded0" value="false"/>
