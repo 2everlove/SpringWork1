@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="product_name"/>
+		<item key="selection" value="admin"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<item key="wrap" value="true"/>
 		<item key="incremental" value="false"/>
 		<list key="findhistory">
-			<item value="product_name"/>
-			<item value="getProductId"/>
-			<item value="getProductManuCate"/>
-			<item value="checkProductName"/>
-			<item value="pn"/>
-			<item value="code_type"/>
-			<item value="manufacturer"/>
-			<item value="select"/>
+			<item value="getProductList"/>
+			<item value="admin"/>
+			<item value="searchProductManuCate"/>
+			<item value="INSERT INTO INQUIRY_REPLY"/>
+			<item value="fileUpload"/>
+			<item value="inputNumberRemoveComma"/>
+			<item value="uploadFileName"/>
+			<item value="fmt"/>
 		</list>
 		<list key="replacehistory">
 			<item value="userMapper"/>
